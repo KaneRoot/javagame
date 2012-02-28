@@ -1,0 +1,21 @@
+GIT 
+
+## À faire une fois
+git clone ssh://git@karchnu.fr/home/git/javagame.git javagame
+
+git config --global user.name "Ton nom"
+git config --global user.email "ton e-mail"
+
+## à faire tout le temps
+git commit -am "message de commit"
+git pull origin master
+git push origin master
+
+## BASIQUE
+git add fichier.java
+git commit fichier.java -m "Mon commit"
+git push
+
+## à faire tout de suite !
+ssh-keygen -t rsa
+se trouve : ~/.ssh/id_rsa.pub
