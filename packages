@@ -1,0 +1,39 @@
+====== stik_menu ======
+===== menu =====
+===== options =====
+===== départ =====
+===== affichage =====
+
+====== stik_partie ======
+===== interface =====
+  * map
+  * perso
+===== map =====
+  * liste d'objets
+  * taille
+
+===== elements =====
+  * position sur la map x y
+  * status
+  * taille
+  * 
+===== e_fixe =====
+===== e_dest =====
+===== e_equip =====
+==== e_equip_soin ====
+==== e_equip_jet ====
+
+===== e_perso =====
+  * points de vie ;
+
+États :
+  * en l'air;
+  * accroupi;
+  * debout;
+
+
+====== stik_evenements =====
+===== event_perso =====
+===== event_o_dest =====
+===== event_menus =====
+
