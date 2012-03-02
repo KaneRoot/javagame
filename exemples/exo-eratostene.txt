@@ -1,0 +1,174 @@
+/**
+7. Crible d'Eratosthene.
+Ce crible utilise des threads qui communiquent par l'intermédiaire de files d'attente 
+contenant des entiers (ArrayBlockingQueue<Integer>) .
+Le crible utilise trois types de thread :
+- un thread générateur qui crée tous les nombres entiers de 2 à n.
+- des threads filtres dont le rôle est de retirer les multiples des nombres premiers. 
+- un thread propagateur, qui crée un nouveau thread filtre dès qu'un nouveau nombre 
+premier apparait.
+
+Les threads filtres forment une chaîne ordonnée où la file de sortie d'un filtre 
+est la file d'entrée du filtre suivant. 
+Le thread générateur est au début de la chaîne et le thread propagateur en fin. 
+Les entiers créés par le générateur passent successivement dans la chaîne de threads 
+filtres. Lorsqu'un entier traverse toute la chaîne de filtres sans être éliminé, 
+cet entier est forcément premier et le propagateur crée un nouveau filtre pour lui. 
+
+Le thread générateur envoie tous les entiers de 2 à n dans une file de sortie.
+
+Chaque thread filtre est associé à un nombre premier p trouvé par le propagateur. 
+Un filtre dispose d'une file d'entrée et d'une file de sortie. Dans la file d'entrée 
+il reçoit des entiers à traiter. 
+Chaque entier reçu est prélevé de la file d'entrée  et éventuellement  recopié 
+dans la file de sortie.  
+L'entier prélevé n'est recopié que s'il n'est pas un multiple du nombre 
+premier p associé au filtre.
+
+Le thread propagateur est en boût de chaine. 
+Lorsqu'il reçoit un entier dans sa file d'entrée, celui-ci est forcément un 
+nouveau nombre premier car il n'a pas été retiré par les filtres associés 
+aux nombres premiers de valeurs inférieures. 
+Le propagateur crée alors un nouveau thread filtre dont la file d'entrée 
+est sa propre file d'entrée et la file de sortie un nouvelle file vide. 
+La nouvelle file devient la nouvelle file d'entrée du propagateur.
+
+Initialement, il n'y a aucun thread filtre et la file de sortie du générateur 
+est la file d'entrée du propagateur. 
+Le propagateur prélève l'entier 2 et crée le premier filtre. 
+Tout démarre, mais il faut aussi arrêter ...
+
+Ce crible est très gourmand en ressources et peu performant; 
+il n'est donné ici qu'à titre d'exercice académique.
+
+
+ **/
+ 
+ /* *     execution avec 33	
+
+debut 
+creation:  Propagateur  entree:[2, 3, 4, 5, 6, 7, 8, 9, 10] premiers:[]
+ Propagateur 	premier=2
+ Filtre 2
+ Propagateur 	premier=3
+ Filtre 3
+ Filtre 2 test de 3
+ Filtre 2 test de 4
+ Filtre 2 test de 5
+ Filtre 3 test de 5
+ Propagateur 	premier=5
+ Filtre 2 test de 6
+ Filtre 5
+ Filtre 3 test de 7
+ Filtre 2 test de 7
+ Filtre 2 test de 8
+ Propagateur 	premier=7
+ Filtre 2 test de 9
+ Filtre 5 test de 7
+ Filtre 2 test de 10
+ Filtre 3 test de 9
+ Filtre 7
+ Filtre 5 test de 11
+ Filtre 3 test de 11
+ Filtre 2 test de 11
+ Filtre 7 test de 11
+ Filtre 2 test de 12
+ Propagateur 	premier=11
+ Filtre 3 test de 13
+ Filtre 5 test de 13
+ Filtre 7 test de 13
+ Filtre 2 test de 13
+ Filtre 11
+ Filtre 2 test de 14
+ Filtre 2 test de 15
+ Filtre 3 test de 15
+ Filtre 2 test de 16
+ Propagateur 	premier=13
+ Filtre 3 test de 17
+ Filtre 5 test de 17
+ Filtre 7 test de 17
+ Filtre 11 test de 13
+ Filtre 13
+ Filtre 2 test de 17
+ Filtre 2 test de 18
+ Filtre 11 test de 17
+ Filtre 3 test de 19
+ Filtre 2 test de 19
+ Filtre 11 test de 19
+ Filtre 7 test de 19
+ Filtre 5 test de 19
+ Propagateur 	premier=17
+ Filtre 2 test de 20
+ Filtre 17
+ Filtre 3 test de 21
+ Filtre 13 test de 17
+ Filtre 2 test de 21
+ Filtre 17 test de 19
+ Filtre 13 test de 19
+ Propagateur 	premier=19
+ Filtre 2 test de 22
+ Filtre 19
+ Filtre 3 test de 23
+ Filtre 2 test de 23
+ Filtre 2 test de 24
+ Filtre 5 test de 23
+ Filtre 2 test de 25
+ Filtre 3 test de 25
+genere [26, 27, 28, 29, 30, 31, 32, 33, 0]
+ Filtre 5 test de 25
+ Filtre 2 test de 26
+ Filtre 2 test de 27
+ Filtre 2 test de 28
+ Filtre 3 test de 27
+ Filtre 2 test de 29
+ Filtre 2 test de 30
+ Filtre 3 test de 29
+ Filtre 2 test de 31
+ Filtre 2 test de 32
+ Filtre 2 test de 33
+ Filtre 2 test de 0
+ Filtre 7 test de 23
+ Filtre 3 test de 31
+ Filtre 3 test de 33
+ Filtre 3 test de 0
+ Filtre 7 test de 29
+ Filtre 5 test de 29
+ Filtre 7 test de 31
+ Filtre 5 test de 31
+ Filtre 5 test de 0
+ Filtre 7 test de 0
+ Filtre 11 test de 23
+ Filtre 13 test de 23
+ Filtre 19 test de 23
+ Propagateur 	premier=23
+ Filtre 23
+ Filtre 17 test de 23
+ Filtre 13 test de 29
+ Filtre 19 test de 29
+ Filtre 17 test de 29
+ Filtre 11 test de 29
+ Filtre 13 test de 31
+ Filtre 19 test de 31
+ Filtre 17 test de 31
+ Filtre 11 test de 31
+ Filtre 13 test de 0
+ Filtre 19 test de 0
+ Filtre 17 test de 0
+ Filtre 11 test de 0
+ Propagateur 	premier=29
+ Filtre 29
+ Filtre 23 test de 29
+ Propagateur 	premier=31
+ Filtre 31
+ Filtre 23 test de 31
+ Filtre 29 test de 31
+ Filtre 23 test de 0
+ Filtre 29 test de 0
+ Filtre 31 test de 0
+ Propagateur 	premier=0
+>>>>fin:  Propagateur  entree:[] premiers:[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
+==================Finalement:
+premiers: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
+
+ **/	
+			

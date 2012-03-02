@@ -1,0 +1,15 @@
+Thread.currentThread().getName();
+Thread.currentThread().getPriority();
+Thread.currentThread().getState();
+
+:: Créer une classe de Thread 
+public MonThread extends Thread
+{
+	public MonThread(String nom) {}
+	@Override
+	public void run() { }
+}
+
+MonThread bla = new MonThread("Coucou");
+bla.start();
+bla.interrupt(); Ou : bla.join(); = attendre qu'il s'arrête pour continuer

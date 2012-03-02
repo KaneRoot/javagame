@@ -1,0 +1,50 @@
+JTextField + DocumentListener 
+
+:: Créer la JTextField + créer le Document : 
+JTextField JTF_nom = new JTextField();
+Document doc = new LetterDocument();
+
+:: mettre le doc à JTF_nom
+JTF_nom.setDocument(doc);
+
+:: Ajouter un DocumentListener à doc
+doc.addDocumentListener(new LetterDocumentListener(this));
+
+:: INFO : this = classe qui détient le JTextField, on pourra par la suite ajouter une méthode dans cette même
+:: classe qui définira ce que doit faire la mise à jour, appelée à chaque fois qu'on aura une MÀJ du texte
+
+Ce qu'il y a dans le LetterDocumentListener
+class LetterDocumentListener implements DocumentListener
+{
+	public LetterDocumentListener(ClasseDétenteurDuJTextField bla){this.popa=bla;}
+	public void insertUpdate(DocumentEvent e)
+	public void removeUpdate(DocumentEvent e)
+	public void changedUpdate(DocumentEvent e)
+}
+:: On place dans chacun d'eux this.popa.miseAJour();
+
+Ce qu'il y a dans le LetterDocument
+class LetterDocument extends PlainDocument
+{	public void insertString(int offs,String str,AttributeSet a) throws BadLocationException
+	{
+	:: création d'un String nstr et on ajoute les caractères qui nous intéressent
+		if ( nstr.length() != 0 )
+			super.insertString(offs, nstr, a);
+	:: nstr = chaîne à ajouter ; "offs" pas touché et "a" non plus
+	}
+}
+
+Construire une JTable : 
+:: DefaultTableModel dtm
+:: Vector<String> idColonnes 
+:: Vector<Vector<String>> données
+:: JTable jt
+:: JScrollPane jsp = new JScrollPane(jt); // et puis basta
+
+1 : Remplir idColonnes (idColonnes.add(String)) 
+2 : remplir données (On ajoute des lignes "Vector<String>" comme pour un ajout de String dans un Vector<String>)
+3 : dtm = new DefaultTableModel();
+4 : dtm.setDataVector(données,idColonnes);
+5 : jt = new JTable(dtm);
+6 : jsp = new JScrollPane(jt);
+7 : Ajout de jsp dans un JPanel qui sera ajouté à la JFrame
