@@ -1,0 +1,30 @@
+JFRAME
+	JPANEL : menu / options / maps
+	JPANEL : interface jeu
+
+
+MAPS - fichiers:
+
+commentaires : #
+
+infos sur la map (taille + nom + …)
+où le joueur commence (position de départ) + arrivée
+checkpoints
+---
+données (ensemble d'éléments) de la manière suivante :
+typeobjet:X:Y:différentes options en plus
+idée : utiliser Spring
+
+MAPS :
+Gestion des objets :
+classement par position 
+
+interface pour les objets :
+	estEnCollision(Objet)
+
+1er jet :
+
+1. Déplacer un carré sur une image
+2. Menu
+3. Chargement de la map.
+
