@@ -1,16 +1,25 @@
-====== stik_menu ======
-===== menu =====
-===== options =====
-===== départ =====
-===== affichage =====
-
 ====== stik_partie ======
+==== menu ====
+  * boutons :
+	* jeu
+	* options
+	* maps
+
 ===== interface =====
   * map
   * perso
+
 ===== map =====
   * liste d'objets
   * taille
+
+==== Collisions ====
+Contient tous les objets de la map (collection d'objets).
+
+deplacement(position)
+{
+	Gérer les collisions avec les objets de la map.
+}
 
 ===== elements =====
   * position sur la map x y
@@ -35,4 +44,3 @@
 ===== event_perso =====
 ===== event_o_dest =====
 ===== event_menus =====
-
