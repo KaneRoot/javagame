@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class Menu extends JFrame implements ActionListener
 {
 	int quelMenu = 0;
-	JPanel jp_menu = new JPanel();
+	JPanel jp_menu = new JPanel(new BorderLayout());
 	JPanel jp_partie = new JPanel();
 
 	JButton jb_partie = new JButton("Commencer");
@@ -20,8 +20,8 @@ public class Menu extends JFrame implements ActionListener
 
 		// JPanel jp_menu
 		JLabel jl_titre = new JLabel("Bienvenue sur le jeu ! Il est cool, vraiment.");
-		this.jp_menu.add(jl_titre);
-		this.jp_menu.add(jb_partie);
+		this.jp_menu.add(jl_titre,BorderLayout.NORTH);
+		this.jp_menu.add(jb_partie,BorderLayout.SOUTH);
 
 		// JPanel jp_partie
 		this.jp_partie.add(jb_retour);
