@@ -56,9 +56,10 @@ public class Map
 	
 	public Point2d getSol(int x) 
 	{
-		for (int i=0;i<sol_.length && sol_[i].getX()>x;i++);
-		
-		return null;
+		int i;
+		for (i=0;i<sol_.length && sol_[i].getX()>x;i++);
+		float r = (sol_[i].getX()-sol_[i+1].getX())/(sol_[i].getY()-sol_[i+1].getY());
+		return new Point2d(x,(int)(r*x));
 	}
 
 	public void setW(int w)
