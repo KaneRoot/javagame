@@ -8,9 +8,10 @@ public class Loto extends JFrame implements ActionListener
 	JLabel lbl_cases_checked=new JLabel("Numéros cochés");
 	JTextField jtf_nb_checked=new JTextField("0",5);
 	JButton jb_valider=new JButton("Valider");
-	JPanel jp_bas=new JPanel(new BorderLayout());
-	JPanel jp_nbcases=new JPanel();
+
 	JPanel jp_haut=new JPanel(new GridLayout(7,7));
+	JPanel jp_nbcases=new JPanel();
+	JPanel jp_bas=new JPanel(new BorderLayout());
 	
 	public Loto(String title)
 	{
