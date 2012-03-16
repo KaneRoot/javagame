@@ -26,11 +26,11 @@ public class MouvementThread extends Thread
 
 	public void notifierSaut()
 	{
-		for (float f=0;f<Math.PI*2;f+=0.1)
+		for (float f=0;f<Math.PI;f+=0.01)
 		{
 			try 
 			{
-				sleep(50);		
+				sleep(10);		
 				map_.getStick().setY((int)(map_.getStick().getY()-v_.getJ()*Math.sin(f)));
 			} 
 			catch (InterruptedException e) 
