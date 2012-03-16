@@ -2,6 +2,7 @@ package test;
 
 import menu;
 
+import javax.swing.JFrame;
 
 public class TestMenu
 {
