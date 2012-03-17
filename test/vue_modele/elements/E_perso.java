@@ -1,4 +1,4 @@
-package vue_modele;
+package vue_modele.elements;
 
 import javax.swing.event.EventListenerList;
 
