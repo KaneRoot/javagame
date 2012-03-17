@@ -10,7 +10,7 @@ import util.Vector2f;
 
 public class E_perso 
 {
-	private int x_,y_,size_;
+	private int x_, y_, size_;
 	private Vector2f dx; // Vecteur dériver de la position ( vitesse )
 	private EventListenerList ecouteurs_;
 	

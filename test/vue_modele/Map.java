@@ -12,8 +12,8 @@ public class Map
 {
 	private ArrayList<Point2d> sol_;
 	//private int masse;   /* Pour le calcul du mouvement */
-	private int w_,h_;
-	private E_perso stick_;
+	private int w_, h_;
+	private E_perso stik_;
 	
 	private EventListenerList ecouteurs_;
 	
@@ -88,14 +88,14 @@ public class Map
 		return h_;
 	}
 
-	public void setStick(E_perso stick)
+	public void setStick(E_perso stik)
 	{
-		this.stick_ = stick;
+		this.stik_ = stik;
 	}
 
 	public E_perso getStick()
 	{
-		return stick_;
+		return stik_;
 	}
 	
 	

@@ -24,7 +24,10 @@ interface pour les objets :
 
 1er jet :
 
-1. Déplacer un carré sur une image
-2. Menu
-3. Chargement de la map.
-
+1. Déplacer un carré sur une image DONE
+2. Menu - partie - Menu
+3. Définir les objets
+4. Mouvements corrects
+5. Répartition des classes dans des répertoires
+6. Redéfinir JFrame -> JPanel pour retourner au menu
+7. Chargement de la map.
