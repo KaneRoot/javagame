@@ -13,9 +13,14 @@ public class ControlerMap
 	public ControlerMap(Map m)
 	{
 		map = m;
-		vue = new Vue(this,map.getStick().getX(),map.getStick().getY());
+		vue = new Vue(this,map.getPerso().getX(),map.getPerso().getY());
 		map.ajouterEcouteurMouvement(vue);
-		map.getStick().ajouterEcouteurMouvement(vue);
+		map.getPerso().ajouterEcouteurMouvement(vue);
+	}
+	
+	public Map getMap()
+	{
+		return map;
 	}
 	
 	public void go()

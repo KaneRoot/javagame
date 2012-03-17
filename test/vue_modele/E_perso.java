@@ -10,8 +10,8 @@ import util.Vector2f;
 
 public class E_perso 
 {
-	private int x_, y_, size_;
-	private Vector2f dx; // Vecteur dériver de la position ( vitesse )
+	private int x_,y_,size_;
+	private Vector2f dx; // Vecteur dérivé de la position ( vitesse )
 	private EventListenerList ecouteurs_;
 	
 	public E_perso (int x,int y, int s)
@@ -85,8 +85,6 @@ public class E_perso
 		return dx;
 	}
 	
-	
-	
 	/**
 	 *  	Déclencheur d'évenement
 	 */
@@ -96,7 +94,4 @@ public class E_perso
         for (MouvementListener ecouteur : ecouteurs)
         	ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(x_,y_)));
 	}
-
-	
-	
 }
