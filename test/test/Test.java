@@ -17,7 +17,9 @@ public class Test
 		m.addPoint(new Point2d(200,200));
 		m.addPoint(new Point2d(400,250));
 		m.addPoint(new Point2d(600,200));
+		m.addPoint(new Point2d(650,250));
 		m.addPoint(new Point2d(800,250));
+		
 		m.getPerso().setY(m.getYSol(m.getPerso().getX()));
 		
 		ControlerMap ctrl = new ControlerMap(m);
