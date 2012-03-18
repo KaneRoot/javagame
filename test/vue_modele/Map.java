@@ -3,12 +3,9 @@ package vue_modele;
 /** Import des différentes librairie **/
 import java.util.ArrayList;
 import javax.swing.event.EventListenerList;
-
 /** Import des différents packetage **/
 import evenement.MouvementListener;
 import util.Point2d;
-import vue_modele.*;
-import vue_modele.elements.*;
 
 
 public class Map
@@ -58,7 +55,7 @@ public class Map
 	public int getYSol(int x) 
 	{
 		int i;
-		for (i=0;!(sol_.get(i).getX()<x&&sol_.get(i+1).getX()>x) && i<sol_.size()-2;i++);
+		for (i=0;!(sol_.get(i).getX()<x&&sol_.get(i+1).getX()>=x) && i<sol_.size()-2;i++);
 		float r = (float)(sol_.get(i+1).getY()-sol_.get(i).getY())/(float)(sol_.get(i+1).getX()-sol_.get(i).getX());
 		return (int)(r*(x-sol_.get(i).getX())+sol_.get(i).getY());
 	}
@@ -83,9 +80,9 @@ public class Map
 		return h_;
 	}
 
-	public void setPerso(E_perso stik)
+	public void setPerso(E_perso stick)
 	{
-		this.perso_ = stik;
+		this.perso_ = stick;
 	}
 
 	public E_perso getPerso()
