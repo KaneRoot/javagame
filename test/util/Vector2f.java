@@ -35,6 +35,4 @@ public class Vector2f
 		return j_;
 	}
 	
-	
-
 }
