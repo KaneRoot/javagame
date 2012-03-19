@@ -7,6 +7,7 @@ import vue_modele.Vue;
 
 public class ControlerMap
 {
+	private MouvementThread thread;
 	private Map map = null;
 	private Vue vue = null;
 	
@@ -16,6 +17,7 @@ public class ControlerMap
 		vue = new Vue(this,map.getPerso().getX(),map.getPerso().getY());
 		map.ajouterEcouteurMouvement(vue);
 		map.getPerso().ajouterEcouteurMouvement(vue);
+		thread = new MouvementThread(map,null);
 	}
 	
 	public Map getMap()
@@ -30,13 +32,16 @@ public class ControlerMap
 	
 	public void notifierMouvement(Vector2f v)
 	{
-		MouvementThread thread = new MouvementThread(map,1,v);
+		//MouvementThread thread = new MouvementThread(map,1,v);
+		thread.setVector(v);
 		thread.start();
 	}
 	
+	/*
 	public void notifierSaut(Vector2f v)
 	{
 		MouvementThread thread = new MouvementThread(map,2,v);
 		thread.start();
 	}
+	*/
 }

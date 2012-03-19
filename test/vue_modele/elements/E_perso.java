@@ -18,6 +18,7 @@ public class E_perso
 	{
 		x_ = x;
 		y_ = y;
+		dx = new Vector2f();
 		setSize(s);
 		ecouteurs_ = new EventListenerList();
 	}

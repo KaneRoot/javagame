@@ -35,4 +35,31 @@ public class Vector2f
 		return j_;
 	}
 	
+	public void add(Vector2f v)
+	{
+		i_ += v.getI();
+		j_ += v.getJ();
+	}
+
+	public void multScalaire(float scal)
+	{
+		i_ = i_*scal;
+		j_ = j_*scal;
+	}
+
+	public void mult(Vector2f v)
+	{
+		i_ = i_*v.getI();
+		j_ = j_*v.getJ();
+	}
+	
+	public boolean equals(Vector2f v)
+	{
+		return (i_ == v.getI()) && (j_ == v.getJ());
+	}
+	
+	public boolean isZero()
+	{
+		return equals(new Vector2f());
+	}
 }

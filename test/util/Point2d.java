@@ -43,6 +43,5 @@ public class Point2d
 		return (int) Math.sqrt(Math.pow(p1.getX()-p2.getX(),2) + Math.pow(p1.getY()-p2.getY(),2));
 	}
 
-	
-	
+
 }

@@ -6,24 +6,27 @@ import vue_modele.Map;
 public class MouvementThread extends Thread
 {
 	private Map map_;
-	private int type_; // Court=1 ,  Saute=2
+//	private int type_; // Court=1 ,  Saute=2
 	private Vector2f v_;
 	
-	public MouvementThread (Map m, int t, Vector2f v)
+	public MouvementThread (Map m, Vector2f v)
 	{
 		map_ = m;
-		type_ = t;
 		v_ = v;
 	}
 	
+	public void setVector(Vector2f v)
+	{
+		v_ = v;
+	}
+	
+	
 	public void run()
 	{
-		if (type_==1)
 			notifierCourse();
-		else if (type_==2)
-			notifierSaut();
 	}
 
+	/* Obsolète 
 	public void notifierSaut()
 	{
 		int y = map_.getPerso().getY();
@@ -40,11 +43,14 @@ public class MouvementThread extends Thread
 			}
 		}
 	}
+	*/
 	
 	public void notifierCourse()
 	{
-		for (int i=0;i<10;i++)
+		map_.getPerso().setDx(v_);
+		while (!map_.getPerso().getDx().isZero())
 		{
+			
 			try 
 			{
 				sleep(50);		
