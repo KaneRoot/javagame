@@ -6,7 +6,7 @@ import javax.swing.event.EventListenerList;
 /** Import des différents packetage **/
 import evenement.MouvementListener;
 import util.Point2d;
-
+import vue_modele.elements.*;
 
 public class Map
 {
