@@ -1,0 +1,6 @@
+Petit rappel :
+	faire la doc !
+
+
+	javadoc -d doc dir/foo/bar.java
+
