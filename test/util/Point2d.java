@@ -38,6 +38,11 @@ public class Point2d
 		return y_;
 	}
 	
-	
+	public static int distance(Point2d p1, Point2d p2)
+	{
+		return (int) Math.sqrt(Math.pow(p1.getX()-p2.getX(),2) + Math.pow(p1.getY()-p2.getY(),2));
+	}
 
+	
+	
 }
