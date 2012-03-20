@@ -6,6 +6,7 @@ import vue_modele.event.MouvementEvent;
 import vue_modele.listener.MouvementListener;
 
 import util.Vector2f;
+import util.Point2d;
 
 
 public class E_perso 
