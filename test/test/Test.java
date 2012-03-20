@@ -21,7 +21,7 @@ public class Test
 		m.addPoint(new Point2d(800,250));
 		
 		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
-									m.getYSol(m.getPerso().getPosition().getX()));
+						m.getYSol(m.getPerso().getPosition().getX()));
 		
 		ControlerMap ctrl = new ControlerMap(m);
 		ctrl.go();
