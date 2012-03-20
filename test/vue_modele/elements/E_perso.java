@@ -10,7 +10,8 @@ import util.Vector2f;
 
 public class E_perso 
 {
-	private int x_,y_,size_;
+	private int size_;
+	private Point2d x_; // Position du personnage
 	private Vector2f dx; // Vecteur dérivé de la position ( vitesse )
 	private EventListenerList ecouteurs_;
 	
@@ -18,6 +19,7 @@ public class E_perso
 	{
 		x_ = x;
 		y_ = y;
+		size_ = s;
 		dx = new Vector2f();
 		setSize(s);
 		ecouteurs_ = new EventListenerList();
@@ -29,11 +31,13 @@ public class E_perso
 	}
 
 	
+	/**
+	 *		Ajout d'écouteur
+	 */
 	public void ajouterEcouteurMouvement (MouvementListener ml)
 	{
 		ecouteurs_.add(MouvementListener.class, ml);
 	}
-	
 	
 	public void enleverEcouteurMouvement (MouvementListener ml)
 	{
@@ -41,58 +45,52 @@ public class E_perso
 	}
 	
 	
+	
 	/**
-	 *    Get/Set des champs privée de la classe
+	 *		Get/Set des champs privée de la classe
 	 */
-	public void setX(int x) 
+	public void setPosition (int x, int y) 
 	{
-		this.x_ = x;
+		this.x_.setX(x);
+		this.x_.setY(y);
 		mouvement();
 	}
 
-	public int getX()
+	public Point2d getPosition ()
 	{
 		return x_;
 	}
 
-	public void setY(int y)
-	{
-		this.y_ = y;
-		mouvement();
-	}
-
-	public int getY()
-	{
-		return y_;
-	}
-
-	public void setSize(int size)
+	public void setSize (int size)
 	{
 		this.size_ = size;
 	}
 
-	public int getSize()
+	public int getSize ()
 	{
 		return size_;
 	}
 
-	public void setDx(Vector2f dx) 
+	public void setDx (Vector2f dx) 
 	{
 		this.dx = dx;
 	}
 
-	public Vector2f getDx() 
+	public Vector2f getDx () 
 	{
 		return dx;
 	}
 	
+	
+	
+
 	/**
 	 *  	Déclencheur d'évenement
 	 */
-	private void mouvement()
+	private void mouvement ()
 	{
         MouvementListener[] ecouteurs = (MouvementListener[]) ecouteurs_.getListeners(MouvementListener.class);
         for (MouvementListener ecouteur : ecouteurs)
-        	ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(x_,y_)));
+        	ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(0,0)));
 	}
 }
