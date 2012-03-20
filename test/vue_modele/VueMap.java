@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import controleur.ControlerMap;
 
-import evenement.MouvementListener;
+import vue_modele.listener.MouvementListener;
 
 
 @SuppressWarnings("serial")

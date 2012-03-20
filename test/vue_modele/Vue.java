@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import controleur.ControlerMap;
 
-import evenement.MouvementEvent;
+import vue_modele.event.MouvementEvent;
 
 import util.Vector2f;
 
@@ -70,8 +70,8 @@ public class Vue extends VueMap implements KeyListener
 			getControler().notifierMouvement(new Vector2f(1,0));
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
 			getControler().notifierMouvement(new Vector2f(-1,0));
-		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
-			getControler().notifierSaut(new Vector2f(0,50)); 
+//		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
+//			getControler().notifierSaut(new Vector2f(0,50)); 
 		System.out.print("x = "+x+"  y = "+y+"\n");
 	}
 

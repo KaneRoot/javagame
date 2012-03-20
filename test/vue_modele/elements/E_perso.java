@@ -2,8 +2,8 @@ package vue_modele.elements;
 
 import javax.swing.event.EventListenerList;
 
-import evenement.MouvementEvent;
-import evenement.MouvementListener;
+import vue_modele.event.MouvementEvent;
+import vue_modele.listener.MouvementListener;
 
 import util.Vector2f;
 

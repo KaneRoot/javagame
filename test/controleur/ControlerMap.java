@@ -1,9 +1,10 @@
 package controleur;
 
-import thread.MouvementThread;
+import controleur.thread.MouvementThread;
+
 import util.Vector2f;
-import vue_modele.Map;
-import vue_modele.Vue;
+import vue_modele.Map; // inutile là.
+import vue_modele.*;
 
 public class ControlerMap
 {

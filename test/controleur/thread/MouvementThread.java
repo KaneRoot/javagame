@@ -1,4 +1,4 @@
-package thread;
+package controleur.thread;
 
 import util.Vector2f;
 import vue_modele.Map;

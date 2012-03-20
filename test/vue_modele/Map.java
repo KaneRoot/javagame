@@ -4,7 +4,7 @@ package vue_modele;
 import java.util.ArrayList;
 import javax.swing.event.EventListenerList;
 /** Import des différents packetage **/
-import evenement.MouvementListener;
+import vue_modele.listener.MouvementListener;
 import util.Point2d;
 import vue_modele.elements.*;
 
