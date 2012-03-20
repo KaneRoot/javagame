@@ -1,4 +1,4 @@
-package vue_modele;
+package modele;
 
 /** Import des différentes librairie **/
 import java.util.ArrayList;

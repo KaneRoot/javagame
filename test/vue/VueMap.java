@@ -1,4 +1,4 @@
-package vue_modele;
+package vue;
 
 import javax.swing.JFrame;
 

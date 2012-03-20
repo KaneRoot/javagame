@@ -1,4 +1,4 @@
-package vue_modele;
+package vue;
 
 import java.awt.Color;
 import java.awt.Graphics;

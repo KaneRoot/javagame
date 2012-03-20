@@ -1,7 +1,7 @@
 package controleur.thread;
 
 import util.Vector2f;
-import vue_modele.Map;
+import modele.Map;
 
 public class MouvementThread extends Thread
 {
