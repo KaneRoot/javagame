@@ -1,12 +1,12 @@
-package vue_modele;
+package modele;
 
 /** Import des différentes librairie **/
 import java.util.ArrayList;
 import javax.swing.event.EventListenerList;
 /** Import des différents packetage **/
-import vue_modele.listener.MouvementListener;
+import modele.listener.MouvementListener;
 import util.Point2d;
-import vue_modele.elements.*;
+import modele.elements.*;
 
 public class Map
 {

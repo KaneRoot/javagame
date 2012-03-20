@@ -1,7 +1,7 @@
 package controleur.thread;
 
 import util.Vector2f;
-import vue_modele.Map;
+import modele.Map;
 
 public class MouvementThread extends Thread
 {
@@ -54,14 +54,16 @@ public class MouvementThread extends Thread
 			try 
 			{
 				sleep(50);
+				/*
 				x=0;
 				y=0;
 				map_.getPerso().setPosition(x,y);
 				map_.getPerso().setDx(map_.getPerso().getDx());
-				/*
+				*/
+				
 				map_.getPerso().setX((int)(map_.getPerso().getX()+v_.getI()));
 				map_.getPerso().setY(map_.getYSol(map_.getPerso().getX()));
-				*/
+				
 			}
 			catch (InterruptedException e) 
 			{

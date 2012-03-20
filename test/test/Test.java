@@ -1,7 +1,7 @@
 package test;
 
-import vue_modele.*;
-import vue_modele.elements.*;
+import modele.*;
+import modele.elements.*;
 
 import util.Point2d;
 import controleur.ControlerMap;

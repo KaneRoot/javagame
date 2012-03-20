@@ -1,4 +1,4 @@
-package vue_modele.event;
+package modele.event;
 
 import java.util.EventObject;
 

@@ -1,7 +1,7 @@
-package vue_modele.listener;
+package modele.listener;
 
 import java.util.EventListener;
-import vue_modele.event.MouvementEvent;
+import modele.event.MouvementEvent;
 
 public interface MouvementListener extends EventListener
 {

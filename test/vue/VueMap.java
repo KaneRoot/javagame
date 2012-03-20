@@ -1,10 +1,10 @@
-package vue_modele;
+package vue;
 
 import javax.swing.JFrame;
 
 import controleur.ControlerMap;
 
-import vue_modele.listener.MouvementListener;
+import modele.listener.MouvementListener;
 
 
 @SuppressWarnings("serial")

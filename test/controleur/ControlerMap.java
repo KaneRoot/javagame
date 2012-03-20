@@ -3,8 +3,8 @@ package controleur;
 import controleur.thread.MouvementThread;
 
 import util.Vector2f;
-import vue_modele.Map; // inutile là.
-import vue_modele.*;
+import modele.*;
+import vue.*;
 
 public class ControlerMap
 {
