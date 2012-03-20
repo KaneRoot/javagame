@@ -61,8 +61,8 @@ public class MouvementThread extends Thread
 				map_.getPerso().setDx(map_.getPerso().getDx());
 				*/
 				
-				map_.getPerso().setX((int)(map_.getPerso().getX()+v_.getI()));
-				map_.getPerso().setY(map_.getYSol(map_.getPerso().getX()));
+				map_.getPerso().getPosition().setX((int)(map_.getPerso().getPosition().getX()+v_.getI()));
+				map_.getPerso().getPosition().setY(map_.getYSol(map_.getPerso().getPosition().getX()));
 				
 			}
 			catch (InterruptedException e) 
