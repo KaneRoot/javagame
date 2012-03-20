@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import controleur.ControlerMap;
 
-import vue_modele.event.MouvementEvent;
+import modele.event.MouvementEvent;
 
 import util.Vector2f;
 
