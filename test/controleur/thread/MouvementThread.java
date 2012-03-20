@@ -49,7 +49,7 @@ public class MouvementThread extends Thread
 	{
 		map_.getPerso().setDx(v_);
 		int x,y,i=10; // i est voué a disparaitre, je le laisse juste pour que tu puisse un peu jouer ^^
-		while (!map_.getPerso().getDx().isZero() && i>0)
+		while (!map_.getPerso().getDx().isZero())
 		{
 			try 
 			{

@@ -3,6 +3,8 @@ package test;
 import modele.*;
 import modele.elements.*;
 
+import vue.*;
+
 import util.Point2d;
 import controleur.ControlerMap;
 

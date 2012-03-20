@@ -5,6 +5,7 @@ import controleur.thread.MouvementThread;
 import util.Vector2f;
 import modele.*;
 import vue.*;
+import vue.Vue;
 
 public class ControlerMap
 {
