@@ -14,7 +14,7 @@ public class ControlerMap
 	public ControlerMap(Map m)
 	{
 		map = m;
-		vue = new Vue(this,map.getPerso().getX(),map.getPerso().getY());
+		vue = new Vue(this,map.getPerso().getPosition().getX(),map.getPerso().getPosition().getY());
 		map.ajouterEcouteurMouvement(vue);
 		map.getPerso().ajouterEcouteurMouvement(vue);
 		thread = new MouvementThread(map,null);
@@ -34,7 +34,10 @@ public class ControlerMap
 	{
 		//MouvementThread thread = new MouvementThread(map,1,v);
 		thread.setVector(v);
-		thread.start();
+		if (!thread.isAlive())
+		{
+			thread.start();
+		}
 	}
 	
 	/*

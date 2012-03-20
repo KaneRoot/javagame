@@ -62,4 +62,5 @@ public class Vector2f
 	{
 		return equals(new Vector2f());
 	}
+	
 }
