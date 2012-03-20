@@ -18,9 +18,7 @@ public class E_perso
 	
 	public E_perso (int x,int y, int s)
 	{
-		x_ = x;
-		y_ = y;
-		size_ = s;
+		x_ = new Point2d(x,y);
 		dx = new Vector2f();
 		setSize(s);
 		ecouteurs_ = new EventListenerList();
@@ -92,6 +90,6 @@ public class E_perso
 	{
         MouvementListener[] ecouteurs = (MouvementListener[]) ecouteurs_.getListeners(MouvementListener.class);
         for (MouvementListener ecouteur : ecouteurs)
-        	ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(0,0)));
+        	ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(getPosition().getX(),getPosition().getY())));
 	}
 }
