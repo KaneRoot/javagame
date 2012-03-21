@@ -27,6 +27,11 @@ public class ControlerMap
 		return map;
 	}
 	
+	public Vue getVue()
+	{
+		return vue;
+	}
+
 	public void go()
 	{
 		vue.setVisible(true);
