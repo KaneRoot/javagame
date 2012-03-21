@@ -10,6 +10,8 @@ public class ControleurMenu
 	public JPanel jp_menu;
 	public JPanel jp_partie;
 	public JFrame jf_jeu;
+	public E_perso personnage;
+
 
 	public ControleurMenu()
 	{
