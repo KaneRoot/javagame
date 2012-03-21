@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Vue extends VueMap implements KeyListener
 {
-	private JPanel panel = null;
+	//private JPanel panel = null;
 	private int x,y;
 	
 	public Vue(ControlerMap ctrl, int _x, int _y) 
@@ -49,20 +49,28 @@ public class Vue extends VueMap implements KeyListener
 
 	public void enMouvement(MouvementEvent event)
 	{
-		x = (int) event.getVector().getI();
-		y = (int) event.getVector().getJ();
-		panel.repaint();
+		if (event != null)
+		{
+			x = (int) event.getVector().getI();
+			y = (int) event.getVector().getJ();
+		}
+		this.repaint();	
+	//	panel.repaint();
 	}
 
 	public void keyPressed(KeyEvent arg0) 
 	{
+	
 		if (arg0.getKeyChar() == 'd' || arg0.getKeyChar() == '6' )
 			getControler().notifierMouvement(new Vector2f(1,0));
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
 			getControler().notifierMouvement(new Vector2f(-1,0));
 //		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
 //			getControler().notifierSaut(new Vector2f(0,50)); 
-		System.out.print("x = "+x+"  y = "+y+"\n");
+	
+	//	this.repaint();
+		System.out.print("Fais chier !!! \n");
+		System.out.print("x = "+x+"  y = "+--y+"\n");
 	}
 
 	public void keyReleased(KeyEvent arg0) 

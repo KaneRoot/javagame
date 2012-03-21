@@ -1,5 +1,6 @@
 package controleur;
 
+import java.awt.KeyboardFocusManager;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
@@ -25,23 +26,6 @@ public class ControleurMenu
 	{
 		this.jf_jeu = new JFrame();
 		this.jp_menu = new Menu(this);
-		
-		E_perso e = new E_perso(10,200,10);
-		Map m = new Map(1000,300,e);
-		
-		m.addPoint(new Point2d(0,250));
-		m.addPoint(new Point2d(200,200));
-		m.addPoint(new Point2d(400,250));
-		m.addPoint(new Point2d(600,200));
-		m.addPoint(new Point2d(650,250));
-		m.addPoint(new Point2d(800,250));
-		
-		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
-						m.getYSol(m.getPerso().getPosition().getX()));
-		
-		this.ctrlMap = new ControlerMap(m);
-		this.ctrlMap.go();
-		this.jp_partie = ctrlMap.getVue();
 
 	}
 
@@ -52,13 +36,38 @@ public class ControleurMenu
 		this.jf_jeu.pack();
 		this.jf_jeu.setVisible(true);
 	}
+
 	public void changerPanneau(ChangementMenuEvent e)
 	{
 		this.jf_jeu.remove(e.panneau_actuel);
 		switch(e.num_menu)
 		{
 			case ChangementMenuEvent.PARTIE :
+			{
+				E_perso pers = new E_perso(10,200,10);
+                		Map m = new Map(1000,300,pers);
+
+                		m.addPoint(new Point2d(0,250));
+                		m.addPoint(new Point2d(200,200));
+                		m.addPoint(new Point2d(400,250));
+                		m.addPoint(new Point2d(600,200));
+               		 	m.addPoint(new Point2d(650,250));
+               	 		m.addPoint(new Point2d(800,250));
+
+                		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
+	                                                m.getYSol(m.getPerso().getPosition().getX()));
+        	       	 	this.ctrlMap = new ControlerMap(m);
+                		this.ctrlMap.go();
+				this.jp_partie = ctrlMap.getVue();
+				//this.jf_jeu.setFocusTraversalKeysEnabled(true);
 				this.jf_jeu.add(this.jp_partie);
+				this.jp_partie.requestFocus();	
+				this.jf_jeu.setSize(800,300);	
+				this.ctrlMap.getVue().setSize(800,300);
+				
+				this.jp_partie.setVisible(true);
+				this.jp_menu.setVisible(false);
+			}
 				break;
 			case ChangementMenuEvent.MENU_PRINCIPAL :
 				this.jf_jeu.add(this.jp_menu);
@@ -67,6 +76,6 @@ public class ControleurMenu
 				break;
 		}
 		this.jf_jeu.repaint();
-		this.jf_jeu.pack();
+		//this.jf_jeu.pack();
 	}
 }

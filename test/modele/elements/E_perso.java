@@ -88,8 +88,8 @@ public class E_perso
 	 */
 	private void mouvement ()
 	{
-        MouvementListener[] ecouteurs = (MouvementListener[]) ecouteurs_.getListeners(MouvementListener.class);
-        for (MouvementListener ecouteur : ecouteurs)
-        	ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(getPosition().getX(),getPosition().getY())));
+        	MouvementListener[] ecouteurs = (MouvementListener[]) ecouteurs_.getListeners(MouvementListener.class);
+        	for (MouvementListener ecouteur : ecouteurs)
+        		ecouteur.enMouvement(new MouvementEvent(this, new Vector2f(getPosition().getX(),getPosition().getY())));
 	}
 }
