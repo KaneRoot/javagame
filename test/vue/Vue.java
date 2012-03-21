@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import controleur.ControlerMap;
 import modele.event.MouvementEvent;
 import util.Vector2f;
+import javax.swing.JPanel;
 
 
 @SuppressWarnings("serial")
