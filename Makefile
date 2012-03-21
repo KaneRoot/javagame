@@ -2,5 +2,4 @@
 OPT = "*.java"
 
 all:
-	cd ./test/
-	find . -name $(OPT) -exec javac \{\} \;
+	find test -name $(OPT) -exec javac \{\} \;

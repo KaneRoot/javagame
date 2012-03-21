@@ -3,6 +3,7 @@ package vue.menu;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import controleur.ControleurMenu;
 
 /*
  * Pour tous les différents panneaux de menu (options, choix map…)

@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import modele.listener.JBMenuListener;
+import controleur.ControleurMenu;
 
 public class Menu extends VueMenu
 {
@@ -13,12 +14,10 @@ public class Menu extends VueMenu
 	{
 		super(c);
 
-		this.jb_partie.addActionListener(new JBMenuListener(this));
+		this.jb_partie.addActionListener(new JBMenuListener(this.getControleur(), this));
 
 		JLabel jl_titre = new JLabel("Bienvenue sur le jeu ! Il est cool, vraiment.");
 		this.add(jl_titre,BorderLayout.NORTH);
 		this.add(jb_partie,BorderLayout.SOUTH);
-
-		this.add(jp_menu);
 	}
 }

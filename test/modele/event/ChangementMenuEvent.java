@@ -1,5 +1,7 @@
 package modele.event;
 
+import javax.swing.JPanel;
+
 public class ChangementMenuEvent
 {
 	/*
