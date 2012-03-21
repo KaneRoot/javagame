@@ -20,7 +20,9 @@ public class ControleurMenu
 	public void go()
 	{
 		this.jf_jeu.add(jp_menu);
+		this.jf_jeu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.jf_jeu.pack();
+		this.jf_jeu.setVisible(true);
 	}
 	public void changerPanneau(ChangementMenuEvent e)
 	{
