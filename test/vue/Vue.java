@@ -5,13 +5,8 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
-import javax.swing.JPanel;
-
 import controleur.ControlerMap;
-
 import modele.event.MouvementEvent;
-
 import util.Vector2f;
 
 
@@ -27,35 +22,29 @@ public class Vue extends VueMap implements KeyListener
 		x = _x;
 		y = _y;
 		
-		panel = new JPanel()
-		{
-			public void paint(Graphics g)
-			{
-				g.setColor(new Color(20,20,20));
-				g.fillRect(0, 0, 800, 300);
-				g.setColor(new Color(200,0,0));
-				g.fillRect(x, y-getControler().getMap().getPerso().getSize(), 
-								getControler().getMap().getPerso().getSize(), 
-								getControler().getMap().getPerso().getSize());
-				
-				g.setColor(new Color(0,200,0));
-				for (int i=0;i<getControler().getMap().nbPointSol()-1;i++)
-				{
-					g.drawLine(getControler().getMap().getPointSolI(i).getX(), 
-								getControler().getMap().getPointSolI(i).getY(), 
-								getControler().getMap().getPointSolI(i+1).getX(), 
-								getControler().getMap().getPointSolI(i+1).getY());
-				}
-				
-			}
-		};
-		
 		this.addKeyListener(this);
-		setContentPane(panel);
-		pack();
-		this.setSize(800,300);
 	}
 
+
+	public void paint(Graphics g)
+        {
+       		 g.setColor(new Color(20,20,20));
+                 g.fillRect(0, 0, 800, 300);
+                 g.setColor(new Color(200,0,0));
+                 g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
+                                 getControler().getMap().getPerso().getSize(),
+                                 getControler().getMap().getPerso().getSize());
+
+                 g.setColor(new Color(0,200,0));
+                 for (int i=0;i<getControler().getMap().nbPointSol()-1;i++)
+                 {
+                  	g.drawLine(getControler().getMap().getPointSolI(i).getX(),
+                                   getControler().getMap().getPointSolI(i).getY(),
+                                   getControler().getMap().getPointSolI(i+1).getX(),
+                                   getControler().getMap().getPointSolI(i+1).getY());
+                 }
+
+         }
 
 	public void enMouvement(MouvementEvent event)
 	{
