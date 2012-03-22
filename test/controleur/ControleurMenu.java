@@ -39,7 +39,7 @@ public class ControleurMenu
 
 	public void changerPanneau(ChangementMenuEvent e)
 	{
-		this.jf_jeu.remove(e.panneau_actuel);
+		e.panneau_actuel.setVisible(false);
 		switch(e.num_menu)
 		{
 			case ChangementMenuEvent.PARTIE :
@@ -56,7 +56,7 @@ public class ControleurMenu
 
                 		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
 	                                                m.getYSol(m.getPerso().getPosition().getX()));
-        	       	 	this.ctrlMap = new ControlerMap(m);
+        	       	 	this.ctrlMap = new ControlerMap(m, this);
                 		this.ctrlMap.go();
 				this.jp_partie = ctrlMap.getVue();
 				//this.jf_jeu.setFocusTraversalKeysEnabled(true);
@@ -70,7 +70,8 @@ public class ControleurMenu
 			}
 				break;
 			case ChangementMenuEvent.MENU_PRINCIPAL :
-				this.jf_jeu.add(this.jp_menu);
+				this.jp_menu.setVisible(true);
+				break;
 			default :
 				System.out.println("soucis au niveau du changement de menu");
 				break;
@@ -78,4 +79,5 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 		//this.jf_jeu.pack();
 	}
+
 }

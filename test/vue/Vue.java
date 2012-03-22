@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JPanel;
 
 import controleur.ControlerMap;
-import modele.event.MouvementEvent;
+import modele.event.*;
 import util.Vector2f;
-import javax.swing.JPanel;
 
 
 @SuppressWarnings("serial")
@@ -65,11 +65,13 @@ public class Vue extends VueMap implements KeyListener
 			getControler().notifierMouvement(new Vector2f(1,0));
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
 			getControler().notifierMouvement(new Vector2f(-1,0));
+		else if (arg0.getKeyChar() == 'p' || arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
+			getControler().getCtrlMenu().changerPanneau(new ChangementMenuEvent(this, ChangementMenuEvent.MENU_PRINCIPAL));
+
 //		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
 //			getControler().notifierSaut(new Vector2f(0,50)); 
 	
 	//	this.repaint();
-		System.out.print("Fais chier !!! \n");
 		System.out.print("x = "+x+"  y = "+--y+"\n");
 	}
 
