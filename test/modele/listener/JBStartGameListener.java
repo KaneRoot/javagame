@@ -6,12 +6,12 @@ import controleur.ControleurMenu;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class JBMenuListener implements ActionListener
+public class JBStartGameListener implements ActionListener
 {
 	ControleurMenu c;
 	Menu m;
 
-	public JBMenuListener(ControleurMenu c, Menu m)
+	public JBStartGameListener(ControleurMenu c, Menu m)
 	{
 		this.c = c;
 		this.m = m;

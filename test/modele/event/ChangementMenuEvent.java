@@ -9,8 +9,9 @@ public class ChangementMenuEvent
 	 *
 	 */
 	public final static int PARTIE = 1;
-	public final static int MENU_PRINCIPAL = 2;
-	public final static int MENU_OPTIONS = 3;
+	public final static int RECOMMENCER = 2;
+	public final static int MENU_PRINCIPAL = 3;
+	public final static int MENU_OPTIONS = 4;
 
 	/*
 	 * Les variables

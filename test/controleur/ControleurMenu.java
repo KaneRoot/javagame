@@ -36,6 +36,36 @@ public class ControleurMenu
 		this.jf_jeu.pack();
 		this.jf_jeu.setVisible(true);
 	}
+	private void startPartie()
+	{
+		E_perso pers = new E_perso(10,200,10);
+				Map m = new Map(1000,300,pers);
+
+				m.addPoint(new Point2d(0,250));
+				m.addPoint(new Point2d(200,200));
+				m.addPoint(new Point2d(400,250));
+				m.addPoint(new Point2d(600,200));
+				m.addPoint(new Point2d(650,250));
+				m.addPoint(new Point2d(800,250));
+
+				m.getPerso().setPosition(m.getPerso().getPosition().getX(),
+											m.getYSol(m.getPerso().getPosition().getX()));
+				this.ctrlMap = new ControlerMap(m, this);
+				this.ctrlMap.go();
+		this.jp_partie = ctrlMap.getVue();
+		//this.jf_jeu.setFocusTraversalKeysEnabled(true);
+		this.jf_jeu.add(this.jp_partie);
+		this.jp_partie.requestFocus();	
+		this.jf_jeu.setSize(800,300);	
+		this.ctrlMap.getVue().setSize(800,300);
+		
+		this.jp_partie.setVisible(true);
+	}
+	private void resumePartie()
+	{
+		this.jp_partie.setVisible(true);
+		this.jp_partie.requestFocus();	
+	}
 
 	public void changerPanneau(ChangementMenuEvent e)
 	{
@@ -43,34 +73,13 @@ public class ControleurMenu
 		switch(e.num_menu)
 		{
 			case ChangementMenuEvent.PARTIE :
-			{
-				E_perso pers = new E_perso(10,200,10);
-                		Map m = new Map(1000,300,pers);
-
-                		m.addPoint(new Point2d(0,250));
-                		m.addPoint(new Point2d(200,200));
-                		m.addPoint(new Point2d(400,250));
-                		m.addPoint(new Point2d(600,200));
-               		 	m.addPoint(new Point2d(650,250));
-               	 		m.addPoint(new Point2d(800,250));
-
-                		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
-	                                                m.getYSol(m.getPerso().getPosition().getX()));
-        	       	 	this.ctrlMap = new ControlerMap(m, this);
-                		this.ctrlMap.go();
-				this.jp_partie = ctrlMap.getVue();
-				//this.jf_jeu.setFocusTraversalKeysEnabled(true);
-				this.jf_jeu.add(this.jp_partie);
-				this.jp_partie.requestFocus();	
-				this.jf_jeu.setSize(800,300);	
-				this.ctrlMap.getVue().setSize(800,300);
-				
-				this.jp_partie.setVisible(true);
-				this.jp_menu.setVisible(false);
-			}
+				startPartie();
 				break;
 			case ChangementMenuEvent.MENU_PRINCIPAL :
 				this.jp_menu.setVisible(true);
+				break;
+			case ChangementMenuEvent.RECOMMENCER :
+				resumePartie();
 				break;
 			default :
 				System.out.println("soucis au niveau du changement de menu");
