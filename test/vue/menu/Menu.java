@@ -8,8 +8,8 @@ import controleur.ControleurMenu;
 
 public class Menu extends VueMenu
 {
-	public JButton jb_partie = new JButton("Commencer");
-	public JButton jb_recommencer = new JButton("Recommencer");
+	public JButton jb_partie = new JButton("Nouvelle partie");
+	public JButton jb_recommencer = new JButton("Continuer");
 
 	public Menu(ControleurMenu c)
 	{

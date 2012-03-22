@@ -63,8 +63,13 @@ public class ControleurMenu
 	}
 	private void resumePartie()
 	{
-		this.jp_partie.setVisible(true);
-		this.jp_partie.requestFocus();	
+		if(this.jp_partie == null)
+			startPartie();
+		else
+		{
+			this.jp_partie.setVisible(true);
+			this.jp_partie.requestFocus();	
+		}
 	}
 
 	public void changerPanneau(ChangementMenuEvent e)
@@ -78,7 +83,7 @@ public class ControleurMenu
 			case ChangementMenuEvent.MENU_PRINCIPAL :
 				this.jp_menu.setVisible(true);
 				break;
-			case ChangementMenuEvent.RECOMMENCER :
+			case ChangementMenuEvent.CONTINUER :
 				resumePartie();
 				break;
 			default :

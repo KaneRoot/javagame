@@ -18,7 +18,7 @@ public class JBResumeListener implements ActionListener
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-		ChangementMenuEvent event = new ChangementMenuEvent(m, ChangementMenuEvent.RECOMMENCER);
+		ChangementMenuEvent event = new ChangementMenuEvent(m, ChangementMenuEvent.CONTINUER);
 		this.c.changerPanneau(event);
 	}
 }
