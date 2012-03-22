@@ -54,8 +54,7 @@ public class Vue extends VueMap implements KeyListener
 			x = (int) event.getVector().getI();
 			y = (int) event.getVector().getJ();
 		}
-		this.repaint();	
-	//	panel.repaint();
+		this.repaint();
 	}
 
 	public void keyPressed(KeyEvent arg0) 
@@ -68,11 +67,8 @@ public class Vue extends VueMap implements KeyListener
 		else if (arg0.getKeyChar() == 'p' || arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
 			getControler().getCtrlMenu().changerPanneau(new ChangementMenuEvent(this, ChangementMenuEvent.MENU_PRINCIPAL));
 
-//		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
-//			getControler().notifierSaut(new Vector2f(0,50)); 
-	
-	//	this.repaint();
-		System.out.print("x = "+x+"  y = "+--y+"\n");
+		System.out.print("x = "+x+"  y = "+--y+"\ndx/dt = ("+getControler().getMap().getPerso().getDx().getI()+","+
+								getControler().getMap().getPerso().getDx().getI()+")\n");
 	}
 
 	public void keyReleased(KeyEvent arg0) 

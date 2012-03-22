@@ -20,53 +20,49 @@ public class MouvementThread extends Thread
 		v_ = v;
 	}
 	
+	public Vector2f getVector()
+	{
+		return v_;
+	}	
 	
 	public void run()
 	{
 		deplacement();
 	}
-
-	/* Obsolète 
-	public void notifierSaut()
-	{
-		int y = map_.getPerso().getY();
-		for (float f=0;f<Math.PI;f+=0.1)
-		{
-			try 
-			{
-				sleep(10);		
-				map_.getPerso().setY((int)(y-v_.getJ()*Math.sin(f)));
-			} 
-			catch (InterruptedException e) 
-			{
-				e.printStackTrace();
-			}
-		}
-	}
-	*/
 	
-	public void deplacement()
+	private boolean isOnSoil()
+	{
+		return (map_.getPerso().getPosition().getY() == map_.getYSol(map_.getPerso().getPosition().getX()));
+	}
+
+	public synchronized void deplacement()
 	{
 		map_.getPerso().setDx(v_);
-		int x,y,i=10; // i est voué a disparaitre, je le laisse juste pour que tu puisse un peu jouer ^^
-		while (!map_.getPerso().getDx().isZero())
+		int x,y;
+		for(;;)
 		{
-			try 
+			try
 			{
-				sleep(50);
-				/*
-				x=0;
-				y=0;
-				map_.getPerso().setPosition(x,y);
-				map_.getPerso().setDx(map_.getPerso().getDx());
-				*/
-				
-				map_.getPerso().setPosition((int)(map_.getPerso().getPosition().getX()+v_.getI()),
+
+				map_.getPerso().setDx(v_);
+				if (!map_.getPerso().getDx().isZero())
+				{
+			
+					sleep(50);
+					/*
+					x=0;
+					y=0;
+					map_.getPerso().setPosition(x,y);
+					map_.getPerso().setDx(map_.getPerso().getDx());
+					*/
+					map_.getPerso().setPosition((int)(map_.getPerso().getPosition().getX()+v_.getI()),
 									map_.getYSol(map_.getPerso().getPosition().getX()));
-				
-				i--;
+						
+				}
+		//		else
+		//			wait();
 			}
-			catch (InterruptedException e) 
+			catch (InterruptedException e)
 			{
 				e.printStackTrace();
 			}
