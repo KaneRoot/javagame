@@ -51,7 +51,10 @@ public class ControlerMap
 			thread.getVector().add(v);
 		else
 			thread.setVector(v);	
+		
 		if (!thread.isAlive())
 			thread.start();
+		else if (thread.isInterrupted())
+			thread.run();
 	}
 }

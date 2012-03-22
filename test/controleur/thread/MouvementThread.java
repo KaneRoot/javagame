@@ -35,7 +35,7 @@ public class MouvementThread extends Thread
 		return (map_.getPerso().getPosition().getY() == map_.getYSol(map_.getPerso().getPosition().getX()));
 	}
 
-	public synchronized void deplacement()
+	public void deplacement()
 	{
 		map_.getPerso().setDx(v_);
 		int x,y;
@@ -43,7 +43,7 @@ public class MouvementThread extends Thread
 		{
 			try
 			{
-
+				//System.out.print("Est dans la boucle !! \n");
 				map_.getPerso().setDx(v_);
 				if (!map_.getPerso().getDx().isZero())
 				{
@@ -59,8 +59,8 @@ public class MouvementThread extends Thread
 									map_.getYSol(map_.getPerso().getPosition().getX()));
 						
 				}
-		//		else
-		//			wait();
+				else
+					interrupt();
 			}
 			catch (InterruptedException e)
 			{
