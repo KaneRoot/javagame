@@ -21,13 +21,15 @@ deplacement(position)
 	Gérer les collisions avec les objets de la map.
 }
 
-===== elements =====
+===== element ===== Classe abstraite
   * position sur la map x y
   * status
   * taille
   * 
+  méthode :
+		estEnCollision()
 ===== e_fixe =====
-===== e_dest =====
+===== e_dest ===== élément destructible
 ===== e_equip =====
 ==== e_equip_soin ====
 ==== e_equip_jet ====

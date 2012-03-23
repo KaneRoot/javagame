@@ -55,9 +55,12 @@ public class Map
 	public int getYSol(int x) 
 	{
 		int i;
-		for (i=0;!(sol_.get(i).getX()<x&&sol_.get(i+1).getX()>=x) && i<sol_.size()-2;i++);
-		float r = (float)(sol_.get(i+1).getY()-sol_.get(i).getY())/(float)(sol_.get(i+1).getX()-sol_.get(i).getX());
-		return (int)(r*(x-sol_.get(i).getX())+sol_.get(i).getY());
+		for (i=0;! (sol_.get(i).getX() < x && sol_.get(i+1).getX() >= x) && 
+				i < sol_.size()-2 ; i++);
+		float r = (float)(sol_.get(i+1).getY()-sol_.get(i).getY())
+			/ (float)(sol_.get(i+1).getX()-sol_.get(i).getX());
+
+		return (int)(r*(x-sol_.get(i).getX()) + sol_.get(i).getY());
 	}
 
 	public void setW(int w)

@@ -1,8 +1,3 @@
-JFRAME
-	JPANEL : menu / options / maps
-	JPANEL : interface jeu
-
-
 MAPS - fichiers:
 
 commentaires : #
@@ -37,5 +32,8 @@ interface pour les objets :
 
 1. Définir les objets.
 2. Mouvements corrects.
-3. Chargement de la map.
+3. Chargement de la map. - classe ChargementMap
 4. Map qui bouge.
+5. Collisions / méthode "estEnCollision"
+6. Vraie pause.
+7. Détection fin de partie.
