@@ -43,17 +43,14 @@ public class MouvementThread extends Thread
 					x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
 					y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
 								(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
-						
-					/*
-					map_.getPerso().setPosition(x,y);
-					map_.getPerso().setDx(map_.getPerso().getDx());
-					*/
+
 					map_.getPerso().setPosition(x,y);
 					map_.getPerso().setDx(map_.getPerso().getDx().getI(),
 									(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
 				}
 				else
-					wait();
+					sleep(100); // TRES MOCHE -- VOUE A DISPARAITRE DANS UN AVENIR  PROCHE !!
+				
 			}
 			catch (InterruptedException e)
 			{
@@ -61,5 +58,7 @@ public class MouvementThread extends Thread
 			}
 		}
 	}
+	
+
 	
 }

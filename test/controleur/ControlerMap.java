@@ -48,14 +48,9 @@ public class ControlerMap
 	public synchronized void notifierMouvement(Vector2f v)
 	{
 		
-		//if (thread.getVector() != null)
-			map.getPerso().getDx().add(v);
-		//else
-		//	thread.setVector(v);	
+		map.getPerso().getDx().add(v);
 		
 		if (!thread.isAlive())
 			thread.start();
-		else
-			notify();
 	}
 }
