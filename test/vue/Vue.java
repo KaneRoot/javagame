@@ -64,11 +64,13 @@ public class Vue extends VueMap implements KeyListener
 			getControler().notifierMouvement(new Vector2f(1,0));
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
 			getControler().notifierMouvement(new Vector2f(-1,0));
+		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
+			getControler().notifierMouvement(new Vector2f(0,20)); 
 		else if (arg0.getKeyChar() == 'p' || arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
 			getControler().getCtrlMenu().changerPanneau(new ChangementMenuEvent(this, ChangementMenuEvent.MENU_PRINCIPAL));
 
 		System.out.print("x = "+x+"  y = "+--y+"\ndx/dt = ("+getControler().getMap().getPerso().getDx().getI()+","+
-								getControler().getMap().getPerso().getDx().getI()+")\n");
+								getControler().getMap().getPerso().getDx().getJ()+")\n");
 	}
 
 	public void keyReleased(KeyEvent arg0) 

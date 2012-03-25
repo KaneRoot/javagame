@@ -70,9 +70,10 @@ public class E_perso
 		return size_;
 	}
 
-	public void setDx (Vector2f dx) 
+	public void setDx (float vi, float vj) 
 	{
-		this.dx = dx;
+		dx.setI(vi);
+		dx.setJ(vj);
 	}
 
 	public Vector2f getDx () 

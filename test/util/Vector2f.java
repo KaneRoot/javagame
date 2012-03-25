@@ -1,5 +1,6 @@
 package util;
 
+
 public class Vector2f 
 {
 	private float i_,j_;
@@ -35,6 +36,11 @@ public class Vector2f
 		return j_;
 	}
 	
+	public float norme()
+	{
+		return (float)Math.sqrt(Math.pow((double)i_,2)+Math.pow((double)j_,2));
+	} 
+	
 	public void add(Vector2f v)
 	{
 		i_ += v.getI();
@@ -60,7 +66,7 @@ public class Vector2f
 	
 	public boolean isZero()
 	{
-		return equals(new Vector2f());
+		return (norme()==0);
 	}
 	
 }

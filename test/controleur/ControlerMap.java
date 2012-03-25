@@ -21,7 +21,7 @@ public class ControlerMap
 		vue = new Vue(this,map.getPerso().getPosition().getX(),map.getPerso().getPosition().getY());
 		map.ajouterEcouteurMouvement(vue);
 		map.getPerso().ajouterEcouteurMouvement(vue);
-		thread = new MouvementThread(map,null);
+		thread = new MouvementThread(map);
 	}
 
 	public ControleurMenu getCtrlMenu()
@@ -45,16 +45,17 @@ public class ControlerMap
 		vue.setVisible(true);
 	}
 
-	public void notifierMouvement(Vector2f v)
+	public synchronized void notifierMouvement(Vector2f v)
 	{
-		if (thread.getVector() != null)
-			thread.getVector().add(v);
-		else
-			thread.setVector(v);	
+		
+		//if (thread.getVector() != null)
+			map.getPerso().getDx().add(v);
+		//else
+		//	thread.setVector(v);	
 		
 		if (!thread.isAlive())
 			thread.start();
-		else if (thread.isInterrupted())
-			thread.run();
+		else
+			notify();
 	}
 }
