@@ -35,7 +35,7 @@ public class MouvementThread extends Thread
 			Vector2f v_ = map_.getPerso().getDx();
 			try
 			{
-				if (!map_.getPerso().getDx().isZero())
+				if (!map_.getPerso().getDx().isZero() || !isOnSoil())
 				{
 			
 					sleep(50);
