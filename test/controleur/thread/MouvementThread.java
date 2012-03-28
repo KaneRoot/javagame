@@ -6,32 +6,41 @@ import modele.Map;
 public class MouvementThread extends Thread
 {
 	private Map map_;
-	private boolean running;
-	private boolean pause;
+	private boolean born;
+	private boolean repose;
 	
 	public MouvementThread (Map m)
 	{
 		map_ = m;
-		running = false;
-		pause = true; 			
+		born = true;
+		repose = false; 			
 	}
 	
-	public boolean isRunning()
-	{
-		return running;
-	}
-
 	public boolean isPause()
 	{
-		return pause;
+		return repose;
 	}
+
+	public boolean isNouveauNe()
+	{
+		return born;
+	}
+	
+	public synchronized void pause() throws InterruptedException 
+	{
+		repose = true;
+		wait();
+	}
+	
+	public synchronized void reprendre()
+	{
+		notify();	
+	}
+	
 	public void run()
-	{	
-		pause = false;
-		running = true;
+	{
+		born = false;
 		deplacement();
-		running = false;
-		pause = true;
 	}
 	
 	private boolean isOnSoil()
@@ -48,19 +57,23 @@ public class MouvementThread extends Thread
 	{
 		int x,y;	
 		Vector2f v_ = map_.getPerso().getDx();
-		while ( (!map_.getPerso().getDx().isZero() || !isOnSoil()) )
+		while (1==1)
 		{
 			try
 			{	
-				x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
-				y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
-							(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
+				if (!map_.getPerso().getDx().isZero() || !isOnSoil())
+				{ 	
+					x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
+					y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
+								(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
 
-				map_.getPerso().setPosition(x,y);
-				map_.getPerso().setDx(map_.getPerso().getDx().getI(),
+					map_.getPerso().setPosition(x,y);
+					map_.getPerso().setDx(map_.getPerso().getDx().getI(),
 								(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
-				sleep(50);
-			
+					sleep(50);
+				}
+				else
+					pause();
 			}
 			catch (InterruptedException e)
 			{

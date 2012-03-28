@@ -48,8 +48,10 @@ public class ControlerMap
 	public void notifierMouvement(Vector2f v)
 	{	
 		map.getPerso().getDx().add(v);
-		if (!thread.isAlive())
+		if (thread.isNouveauNe())
 			thread.start();
+		else if (thread.isPause())
+			thread.reprendre();
 	}
 
 }
