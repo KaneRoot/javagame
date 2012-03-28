@@ -8,12 +8,15 @@ public class MouvementThread extends Thread
 	private Map map_;
 	private boolean born;
 	private boolean repose;
-	
+	private boolean fin;	
+
+
 	public MouvementThread (Map m)
 	{
 		map_ = m;
 		born = true;
-		repose = false; 			
+		repose = false;
+		fin = false; 			
 	}
 	
 	public boolean isPause()
@@ -24,6 +27,11 @@ public class MouvementThread extends Thread
 	public boolean isNouveauNe()
 	{
 		return born;
+	}
+
+	public void finir()
+	{
+		fin = true;
 	}
 	
 	public synchronized void pause() throws InterruptedException 
@@ -57,7 +65,7 @@ public class MouvementThread extends Thread
 	{
 		int x,y;	
 		Vector2f v_ = map_.getPerso().getDx();
-		while (1==1)
+		while (!fin)
 		{
 			try
 			{	
@@ -68,7 +76,7 @@ public class MouvementThread extends Thread
 								(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
 
 					map_.getPerso().setPosition(x,y);
-					map_.getPerso().setDx(map_.getPerso().getDx().getI(),
+					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.85f:.99f), // Ff supérieur lors du contact ac le sol 
 								(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
 					sleep(50);
 				}
@@ -80,8 +88,5 @@ public class MouvementThread extends Thread
 				e.printStackTrace();
 			}
 		}
-	}
-	
-
-	
+	}	
 }
