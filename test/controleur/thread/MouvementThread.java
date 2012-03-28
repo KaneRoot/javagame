@@ -6,15 +6,32 @@ import modele.Map;
 public class MouvementThread extends Thread
 {
 	private Map map_;
+	private boolean running;
+	private boolean pause;
 	
 	public MouvementThread (Map m)
 	{
 		map_ = m;
+		running = false;
+		pause = true; 			
 	}
 	
-	public void run()
+	public boolean isRunning()
 	{
+		return running;
+	}
+
+	public boolean isPause()
+	{
+		return pause;
+	}
+	public void run()
+	{	
+		pause = false;
+		running = true;
 		deplacement();
+		running = false;
+		pause = true;
 	}
 	
 	private boolean isOnSoil()
@@ -27,30 +44,23 @@ public class MouvementThread extends Thread
 		return (map_.getPerso().getPosition().getY() > map_.getYSol(map_.getPerso().getPosition().getX()));
 	}
 	
-	public synchronized void deplacement()
+	public void deplacement()
 	{
-		int x,y;
-		for(;;)
+		int x,y;	
+		Vector2f v_ = map_.getPerso().getDx();
+		while ( (!map_.getPerso().getDx().isZero() || !isOnSoil()) )
 		{
-			Vector2f v_ = map_.getPerso().getDx();
 			try
-			{
-				if (!map_.getPerso().getDx().isZero() || !isOnSoil())
-				{
-			
-					sleep(50);
-					
-					x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
-					y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
-								(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
+			{	
+				x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
+				y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
+							(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
 
-					map_.getPerso().setPosition(x,y);
-					map_.getPerso().setDx(map_.getPerso().getDx().getI(),
-									(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
-				}
-				else
-					sleep(100); // TRES MOCHE -- VOUE A DISPARAITRE DANS UN AVENIR  PROCHE !!
-				
+				map_.getPerso().setPosition(x,y);
+				map_.getPerso().setDx(map_.getPerso().getDx().getI(),
+								(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
+				sleep(50);
+			
 			}
 			catch (InterruptedException e)
 			{

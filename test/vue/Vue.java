@@ -8,42 +8,66 @@ import javax.swing.JPanel;
 
 import controleur.ControlerMap;
 import modele.event.*;
+import modele.Map;
 import util.Vector2f;
+import util.Point2d;
 
 
 @SuppressWarnings("serial")
 public class Vue extends VueMap implements KeyListener
 {
-	//private JPanel panel = null;
+	
 	private int x,y;
+	private int window; // position x de la fenetre ( Initialement à 0 )	
+	private int marge;
 	
 	public Vue(ControlerMap ctrl, int _x, int _y) 
 	{
 		super(ctrl);
 		x = _x;
 		y = _y;
-		
+		window = 0;
+		marge = 50;	
 		this.addKeyListener(this);
 	}
 
 
 	public void paint(Graphics g)
         {
-       		 g.setColor(new Color(20,20,20));
-                 g.fillRect(0, 0, 800, 300);
-                 g.setColor(new Color(200,0,0));
-                 g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
-                                 getControler().getMap().getPerso().getSize(),
-                                 getControler().getMap().getPerso().getSize());
-
-                 g.setColor(new Color(0,200,0));
-                 for (int i=0;i<getControler().getMap().nbPointSol()-1;i++)
-                 {
-                  	g.drawLine(getControler().getMap().getPointSolI(i).getX(),
-                                   getControler().getMap().getPointSolI(i).getY(),
-                                   getControler().getMap().getPointSolI(i+1).getX(),
-                                   getControler().getMap().getPointSolI(i+1).getY());
-                 }
+		// --------------------------
+		// Dessin de l'arrière plan
+       		g.setColor(new Color(20,20,20));
+                g.fillRect(0, 0, 800, 300);
+                
+		// --------------------------
+		// Dessin du perso
+		if (getControler().getMap().getPerso().getPosition().getX()+marge > (this.getWidth() + window) 
+							&& getControler().getMap().getPerso().getDx().getI()>0)	
+			window += getControler().getMap().getPerso().getPosition().getX()+marge - (this.getWidth() + window);
+		else if (getControler().getMap().getPerso().getPosition().getX()-marge < (window + 10) && (window > 0)
+                                                        && getControler().getMap().getPerso().getDx().getI()<0)  
+			window -= 10;
+		
+	
+		g.setColor(new Color(240,0,0));
+               	g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
+                         	        getControler().getMap().getPerso().getSize(),
+                               		getControler().getMap().getPerso().getSize());
+	
+		// -------------------------
+		// Dessin du sol
+		//Point2d p1;
+		//Point2d p2;
+                g.setColor(new Color(0,240,0));
+                for (int i=0;i<getControler().getMap().nbPointSol()-1;i++)
+                {
+			//p1 = Point2d.copy(getControler().getMap().getPointSolI(i));
+			//p2 = Point2d.copy(getControler().getMap().getPointSOlI(i+1));			
+                 	g.drawLine(getControler().getMap().getPointSolI(i).getX()-(window),
+					getControler().getMap().getPointSolI(i).getY(),
+					getControler().getMap().getPointSolI(i+1).getX()-(window),
+					getControler().getMap().getPointSolI(i+1).getY());		
+                }
 
          }
 
@@ -51,7 +75,7 @@ public class Vue extends VueMap implements KeyListener
 	{
 		if (event != null)
 		{
-			x = (int) event.getVector().getI();
+			x = (int) event.getVector().getI()-(window) ;
 			y = (int) event.getVector().getJ();
 		}
 		this.repaint();

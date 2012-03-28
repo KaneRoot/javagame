@@ -13,6 +13,7 @@ import vue.*;
 import vue.menu.*;
 import controleur.thread.*;
 
+
 public class ControleurMenu 
 {
 	public JPanel jp_menu;
@@ -47,7 +48,8 @@ public class ControleurMenu
 				m.addPoint(new Point2d(600,200));
 				m.addPoint(new Point2d(650,250));
 				m.addPoint(new Point2d(800,250));
-
+				m.addPoint(new Point2d(900,245));
+				m.addPoint(new Point2d(5000,300));
 				m.getPerso().setPosition(m.getPerso().getPosition().getX(),
 											m.getYSol(m.getPerso().getPosition().getX()));
 				this.ctrlMap = new ControlerMap(m, this);
