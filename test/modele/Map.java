@@ -12,7 +12,7 @@ public class Map
 {
 	private ArrayList<Point2d> sol_;
 	private int masse;   	/* Pour le calcul du mouvement */
-	private int w_,h_; 		/* w_ indique la largeur et h_ indique la hauteur */
+	private int w_,h_; 	/* w_ indique la largeur et h_ indique la hauteur */
 	private E_perso perso_;
 	private EventListenerList ecouteurs_;
 	

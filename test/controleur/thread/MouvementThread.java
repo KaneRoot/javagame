@@ -36,6 +36,7 @@ public class MouvementThread extends Thread
 	
 	public synchronized void pause() throws InterruptedException 
 	{
+		System.out.print("PAUSE\n\n");
 		repose = true;
 		wait();
 	}
@@ -63,20 +64,20 @@ public class MouvementThread extends Thread
 	
 	public void deplacement()
 	{
-		int x,y;	
+		int x,y,yi;	
 		Vector2f v_ = map_.getPerso().getDx();
 		while (!fin)
 		{
 			try
 			{	
-				if (!map_.getPerso().getDx().isZero() || !isOnSoil())
+				if (!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil())
 				{ 	
 					x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
 					y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
 								(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
-
+					//yi = y-map_.getPerso().getPosition().getY(); A utiliser plus tard 
 					map_.getPerso().setPosition(x,y);
-					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.85f:.99f), // Ff supérieur lors du contact ac le sol 
+					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f), // Ff supérieur lors du contact ac le sol 
 								(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
 					sleep(50);
 				}

@@ -18,8 +18,8 @@ public class Vue extends VueMap implements KeyListener
 {
 	
 	private int x,y;
-	private Point2d window; // position x de la fenetre ( Initialement à 0 )	
-	private int marge;
+	private Point2d window; // position de la fenetre ( Initialement à (0,0) )	
+	private int margeX, margeY;
 	
 	public Vue(ControlerMap ctrl, int _x, int _y) 
 	{
@@ -27,7 +27,8 @@ public class Vue extends VueMap implements KeyListener
 		x = _x;
 		y = _y;
 		window = new Point2d();
-		marge = 50;	
+		margeX = 100;
+		margeY = 150;	
 		this.addKeyListener(this);
 	}
 
@@ -42,21 +43,20 @@ public class Vue extends VueMap implements KeyListener
 		// --------------------------
 		// Calcul de la position de la fenetre
 		//// Axe des x
-		if (getControler().getMap().getPerso().getPosition().getX()+marge > (this.getWidth() + window.getX()) 
-							&& getControler().getMap().getPerso().getDx().getI()>0)	
-			window.setX( window.getX() + getControler().getMap().getPerso().getPosition().getX()+marge - (this.getWidth() + window.getX()));
-		else if (getControler().getMap().getPerso().getPosition().getX()-marge < (window.getX() + 10) && (window.getX() > 0)
+		if (getControler().getMap().getPerso().getPosition().getX()+margeX >= (this.getWidth() + window.getX()) 
+							&& getControler().getMap().getPerso().getDx().getI()>0)
+			window.setX(window.getX() + getControler().getMap().getPerso().getPosition().getX() + margeX - (this.getWidth() + window.getX()));
+		else if (getControler().getMap().getPerso().getPosition().getX() <= (window.getX() + margeX) && (window.getX() > 0)
                                                         && getControler().getMap().getPerso().getDx().getI()<0)  
-		 	window.setX( window.getX() + (int) getControler().getMap().getPerso().getDx().getI());	
-		//// Axe des y
-		/*
-		if (getControler().getMap().getPerso().getPosition().getY() < marge 
+			window.setX(window.getX() - (margeX - (getControler().getMap().getPerso().getPosition().getX()-window.getX())));	
+		//// Axe des y	
+		if (getControler().getMap().getPerso().getPosition().getY()-margeY <= (window.getY())
                                                         && getControler().getMap().getPerso().getDx().getJ()>0)
-                        window.setY( window.getY() + marge);
-                else if (getControler().getMap().getPerso().getPosition().getY() < marge
-							&& getControler().getMap().getPerso().getDx().getJ()<0)
-                        window.setY( window.getY() - marge);
-		*/
+                        window.setY(window.getY()-(margeY-(getControler().getMap().getPerso().getPosition().getY()-window.getY())));
+                else if (getControler().getMap().getPerso().getPosition().getY() >= (window.getY() + margeY)
+                                                        && getControler().getMap().getPerso().getDx().getJ()<0)
+                        window.setY(window.getY() + (getControler().getMap().getPerso().getPosition().getY() - (window.getY() + margeY))); 
+	   
 	        // --------------------------
                 // Dessin du perso
 		g.setColor(new Color(240,0,0));
@@ -70,9 +70,9 @@ public class Vue extends VueMap implements KeyListener
                 for (int i=0;i<getControler().getMap().nbPointSol()-1;i++)
               	{		
                  	g.drawLine(getControler().getMap().getPointSolI(i).getX()-(window.getX()),
-					getControler().getMap().getPointSolI(i).getY()+(window.getY()),
+					getControler().getMap().getPointSolI(i).getY()-(window.getY()),
 					getControler().getMap().getPointSolI(i+1).getX()-(window.getX()),
-					getControler().getMap().getPointSolI(i+1).getY()+(window.getY()));		
+					getControler().getMap().getPointSolI(i+1).getY()-(window.getY()));		
                 }
 
          }
@@ -81,7 +81,7 @@ public class Vue extends VueMap implements KeyListener
 	{
 		if (event != null)
 		{
-			x = (int) event.getVector().getI()-(window.getX()) ;
+			x = (int) event.getVector().getI()-(window.getX());
 			y = (int) event.getVector().getJ()-(window.getY());
 		}
 		this.repaint();
