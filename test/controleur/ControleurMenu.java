@@ -59,8 +59,8 @@ public class ControleurMenu
 		//this.jf_jeu.setFocusTraversalKeysEnabled(true);
 		this.jf_jeu.add(this.jp_partie);
 		this.jp_partie.requestFocus();	
-		this.jf_jeu.setSize(800,300);	
-		this.ctrlMap.getVue().setSize(800,300);
+		this.jf_jeu.setSize(1000,500);	
+		this.ctrlMap.getVue().setSize(1000,500);
 		
 		this.jp_partie.setVisible(true);
 	}

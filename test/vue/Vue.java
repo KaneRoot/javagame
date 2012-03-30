@@ -57,7 +57,7 @@ public class Vue extends VueMap implements KeyListener
 		// --------------------------
 		// Dessin de l'arrière plan
        		g.setColor(new Color(20,20,20));
-                g.fillRect(0, 0, 800, 300);
+                g.fillRect(0, 0, this.getWidth(), this.getHeight());
                 
 	        // --------------------------
                 // Dessin du perso
