@@ -4,15 +4,15 @@ import  util.*;
 
 public abstract class Element
 {
-	private Point2d x_;		// Position de l'élement
-	private int s_;			// Taille de l'élement
-	private Bounding bounding;	// Zone d'influence
+	protected Point2d x_;		// Position de l'élement
+	protected int size_;		// Taille de l'élement
+	protected Bounding bounding;	// Zone d'influence
 	
-	public Element(Point2d p, int size,Bounding b)
+	public Element(Point2d p, int size, Bounding b)
 	{	
 		x_ = p;
 		bounding = b;
-		s_ = size;
+		size_ = size;
 	}	
 
 	public Element(int x,int y, int size)
@@ -23,24 +23,23 @@ public abstract class Element
 	/**
 	 *		Get/Set des champs privée de la classe
 	 */
-	public void setPosition (int x, int y) 
+	public void setPosition(int x, int y) 
 	{
 		this.x_.setX(x);
 		this.x_.setY(y);
-		mouvement();
 	}
 
-	public Point2d getPosition ()
+	public Point2d getPosition()
 	{
 		return x_;
 	}
 
-	public void setSize (int size)
+	public void setSize(int size)
 	{
 		this.size_ = size;
 	}
 
-	public int getSize ()
+	public int getSize()
 	{
 		return size_;
 	}
