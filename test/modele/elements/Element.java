@@ -15,7 +15,7 @@ public abstract class Element
 		size_ = size;
 	}	
 
-	public Element(int x,int y, int size)
+	public Element(int x, int y, int size)
 	{
 		this(new Point2d(x,y), size, null);
 	}
