@@ -13,7 +13,7 @@ public class BoundingEllipse extends Bounding
 	
 	public boolean estEnCollision(Point2d p)
 	{
-		float d = Math.arcos(p.getX()-e_.getCentre()
+		float d = Math.arcos((p.getX()-e_.getCentre())
 					/Point2d.distance(p,e_));
 		Point2d pb = e_.pointBordure(d);	
 		return (pb.getX()>=p.getX() && pb.getY()>= p.getY());
