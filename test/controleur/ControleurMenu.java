@@ -82,9 +82,11 @@ public class ControleurMenu
 				startPartie();
 				break;
 			case ChangementMenuEvent.MENU_PRINCIPAL :
+				this.mettreEnPause();
 				this.jp_menu.setVisible(true);
 				break;
 			case ChangementMenuEvent.CONTINUER :
+				this.reprendrePartie();
 				resumePartie();
 				break;
 			default :
@@ -94,5 +96,19 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 		//this.jf_jeu.pack();
 	}
-
+	public  void reprendrePartie()
+	{
+		
+	}
+	public void mettreEnPause()
+	{
+		try
+		{
+			this.ctrlMap.getMouvementThread().reprendre();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception pause du thread");
+		}
+	}
 }
