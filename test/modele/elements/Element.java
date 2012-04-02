@@ -20,9 +20,6 @@ public abstract class Element
 		this(new Point2d(x,y), size, null);
 	}
 
-	/**
-	 *		Get/Set des champs privée de la classe
-	 */
 	public void setPosition(int x, int y) 
 	{
 		this.x_.setX(x);
