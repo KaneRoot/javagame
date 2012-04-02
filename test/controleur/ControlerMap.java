@@ -53,5 +53,8 @@ public class ControlerMap
 		else if (thread.isPause())
 			thread.reprendre();
 	}
-
+	public MouvementThread getMouvementThread()
+	{
+		return thread;
+	}
 }

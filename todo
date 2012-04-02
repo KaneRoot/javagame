@@ -37,3 +37,10 @@ interface pour les objets :
 5. Collisions / méthode "estEnCollision"
 6. Vraie pause.
 7. Détection fin de partie.
+
+30 - 6 :
+
+1. Définir les objets.
+2. Chargement de la map. - classe ChargementMap
+3. Collisions / méthode "estEnCollision"
+4. Détection fin de partie.
