@@ -1,0 +1,38 @@
+ArrayList : realloc = réalloue de la mémoire si besoin
+Vecteurs dynamiques
+
+LinkedList : liste doublement chaînée.
+
+Set : ne peut pas contenir 2 fois le même élément.
+
+
+HashSet : remove, add, contains, size etc. se font en temps constant.
+TreeSet : ensemble structuré en arbre. add remove contains en temps log(n) mais possède ceiling, floor etc.
+
+Map : clé/valeur.
+
+HashMap : table de hachage classique.
+TreeMap : comme TreeSet.
+
+IdentityHashMap : utilise == et non equals pour tester l'égalité des clés.
+WeakHashMap : supprime les couples dont les clés ne sont plus référencés.
+
+Faire : List<truc> bla = new ArrayList<truc>();
+
+Iterator() : hasNext, E next() throws NoSuchElementException
+			 remove : détruit le dernier élément trouvé par next
+
+ListIterator : hasPrevious, E previous.
+
+ArrayList va utiliser un iterator.
+LinkedList utilise un ListIterator.
+
+Collections : algo sort, shuffle, invert, min/max, addAll, copy…
+
+
+RTTI : Class.forName(nomdelaclasseàcharger);
+
+Class c = A.class;
+if(o.class == A.class)
+
+Object o = c.newInstance(); // Faire un cast

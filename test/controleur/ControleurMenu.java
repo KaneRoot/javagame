@@ -86,9 +86,6 @@ public class ControleurMenu
 				break;
 			case ChangementMenuEvent.MENU_PRINCIPAL :
 				this.jp_menu.setVisible(true);
-				this.jf_jeu.repaint();
-			//	this.jp_menu.requestFocus();
-			//	this.jp_partie.setVisible(false);
 				this.mettreEnPause();
 				break;
 			case ChangementMenuEvent.CONTINUER :
@@ -100,7 +97,6 @@ public class ControleurMenu
 				break;
 		}
 		this.jf_jeu.repaint();
-		//this.jf_jeu.pack();
 	}
 
 	public  void reprendrePartie()
@@ -110,13 +106,6 @@ public class ControleurMenu
 
 	public void mettreEnPause()
 	{
-		try
-		{
-			this.ctrlMap.getMouvementThread().suspendre();
-		}
-		catch(Exception e)
-		{
-			System.out.println("Exception pause du thread");
-		}
+		this.ctrlMap.getMouvementThread().suspendre();
 	}
 }
