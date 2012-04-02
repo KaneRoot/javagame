@@ -100,13 +100,20 @@ public class ControleurMenu
 	}
 	public  void reprendrePartie()
 	{
-		
+		try
+		{
+			this.ctrlMap.getMouvementThread().reprendre();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception pause du thread");
+		}
 	}
 	public void mettreEnPause()
 	{
 		try
 		{
-			this.ctrlMap.getMouvementThread().reprendre();
+			this.ctrlMap.getMouvementThread().pause();
 		}
 		catch(Exception e)
 		{
