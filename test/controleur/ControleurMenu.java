@@ -36,6 +36,7 @@ public class ControleurMenu
 		this.jf_jeu.pack();
 		this.jf_jeu.setVisible(true);
 	}
+
 	private void startPartie()
 	{
 		E_perso pers = new E_perso(10,200,10);
@@ -62,6 +63,7 @@ public class ControleurMenu
 		
 		this.jp_partie.setVisible(true);
 	}
+
 	private void resumePartie()
 	{
 		if(this.jp_partie == null)
@@ -76,14 +78,18 @@ public class ControleurMenu
 	public void changerPanneau(ChangementMenuEvent e)
 	{
 		e.panneau_actuel.setVisible(false);
+			
 		switch(e.num_menu)
 		{
 			case ChangementMenuEvent.PARTIE :
 				startPartie();
 				break;
 			case ChangementMenuEvent.MENU_PRINCIPAL :
-				this.mettreEnPause();
 				this.jp_menu.setVisible(true);
+				this.jf_jeu.repaint();
+			//	this.jp_menu.requestFocus();
+			//	this.jp_partie.setVisible(false);
+				this.mettreEnPause();
 				break;
 			case ChangementMenuEvent.CONTINUER :
 				this.reprendrePartie();
@@ -96,15 +102,17 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 		//this.jf_jeu.pack();
 	}
+
 	public  void reprendrePartie()
 	{
-		
+		this.ctrlMap.getMouvementThread().reprendre();
 	}
+
 	public void mettreEnPause()
 	{
 		try
 		{
-			this.ctrlMap.getMouvementThread().reprendre();
+			this.ctrlMap.getMouvementThread().suspendre();
 		}
 		catch(Exception e)
 		{

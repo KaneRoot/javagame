@@ -8,6 +8,7 @@ public class MouvementThread extends Thread
 	private Map map_;
 	private boolean born;
 	private boolean repose;
+	private boolean suspendre_;
 	private boolean fin;	
 
 
@@ -15,6 +16,7 @@ public class MouvementThread extends Thread
 	{
 		map_ = m;
 		born = true;
+		suspendre_ = false;
 		repose = false;
 		fin = false; 			
 	}
@@ -41,9 +43,16 @@ public class MouvementThread extends Thread
 		wait();
 	}
 	
+	public void suspendre()
+	{
+		suspendre_ = true;
+	}	
+	
 	public synchronized void reprendre()
 	{
 		notify();	
+		if (suspendre_)
+			suspendre_ = false;
 	}
 	
 	public void run()
@@ -70,7 +79,7 @@ public class MouvementThread extends Thread
 		{
 			try
 			{	
-				if (!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil())
+				if ((!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil()) && !suspendre_)
 				{ 	
 					x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
 					y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):

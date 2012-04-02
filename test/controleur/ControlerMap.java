@@ -18,7 +18,8 @@ public class ControlerMap
 	{
 		map = m;
 		ctrlMenu = c;
-		vue = new Vue(this,map.getPerso().getPosition().getX(),map.getPerso().getPosition().getY());
+		vue = new Vue(this,map.getPerso().getPosition().getX(),
+				map.getPerso().getPosition().getY());
 		map.ajouterEcouteurMouvement(vue);
 		map.getPerso().ajouterEcouteurMouvement(vue);
 		thread = new MouvementThread(map);   // Préparation de MouvementThread
@@ -37,7 +38,18 @@ public class ControlerMap
 	public Vue getVue()
 	{
 		return vue;
-	
+	}
+
+	public void pause()
+	{
+		try
+		{
+			thread.pause();
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void go()
@@ -53,6 +65,7 @@ public class ControlerMap
 		else if (thread.isPause())
 			thread.reprendre();
 	}
+
 	public MouvementThread getMouvementThread()
 	{
 		return thread;
