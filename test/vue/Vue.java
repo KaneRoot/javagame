@@ -85,7 +85,7 @@ public class Vue extends VueMap implements KeyListener
 		for (int i=0;i<getControler().getMap().nbElem();i++)
 		{
 			e = getControler().getMap().getElem(i);
-			g.fillRect(e.getPosition().getX(),e.getPosition().getY(),
+			g.fillRect(e.getPosition().getX()-window.getX(),e.getPosition().getY()-window.getY(),
 					e.getSize(), e.getSize());
 		}
 
