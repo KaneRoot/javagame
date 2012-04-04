@@ -26,6 +26,11 @@ public abstract class Element
 		this(new Point2d(x,y), size, null);
 	}
 
+	public Element()
+	{
+		this(0,0,0);
+	}
+
 	public void setPosition(int x, int y) 
 	{
 		this.x_.setX(x);
