@@ -54,6 +54,8 @@ public class ChargementMap
 					p.setPosition(getInt(options[2]), getInt(options[3]));
 					p.setSize(getInt(options[4]));
 					this.m.setPerso(p);
+					this.m.getPerso().setPosition(m.getPerso().getPosition().getX(), 
+							this.m.getYSol(m.getPerso().getPosition().getX()));
 				}
 				catch(Exception e) { System.out.println("Erreur création du perso"); return -1; }
 
