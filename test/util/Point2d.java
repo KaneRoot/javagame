@@ -57,5 +57,9 @@ public class Point2d
 		return new Point2d((p1.getX()+p2.getX())/2,
 					(p1.getY()+p2.getY())/2);
 	}
-
+	
+	public boolean compareTo(Point2d p)
+	{
+		return (p.getX()==getX() && p.getY()==getY());
+	}
 }

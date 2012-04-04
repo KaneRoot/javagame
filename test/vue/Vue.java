@@ -21,6 +21,7 @@ public class Vue extends VueMap implements KeyListener
 	private int x,y;
 	private Point2d window; // position de la fenetre ( Initialement à (0,0) )	
 	private int margeX, margeY;
+	private Color elemColor;
 	
 	public Vue(ControlerMap ctrl, int _x, int _y) 
 	{
@@ -31,6 +32,9 @@ public class Vue extends VueMap implements KeyListener
 		margeX = 100;
 		margeY = 150;	
 		this.addKeyListener(this);
+
+		/** Variable de test **/
+		elemColor = new Color(240,240,0);
 	}
 
 	private void translateWindow()
@@ -80,7 +84,7 @@ public class Vue extends VueMap implements KeyListener
 
 		// --------------------------
 		// Dessin des élements de la map
-		g.setColor(new Color(240,0,240));
+		g.setColor(elemColor);
 		Element e;
 		for (int i=0;i<getControler().getMap().nbElem();i++)
 		{
@@ -102,6 +106,11 @@ public class Vue extends VueMap implements KeyListener
 		this.repaint();
 	}
 
+	public void enCollision(CollisionEvent event)
+	{
+		elemColor = new Color(elemColor.getBlue(),elemColor.getRed(),elemColor.getGreen());
+	}
+
 	public void keyPressed(KeyEvent arg0) 
 	{
 	
@@ -118,8 +127,8 @@ public class Vue extends VueMap implements KeyListener
 		}
 
 
-		System.out.print("x = "+x+"  y = "+--y+"\ndx/dt = ("+getControler().getMap().getPerso().getDx().getI()+","+
-								getControler().getMap().getPerso().getDx().getJ()+")\n");
+//		System.out.print("x = "+x+"  y = "+--y+"\ndx/dt = ("+getControler().getMap().getPerso().getDx().getI()+","+
+//								getControler().getMap().getPerso().getDx().getJ()+")\n");
 	}
 
 	public void keyReleased(KeyEvent arg0) 
