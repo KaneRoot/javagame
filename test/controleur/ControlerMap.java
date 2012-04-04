@@ -22,6 +22,7 @@ public class ControlerMap
 				map.getPerso().getPosition().getY());
 		map.ajouterEcouteurMouvement(vue);
 		map.getPerso().ajouterEcouteurMouvement(vue);
+		map.getPerso().ajouterEcouteurCollision(vue);
 		thread = new MouvementThread(map);   // Préparation de MouvementThread
 	}
 

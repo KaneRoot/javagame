@@ -74,20 +74,28 @@ public class MouvementThread extends Thread
 	public void deplacement()
 	{
 		int x,y,yi;	
+		boolean b;
 		Vector2f v_ = map_.getPerso().getDx();
 		while (!fin)
-		{
+		{	
+			b = false;	
 			try
 			{	
 				if ((!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil()) && !suspendre_)
 				{ 	
-					x=(int)(map_.getPerso().getPosition().getX()+v_.getI());
-					y=(map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
-								(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
-					//yi = y-map_.getPerso().getPosition().getY(); A utiliser plus tard 
-					map_.getPerso().setPosition(x,y);
-					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f), // Ff supérieur lors du contact ac le sol 
-								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));	
+					for (int i=0;i<map_.nbElem()&&!b;i++)  // Premier test, un peu barbare
+						b = map_.getPerso().entreEnCollision(map_.getElem(i));
+					//if (!b)
+					//{
+						x = (int)(map_.getPerso().getPosition().getX()+v_.getI());
+						y = (map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
+									(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
+						//yi = y-map_.getPerso().getPosition().getY(); A utiliser plus tard 
+						map_.getPerso().setPosition(x,y);
+						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
+									(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));
+					//}
+					
 					sleep(50);
 				}
 				else

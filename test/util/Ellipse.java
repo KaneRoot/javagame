@@ -34,5 +34,4 @@ public class Ellipse extends GeoMorph
 	{
 		return o_;
 	}	
-
 }
