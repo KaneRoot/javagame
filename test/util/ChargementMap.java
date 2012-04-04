@@ -10,7 +10,6 @@ public class ChargementMap
 	public ChargementMap(String source)
 	{
 		this.source = source;
-		lecture();
 	}
 	private void lecture() 
 	{ 
@@ -21,7 +20,14 @@ public class ChargementMap
 			BufferedReader fichier = new BufferedReader(new FileReader(this.source));
 
 			while ((ligne = fichier.readLine()) != null)
-				System.out.println(ligne);
+			{
+				// Suppression des commentaires dans la ligne
+				ligne = ligne.replaceAll("#.*$", "");
+
+				// On ne fait rien avec les lignes vides
+				if(ligne.length() > 1)
+					System.out.println(ligne);
+			}
 
 			fichier.close();
 		} 

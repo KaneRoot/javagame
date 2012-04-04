@@ -1,14 +1,14 @@
-/*	Exemple pour utiliser ce fichier 
-		E_perso pers = new E_perso(10,200,10);
-		Map m = new Map(1000,300,pers);
-		E_fixe e = new E_fixe(200,100,20,null);
-
-		m.addPoint(new Point2d(0,250));
-		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
-			m.getYSol(m.getPerso().getPosition().getX()));
-		
-		m.addElem(e);
-*/
+#	Exemple pour utiliser ce fichier 
+#		E_perso pers = new E_perso(10,200,10);
+#		Map m = new Map(1000,300,pers);
+#		E_fixe e = new E_fixe(200,100,20,null);
+#
+#		m.addPoint(new Point2d(0,250));
+#		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
+#			m.getYSol(m.getPerso().getPosition().getX()));
+#		
+#		m.addElem(e);
+#
 
 nom:La map qui tue
 
