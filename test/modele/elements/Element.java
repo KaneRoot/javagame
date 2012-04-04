@@ -40,4 +40,15 @@ public abstract class Element
 	{
 		return size_;
 	}
+	
+	public void setBounding(Bounding b)
+	{
+		bounding = b;
+	}
+	
+	public Bounding getBounding()
+	{
+		return bounding;
+	}
+
 }

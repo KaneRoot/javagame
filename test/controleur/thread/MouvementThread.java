@@ -87,7 +87,7 @@ public class MouvementThread extends Thread
 					//yi = y-map_.getPerso().getPosition().getY(); A utiliser plus tard 
 					map_.getPerso().setPosition(x,y);
 					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f), // Ff supérieur lors du contact ac le sol 
-								(!isOnSoil()?map_.getPerso().getDx().getJ()-1f:0f));	
+								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));	
 					sleep(50);
 				}
 				else

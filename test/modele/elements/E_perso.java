@@ -19,6 +19,7 @@ public class E_perso extends Element
 		super(x,y,s);
 		dx = new Vector2f();
 		ecouteurs_ = new EventListenerList();
+		setBounding(new BoundingEllipse(new Ellipse(new Point2d(s/2,s/2,),s,s)));
 	}
 	
 	public E_perso ()

@@ -80,7 +80,7 @@ public class Vue extends VueMap implements KeyListener
 
 		// --------------------------
 		// Dessin des élements de la map
-		g.setColor(new Color(0,0,240));
+		g.setColor(new Color(240,0,240));
 		Element e;
 		for (int i=0;i<getControler().getMap().nbElem();i++)
 		{
