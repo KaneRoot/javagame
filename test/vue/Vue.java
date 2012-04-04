@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import controleur.ControlerMap;
 import modele.event.*;
+import modele.elements.*;
 import modele.Map;
 import util.Vector2f;
 import util.Point2d;
@@ -36,20 +37,20 @@ public class Vue extends VueMap implements KeyListener
 	{
 	        // --------------------------
                 // Calcul de la position de la fenetre
+		// --------------------------
+		// --------------------------
                 //// Axe des x
-                if (getControler().getMap().getPerso().getPosition().getX()+margeX >= (this.getWidth() + window.getX())
-                                                        && getControler().getMap().getPerso().getDx().getI()>0)
+                if (getControler().getMap().getPerso().getPosition().getX()+margeX >= (this.getWidth() + window.getX()))
                         window.setX(window.getX() + getControler().getMap().getPerso().getPosition().getX() + margeX - (this.getWidth() + window.getX()));
-                else if (getControler().getMap().getPerso().getPosition().getX() <= (window.getX() + margeX) && (window.getX() > 0)
-                                                        && getControler().getMap().getPerso().getDx().getI()<0)
+                else if (getControler().getMap().getPerso().getPosition().getX() <= (window.getX() + margeX) && (window.getX() > 0))
                         window.setX(window.getX() - (margeX - (getControler().getMap().getPerso().getPosition().getX()-window.getX())));
+		// --------------------------
+		// --------------------------
                 //// Axe des y  
-                if (getControler().getMap().getPerso().getPosition().getY()-margeY <= (window.getY())
-                                                        && getControler().getMap().getPerso().getDx().getJ()>0)
+                if (getControler().getMap().getPerso().getPosition().getY()-margeY <= (window.getY()))
                         window.setY(window.getY()-(margeY-(getControler().getMap().getPerso().getPosition().getY()-window.getY())));
-                else if (getControler().getMap().getPerso().getPosition().getY() >= (window.getY() + margeY)
-                                                        && getControler().getMap().getPerso().getDx().getJ()<0)
-                        window.setY(window.getY() + (getControler().getMap().getPerso().getPosition().getY() - (window.getY() + margeY)));
+                else if (getControler().getMap().getPerso().getPosition().getY() >= (window.getY() + (margeY+150)))
+                        window.setY(window.getY() + (getControler().getMap().getPerso().getPosition().getY() - (window.getY() + (margeY+150))));
 	}
 
 	public void paint(Graphics g)
@@ -59,13 +60,6 @@ public class Vue extends VueMap implements KeyListener
        		g.setColor(new Color(20,20,20));
                 g.fillRect(0, 0, this.getWidth(), this.getHeight());
                 
-	        // --------------------------
-                // Dessin du perso
-		g.setColor(new Color(240,0,0));
-               	g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
-                         	        getControler().getMap().getPerso().getSize(),
-                               		getControler().getMap().getPerso().getSize());
-	
 		// -------------------------
 		// Dessin du sol
                 g.setColor(new Color(0,240,0));
@@ -76,6 +70,24 @@ public class Vue extends VueMap implements KeyListener
 					getControler().getMap().getPointSolI(i+1).getX()-(window.getX()),
 					getControler().getMap().getPointSolI(i+1).getY()-(window.getY()));		
                 }
+
+	        // --------------------------
+                // Dessin du perso
+		g.setColor(new Color(240,0,0));
+               	g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
+                         	        getControler().getMap().getPerso().getSize(),
+                               		getControler().getMap().getPerso().getSize());
+
+		// --------------------------
+		// Dessin des élements de la map
+		g.setColor(new Color(0,0,240));
+		Element e;
+		for (int i=0;i<getControler().getMap().nbElem();i++)
+		{
+			e = getControler().getMap().getElem(i);
+			g.fillRect(e.getPosition().getX(),e.getPosition().getY(),
+					e.getSize(), e.getSize());
+		}
 
          }
 
@@ -103,8 +115,9 @@ public class Vue extends VueMap implements KeyListener
 		{
 			getControler().getCtrlMenu().changerPanneau(new ChangementMenuEvent(this, 
 										ChangementMenuEvent.MENU_PRINCIPAL));
-		//	getControler().pause();
 		}
+
+
 		System.out.print("x = "+x+"  y = "+--y+"\ndx/dt = ("+getControler().getMap().getPerso().getDx().getI()+","+
 								getControler().getMap().getPerso().getDx().getJ()+")\n");
 	}
