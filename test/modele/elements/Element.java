@@ -1,17 +1,23 @@
 package modele.elements;
+
 import  util.*;
+import javax.swing.event.EventListenerList;
+import modele.event.CollisionEvent;
+import modele.listener.CollisionListener;
 
 
 public abstract class Element
 {
 	protected Point2d x_;		// Position de l'élement
 	protected int size_;		// Taille de l'élement
-	protected Bounding bounding;	// Zone d'influence
+	protected Bounding bounding_;	// Zone d'influence
+	protected EventListenerList ecouteurs_;
 	
 	public Element(Point2d p, int size, Bounding b)
-	{	
+	{		
+		ecouteurs_ = new EventListenerList();
 		x_ = p;
-		bounding = b;
+		bounding_ = b;
 		size_ = size;
 	}	
 
@@ -43,12 +49,12 @@ public abstract class Element
 	
 	public void setBounding(Bounding b)
 	{
-		bounding = b;
+		bounding_ = b;
 	}
 	
 	public Bounding getBounding()
 	{
-		return bounding;
+		return bounding_;
 	}
 
 }

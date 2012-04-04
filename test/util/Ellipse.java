@@ -16,7 +16,7 @@ public class Ellipse extends GeoMorph
 
 	public Ellipse(Point2d f1, Point2d f2, int a, int b)
 	{
-		this(Point2d.milieu(f1,f2),a_,b_);
+		this(Point2d.milieu(f1,f2),a,b);
 	}
 
 	public Ellipse()

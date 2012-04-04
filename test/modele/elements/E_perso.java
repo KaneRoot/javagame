@@ -1,25 +1,19 @@
 package modele.elements;
 
-import javax.swing.event.EventListenerList;
-
 import modele.event.MouvementEvent;
 import modele.listener.MouvementListener;
-
-import util.Vector2f;
-import util.Point2d;
+import util.*;
 
 
 public class E_perso extends Element
 {
 	private Vector2f dx; // Vecteur vitesse
-	private EventListenerList ecouteurs_;
 	
 	public E_perso (int x,int y, int s)
 	{
 		super(x,y,s);
 		dx = new Vector2f();
-		ecouteurs_ = new EventListenerList();
-		setBounding(new BoundingEllipse(new Ellipse(new Point2d(s/2,s/2,),s,s)));
+		setBounding(new BoundingEllipse(new Ellipse(new Point2d(s/2,s/2),s,s)));
 	}
 	
 	public E_perso ()
@@ -27,9 +21,7 @@ public class E_perso extends Element
 		this (0,0,0);
 	}
 
-	/**
-	 *		Ajout d'écouteur
-	 */
+
 	public void ajouterEcouteurMouvement(MouvementListener ml)
 	{
 		ecouteurs_.add(MouvementListener.class, ml);
@@ -53,16 +45,12 @@ public class E_perso extends Element
 		mouvement();
 	}
 
-
-
 	public Vector2f getDx() 
 	{
 		return dx;
 	}
 	
-	/**
-	 *  	Déclencheur d'évenement
-	 */
+	/** Déclenche evenement mouvement **/
 	private void mouvement()
 	{
         	MouvementListener[] ecouteurs = (MouvementListener[]) ecouteurs_.getListeners(
