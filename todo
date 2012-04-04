@@ -1,14 +1,3 @@
-MAPS - fichiers:
-
-commentaires : #
-
-infos sur la map (taille + nom + …)
-où le joueur commence (position de départ) + arrivée
-checkpoints
----
-données (ensemble d'éléments) de la manière suivante :
-typeobjet:X:Y:différentes options en plus
-idée : utiliser Spring
 
 MAPS :
 Gestion des objets :
