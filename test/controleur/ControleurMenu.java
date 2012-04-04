@@ -41,7 +41,8 @@ public class ControleurMenu
 	{
 		E_perso pers = new E_perso(10,200,10);
 		Map m = new Map(1000,300,pers);
- 
+		E_fixe e = new E_fixe(200,100,20,null);
+
 		m.addPoint(new Point2d(0,250));
 		m.addPoint(new Point2d(200,200));
 		m.addPoint(new Point2d(400,250));
@@ -53,6 +54,9 @@ public class ControleurMenu
 		m.addPoint(new Point2d(5000,300));
 		m.getPerso().setPosition(m.getPerso().getPosition().getX(),
 			m.getYSol(m.getPerso().getPosition().getX()));
+		
+		m.addElem(e);
+
 		this.ctrlMap = new ControlerMap(m, this);
 		this.ctrlMap.go();
 		this.jp_partie = ctrlMap.getVue();

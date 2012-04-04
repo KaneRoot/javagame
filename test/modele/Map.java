@@ -11,6 +11,8 @@ import modele.elements.*;
 public class Map
 {
 	private ArrayList<Point2d> sol_;
+	private ArrayList<Element> elem_;
+
 	private int masse;   	/* Pour le calcul du mouvement */
 	private int w_,h_; 	/* w_ indique la largeur et h_ indique la hauteur */
 	private E_perso perso_;
@@ -18,6 +20,7 @@ public class Map
 	
 	public Map (int w,int h, E_perso e)
 	{
+		elem_ = new ArrayList<Element>(1);
 		sol_ = new ArrayList<Point2d>(2);
 		setW(w);
 		setH(h);
@@ -35,7 +38,21 @@ public class Map
 	{
 		ecouteurs_.remove(MouvementListener.class, ml);
 	}
-	
+
+	public void addElem(Element e)
+	{
+		elem_.add(e);
+	}
+
+	public int nbElem()	
+	{
+		return elem_.size();
+	}
+
+	public Element getElem(int i)
+	{
+		return elem_.get(i);
+	}
 
 	public void addPoint(Point2d sol) 
 	{
