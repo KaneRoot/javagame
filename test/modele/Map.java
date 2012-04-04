@@ -17,6 +17,7 @@ public class Map
 	private int w_,h_; 	/* w_ indique la largeur et h_ indique la hauteur */
 	private E_perso perso_;
 	private EventListenerList ecouteurs_;
+	private String nom = null;
 	
 	public Map (int w,int h, E_perso e)
 	{
@@ -28,7 +29,7 @@ public class Map
 		ecouteurs_ = new EventListenerList();
 	}
 	
-	
+	public void setNom(String lenom) { this.nom = lenom; }
 	public void ajouterEcouteurMouvement (MouvementListener ml)
 	{
 		ecouteurs_.add(MouvementListener.class, ml);
