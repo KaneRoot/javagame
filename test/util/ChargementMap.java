@@ -1,6 +1,6 @@
 package util;
 import java.io.*;
-import model.Map;
+import modele.Map;
 
 public class ChargementMap
 {
