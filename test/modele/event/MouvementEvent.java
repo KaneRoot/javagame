@@ -1,7 +1,6 @@
 package modele.event;
 
 import java.util.EventObject;
-
 import util.Vector2f;
 
 @SuppressWarnings("serial")

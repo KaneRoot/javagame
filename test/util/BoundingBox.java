@@ -11,16 +11,21 @@ public class BoundingBox
 
 	protected Point2d proxima(GeoMorph gm)
 	{
-		return null;
+		Point2d cg = gm.getCentre(), ce = e_.getCentre();
+		float d = Math.arcos((cg.getX()-ce.getX())/Point2d.distance(cg,ce)) + Math.PI;
+		return cg.pointBordure(d);
 	}
 
 	public boolean estEnCollision(Bounding b)
 	{
-		return false;
+		return estEnCollision(b.proxima(e_));
 	}
 
 	public boolean estEnCollision(Point2d p)
 	{
-		return false;
+		float d = Math.arcos((p.getX()-e_.getCentre().getX())
+					/Point2d.distance(p,e_));
+		Point2d pb = e_.pointBordure(d);	
+		return (pb.getX()>=p.getX() && pb.getY()>= p.getY());
 	}
 }
