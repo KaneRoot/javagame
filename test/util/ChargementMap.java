@@ -1,9 +1,11 @@
 package util;
 import java.io.*;
+import model.Map;
 
 public class ChargementMap
 {
 	protected String source;
+	private Map m = null;
 
 	public ChargementMap(String source)
 	{
@@ -12,6 +14,7 @@ public class ChargementMap
 	}
 	private void lecture() 
 	{ 
+		System.out.println("Fichier lu : " + this.source);
 		try 
 		{
 			String ligne ;
@@ -23,5 +26,11 @@ public class ChargementMap
 			fichier.close();
 		} 
 		catch (Exception e) { e.printStackTrace(); }     
+	}
+	public Map getMap()
+	{
+		if(this.m == null)
+			this.lecture();
+		return m;
 	}
 }
