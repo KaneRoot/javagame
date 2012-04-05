@@ -24,14 +24,14 @@ public class Ellipse extends GeoMorph
 		this(new Point2d(),0,0);
 	}	
 
-	public Point2d pointBordure(float t)
+	public Point2d pointBordure(double t)
 	{
-		return new Point2d((int)(o_.getX()+a_*Math.cos(t)),
-					(int)(o_.getY()+b_*Math.sin(t)));
+		return new Point2d((int)(o_.getX()+a_*Math.cos(t))+a_,
+					(int)(o_.getY()+b_*Math.sin(t))+b_);
 	}	
 	
 	public Point2d getCentre()
 	{
-		return o_;
-	}	
+		return new Point2d(o_.getX()+a_,o_.getY()+b_);
+	}
 }

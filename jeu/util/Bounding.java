@@ -1,8 +1,26 @@
 package util;
 
-public abstract class Bounding
+public class Bounding
 {
-	protected abstract Point2d proxima(GeoMorph gm);
-	public abstract boolean estEnCollision(Bounding b);
-	public abstract boolean estEnCollision(Point2d p);
+	private GeoMorph forme_;
+
+	public Bounding(GeoMorph forme)
+	{
+		forme_ = forme;
+	}
+
+	public GeoMorph getForme()	
+	{
+		return forme_;
+	}	
+
+	public boolean estEnCollision(Bounding b)	
+	{
+		return forme_.intersection(b.getForme);
+	}
+
+	public boolean estEnCollision(Point2d p)
+	{
+		return forme_.intersection(p);
+	}
 }
