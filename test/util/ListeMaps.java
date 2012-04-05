@@ -27,8 +27,9 @@ public class ListeMaps
 			{
 				liste.addAll(this.getMaps(f));
 			}
-			else
+			else if (! (f.getName().charAt(0) == '.')) // pas besoin des fichiers cachés
 			{
+				System.out.println("Fichier : " + f.getName());
 				ChargementMap lamap = new ChargementMap(f.getAbsolutePath());
 				liste.add(lamap.getMap());
 			}

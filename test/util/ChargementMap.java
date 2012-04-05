@@ -54,8 +54,6 @@ public class ChargementMap
 					p.setPosition(getInt(options[2]), getInt(options[3]));
 					p.setSize(getInt(options[4]));
 					this.m.setPerso(p);
-					this.m.getPerso().setPosition(m.getPerso().getPosition().getX(), 
-							this.m.getYSol(m.getPerso().getPosition().getX()));
 				}
 				catch(Exception e) { System.out.println("Erreur création du perso"); return -1; }
 
@@ -97,6 +95,12 @@ public class ChargementMap
 					if( -1 == testLigne(ligne))
 						System.out.println("Il y a eu une erreur à la ligne : " + ligne);
 			}
+
+			if( this.m.getNom() == null)
+				this.m.setNom(this.source);
+
+			this.m.getPerso().setPosition(this.m.getPerso().getPosition().getX(), 
+					this.m.getYSol(m.getPerso().getPosition().getX()));
 
 			fichier.close();
 		} 

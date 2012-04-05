@@ -1,3 +1,8 @@
 #!/bin/bash
 
-javac "test/TestMenu.java" && java "test.TestMenu"
+if [ $# = 0 ]
+then
+	javac "test/TestMenu.java" && java "test.TestMenu"
+else
+	javac "test/TestMaps.java" && java "test.TestMaps"
+fi
