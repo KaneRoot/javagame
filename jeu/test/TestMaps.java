@@ -15,6 +15,6 @@ public class TestMaps
 		ListeMaps lesmaps = new ListeMaps("./maps");
 		ArrayList<Map> ml = lesmaps.getListe();
 		for(Map m : ml)
-			System.out.println("Une map de plus");
+			System.out.println("Le nom de la map : " + m.getNom());
 	}
 }

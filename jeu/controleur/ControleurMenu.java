@@ -18,6 +18,7 @@ public class ControleurMenu
 {
 	public JPanel jp_menu;
 	public JPanel jp_partie;
+	public JPanel jp_maps;
 	public JFrame jf_jeu;
 	public E_perso personnage;
 	public ControlerMap ctrlMap;
@@ -39,6 +40,7 @@ public class ControleurMenu
 
 	private void startPartie()
 	{
+<<<<<<< HEAD
 		E_perso pers = new E_perso(10,200,10);
 		Map m = new Map(1000,300,pers);
 		E_fixe e = new E_fixe(200,100,20);
@@ -56,6 +58,10 @@ public class ControleurMenu
 			m.getYSol(m.getPerso().getPosition().getX()));
 		
 		m.addElem(e);
+=======
+		ChargementMap c = new ChargementMap("./maps/FichierValable");
+		Map m = c.getMap();
+>>>>>>> 1a22f9246a0b6568e860f9ebe394f5ee62f505d3
 
 		this.ctrlMap = new ControlerMap(m, this);
 		this.ctrlMap.go();

@@ -15,6 +15,7 @@ public class Map
 
 	private int masse;   	/* Pour le calcul du mouvement */
 	private int w_,h_; 	/* w_ indique la largeur et h_ indique la hauteur */
+	private int arrivee; // Arrivée
 	private E_perso perso_;
 	private EventListenerList ecouteurs_;
 	private String nom = null;
@@ -28,8 +29,14 @@ public class Map
 		setPerso(e);
 		ecouteurs_ = new EventListenerList();
 	}
+	public Map()
+	{
+		this(0,0,null);
+	}
 	
+	public void setArrivee(int a) { this.arrivee = a; }
 	public void setNom(String lenom) { this.nom = lenom; }
+	public String getNom() { return this.nom; }
 	public void ajouterEcouteurMouvement (MouvementListener ml)
 	{
 		ecouteurs_.add(MouvementListener.class, ml);

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-javac "test/TestMenu.java" && java "test.TestMenu"
