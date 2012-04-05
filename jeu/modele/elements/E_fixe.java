@@ -12,7 +12,7 @@ public class E_fixe extends Element
 	public E_fixe(int x, int y, int size)
 	{
 		this(x,y,size,null);
-		setBounding(new BoundingBox(new Rectangle(new Point2d(x+size/2,y-size/2),size,size)));
+		setBounding(new Bounding(new Rectangle(new Point2d(x+size/2,y-size/2),size,size)));
 	}
 	public E_fixe()
 	{

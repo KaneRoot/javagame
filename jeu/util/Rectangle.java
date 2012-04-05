@@ -19,24 +19,33 @@ public class Rectangle extends GeoMorph
 		this(new Point2d(),0,0);
 	}
 
-	public Point2d pointBordure(float t)	
+	public Point2d pointBordure(double t)	
 	{
-		double pi = Math.PI;
-		Point2d p;
-		if (t<=pi/4 && t>=(-pi/4))
-			p = new Point2d(a_+o_.getX(),o_.getY()+((int)(Math.cos(t)*b_))+b_);
-		else if (t>pi/4 && t<=3*pi/4)
-			p = new Point2d((int)(Math.cos(t)*a_)+o_.getX(),o_.getY()+b_);
-		else if (t>3*pi/4 && t<=5*pi/4)
-			p = new Point2d(-a_+o_.getX(),o_.getY()+((int)(Math.sin(t)*b_))+b_);
+		if (t>0 && t<=Math.PI/2)
+			return new Point2d(getCentre().getX()+(a_/2),getCentre().getY()+(b_/2));
+		else if (t>Math.PI/2 && t<=Math.PI)
+			return new Point2d(getCentre().getX()-(a_/2),getCentre().getY()+(b_/2));
+		else if (t>Math.PI && t<=3*Math.PI/2)
+			return new Point2d(getCentre().getX()-(a_/2),getCentre().getY()-(b_/2));
 		else
-			p = new Point2d((int)(Math.cos(t)*a_)+o_.getX(),o_.getY()-b_);
-		return p;
+			return new Point2d(getCentre().getX()+(a_/2),getCentre().getY()-(b_/2));
 	}
 
 	public Point2d getCentre()
 	{
-		return o_;
+		return new Point2d(o_.getX()+a_/2,o_.getY()+b_/2);
+	}
+
+	public boolean intersection(GeoMorph g)
+	{
+		// A implémenter
+		return false;
+	}
+
+	public boolean intersection(Point2d p)
+	{
+		// A implémenter
+		return false;
 	}
 
 }
