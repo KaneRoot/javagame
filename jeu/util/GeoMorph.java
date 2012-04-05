@@ -3,7 +3,7 @@ package util;
 
 public abstract class GeoMorph
 {
-	public abstract Point2d pointBordure(float t);
+	public abstract Point2d pointBordure(double t);
 	public abstract Point2d getCentre();
 
 	public boolean intersection(GeoMorph g)

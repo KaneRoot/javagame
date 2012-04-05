@@ -16,11 +16,6 @@ public class Bounding
 
 	public boolean estEnCollision(Bounding b)	
 	{
-		return forme_.intersection(b.getForme);
-	}
-
-	public boolean estEnCollision(Point2d p)
-	{
-		return forme_.intersection(p);
+		return forme_.intersection(b.getForme());
 	}
 }

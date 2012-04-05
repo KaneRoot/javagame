@@ -19,7 +19,7 @@ public class Rectangle extends GeoMorph
 		this(new Point2d(),0,0);
 	}
 
-	public Point2d pointBordure(float t)	
+	public Point2d pointBordure(double t)	
 	{
 		if (t>0 && t<=Math.PI/2)
 			return new Point2d(getCentre().getX()+(a_/2),getCentre().getY()+(b_/2));
