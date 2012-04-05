@@ -18,6 +18,7 @@ public class Menu extends VueMenu
 
 		jb_partie.addActionListener(new JBStartGameListener(this.getControleur(), this));
 		jb_recommencer.addActionListener(new JBResumeListener(this.getControleur(), this));
+		jb_map.addActionListener(new JBMapChoice(this.getControleur(), this));
 
 		JLabel jl_titre = new JLabel("POUR RAPPEL CE JEU EST TRÈS BIEN.");
 		this.setLayout(new BorderLayout());

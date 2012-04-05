@@ -16,12 +16,12 @@ import controleur.thread.*;
 
 public class ControleurMenu 
 {
-	public JPanel jp_menu;
-	public JPanel jp_partie;
-	public JPanel jp_maps;
-	public JFrame jf_jeu;
-	public E_perso personnage;
-	public ControlerMap ctrlMap;
+	public JPanel jp_menu = null ;
+	public JPanel jp_partie = null ;
+	public JPanel jp_maps = null ;
+	public JFrame jf_jeu = null ;
+	public E_perso personnage = null ;
+	public ControlerMap ctrlMap = null ;
 
 
 	public ControleurMenu()
@@ -56,10 +56,12 @@ public class ControleurMenu
 
 	private void resumePartie()
 	{
+		System.out.println("On passe ici !");
 		if(this.jp_partie == null)
 			startPartie();
 		else
 		{
+			this.reprendrePartie();
 			this.jp_partie.setVisible(true);
 			this.jp_partie.requestFocus();	
 		}
@@ -67,8 +69,11 @@ public class ControleurMenu
 
 	public void changerPanneau(ChangementMenuEvent e)
 	{
-		e.panneau_actuel.setVisible(false);
-			
+		if(e.panneau_actuel != null)
+			e.panneau_actuel.setVisible(false);
+		else
+			System.out.println("Il y a un soucis : panneau_actuel à null !!!!!!");
+
 		switch(e.num_menu)
 		{
 			case ChangementMenuEvent.PARTIE :
@@ -79,8 +84,10 @@ public class ControleurMenu
 				this.mettreEnPause();
 				break;
 			case ChangementMenuEvent.CONTINUER :
-				this.reprendrePartie();
 				resumePartie();
+				break;
+			case ChangementMenuEvent.MENU_MAPS :
+				System.out.println("Demande de chargement de maps");
 				break;
 			default :
 				System.out.println("soucis au niveau du changement de menu");
