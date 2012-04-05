@@ -23,10 +23,14 @@ public class Rectangle extends GeoMorph
 	{
 		double pi = Math.PI;
 		Point2d p;
-		if (t<=pi/4 && t>=-pi/4) || (t<=5*pi/4 && t>=3*pi/4)
-			p = new Point2d(a,Math.cos(t)*b);
+		if (t<=pi/4 && t>=(-pi/4))
+			p = new Point2d(a_+o_.getX(),o_.getY()+((int)(Math.cos(t)*b_))+b_);
+		else if (t>pi/4 && t<=3*pi/4)
+			p = new Point2d((int)(Math.cos(t)*a_)+o_.getX(),o_.getY()+b_);
+		else if (t>3*pi/4 && t<=5*pi/4)
+			p = new Point2d(-a_+o_.getX(),o_.getY()+((int)(Math.sin(t)*b_))+b_);
 		else
-			p = new Pointd(Math.cos(t)*a,b);
+			p = new Point2d((int)(Math.cos(t)*a_)+o_.getX(),o_.getY()-b_);
 		return p;
 	}
 

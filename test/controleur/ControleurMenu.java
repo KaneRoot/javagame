@@ -41,7 +41,7 @@ public class ControleurMenu
 	{
 		E_perso pers = new E_perso(10,200,10);
 		Map m = new Map(1000,300,pers);
-		E_fixe e = new E_fixe(200,100,20,null);
+		E_fixe e = new E_fixe(200,100,20);
 
 		m.addPoint(new Point2d(0,250));
 		m.addPoint(new Point2d(200,200));

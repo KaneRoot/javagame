@@ -16,7 +16,7 @@ public class E_perso extends Element
 		super(x,y,size);
 		mouvementEcouteurs_ = new ArrayList<MouvementListener>(1);
 		dx = new Vector2f();
-		setBounding(new BoundingEllipse(new Ellipse(x_,50,50)));
+		setBounding(new BoundingBox(new Rectangle(x_,50,50)));
 	}
 	
 	public E_perso ()
@@ -63,9 +63,6 @@ public class E_perso extends Element
 		}
 		else
 			return false;
-   	 /*	collision();
-		return true;*/
-
 	}
 
 
