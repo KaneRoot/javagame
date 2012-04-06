@@ -20,6 +20,8 @@ public abstract class GeoMorph
 			Point2d p1 = pointBordure(d),
 				p2 = pointBordure(d+Math.PI),
 				p3 = g.pointBordure(d+Math.PI);
+			System.out.print("\n\n----\nPoint1 = ("+p1.getX()+","+p1.getY()+")\nPoint2 = ("+p2.getX()+","+p2.getY()+
+						")\nPoint3 = ("+p3.getX()+","+p3.getY()+")\n");
 			return intersection(p1,p2,p3);	
 		}
 		else

@@ -45,6 +45,7 @@ public abstract class Element
 	{
 		this.x_.setX(x);
 		this.x_.setY(y);
+		
 	}
 
 	public Point2d getPosition()
@@ -55,8 +56,10 @@ public abstract class Element
 	public void setSize(int size)
 	{
 		this.size_ = size;
+		setBounding(new Bounding(new Rectangle(x_,size_,size_)));
 	}
 
+	
 	public int getSize()
 	{
 		return size_;
