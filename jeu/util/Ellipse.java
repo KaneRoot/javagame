@@ -3,7 +3,6 @@ package util;
 
 public class Ellipse extends GeoMorph
 {
-	
 	private Point2d o_;	// Centre de l'ellipse
 	private int a_,b_;	// a_ demi grand axe, b_ demi petit axe
 	
@@ -34,4 +33,6 @@ public class Ellipse extends GeoMorph
 	{
 		return new Point2d(o_.getX()+a_,o_.getY()+b_);
 	}
+
+
 }

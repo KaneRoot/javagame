@@ -82,5 +82,4 @@ public abstract class Element
 		for (int i=0;i<collisionEcouteurs_.size();i++)
 			collisionEcouteurs_.get(i).enCollision(new CollisionEvent(this,null));
 	}	
-	
 }
