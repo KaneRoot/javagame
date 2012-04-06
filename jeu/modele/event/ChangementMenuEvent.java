@@ -16,6 +16,8 @@ public class ChangementMenuEvent
 	public final static int MENU_OPTIONS = 4;
 	public final static int MENU_MAPS = 5;
 	public final static int CHANGEMENT_MAP = 6;
+	public final static int GAGNE = 7;
+	public final static int PERD = 8;
 
 	/*
 	 * Les variables

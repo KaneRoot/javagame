@@ -21,7 +21,6 @@ public class ControleurMenu
 	public JPanel jp_partie = null ;
 	public JPanel jp_maps = null ;
 	public JFrame jf_jeu = null ;
-	public E_perso personnage = null ;
 	public ControlerMap ctrlMap = null ;
 	public Map carte_courante = new ChargementMap("./maps/FichierValable").getMap();
 
@@ -54,7 +53,6 @@ public class ControleurMenu
 
 	private void resumePartie()
 	{
-		System.out.println("On passe ici !");
 		if(this.jp_partie == null)
 			startPartie();
 		else
@@ -98,15 +96,10 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 	}
 
-	private  void reprendrePartie()
-	{
-		this.ctrlMap.getMouvementThread().reprendre();
-	}
+	private  void reprendrePartie() { this.ctrlMap.getMouvementThread().reprendre(); }
 
-	private void mettreEnPause()
-	{
-		this.ctrlMap.getMouvementThread().suspendre();
-	}
+	private void mettreEnPause() { this.ctrlMap.getMouvementThread().suspendre(); }
+
 	private void choixMap()
 	{
 		if(this.jp_maps == null)
