@@ -40,5 +40,7 @@ E_fixe:200:100:20
 E_fixe:200:130:20
 E_fixe:240:150:20
 E_fixe:270:150:20
+E_fixe:280:1500:20
+E_fixe:80:1100:20
 
 # checkpoints ?

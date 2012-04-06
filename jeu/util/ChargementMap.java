@@ -46,7 +46,7 @@ public class ChargementMap
 				break;
 
 			case "perso" :
-				System.out.println("On crée le perso ! " + options[1]);
+				// System.out.println("On crée le perso ! " + options[1]);
 				try
 				{
 					Class c = Class.forName("modele.elements." + options[1]);
@@ -79,7 +79,7 @@ public class ChargementMap
 	private void lecture() 
 	{ 
 		this.m = new Map();
-		System.out.println("Fichier lu : " + this.source);
+		// System.out.println("Fichier lu : " + this.source);
 		try 
 		{
 			String ligne ;
