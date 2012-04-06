@@ -26,32 +26,11 @@ public class ControlerMap
 		thread = new MouvementThread(map);   // Préparation de MouvementThread
 	}
 
-	public ControleurMenu getCtrlMenu()
-	{
-		return ctrlMenu;
-	}
-
-	public Map getMap()
-	{
-		return map;
-	}
-
-	public Vue getVue()
-	{
-		return vue;
-	}
-
-	public void pause()
-	{
-		try
-		{
-			thread.pause();
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-	}
+	public ControleurMenu getCtrlMenu() { return ctrlMenu; }
+	public Map getMap() { return map; }
+	public Vue getVue() { return vue; }
+	public void suspendre() { thread.suspendre(); } 
+	public void reprendre() { thread.reprendre(); } 
 
 	public void go()
 	{
@@ -65,10 +44,5 @@ public class ControlerMap
 			thread.start();
 		else if (thread.isPause())
 			thread.reprendre();
-	}
-
-	public MouvementThread getMouvementThread()
-	{
-		return thread;
 	}
 }

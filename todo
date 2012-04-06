@@ -33,3 +33,12 @@ interface pour les objets :
 2. Chargement de la map. - classe ChargementMap
 3. Collisions / méthode "estEnCollision"
 4. Détection fin de partie.
+
+6 - 13 :
+
+1. Réaction lors d'une collision.
+2. Ajouter des images (par objet etc).
+3. Gagner / Perdre.
+4. Plus d'objets. Création d'une interface pour les élements. Item, E_dest.
+5. La classe Élément : une méthode pour décoder un tableau de String (les options).
+

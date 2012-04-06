@@ -3,6 +3,7 @@ package controleur;
 import java.awt.KeyboardFocusManager;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import java.util.ArrayList;
 
 import vue.menu.Menu;
 import util.*;
@@ -20,9 +21,9 @@ public class ControleurMenu
 	public JPanel jp_partie = null ;
 	public JPanel jp_maps = null ;
 	public JFrame jf_jeu = null ;
-	public E_perso personnage = null ;
 	public ControlerMap ctrlMap = null ;
-
+	public Map carte_courante = new ChargementMap("./maps/FichierValable").getMap();
+	public static final String repertoire_cartes = "./maps";
 
 	public ControleurMenu()
 	{
@@ -40,10 +41,7 @@ public class ControleurMenu
 
 	private void startPartie()
 	{
-		ChargementMap c = new ChargementMap("./maps/FichierValable");
-		Map m = c.getMap();
-
-		this.ctrlMap = new ControlerMap(m, this);
+		this.ctrlMap = new ControlerMap(this.carte_courante, this);
 		this.ctrlMap.go();
 		this.jp_partie = ctrlMap.getVue();
 		this.jf_jeu.add(this.jp_partie);
@@ -56,7 +54,6 @@ public class ControleurMenu
 
 	private void resumePartie()
 	{
-		System.out.println("On passe ici !");
 		if(this.jp_partie == null)
 			startPartie();
 		else
@@ -87,7 +84,11 @@ public class ControleurMenu
 				resumePartie();
 				break;
 			case ChangementMenuEvent.MENU_MAPS :
-				System.out.println("Demande de chargement de maps");
+				choixMap();
+				break;
+			case ChangementMenuEvent.CHANGEMENT_MAP :
+				this.carte_courante = e.getNouvelleCarte();
+				startPartie();
 				break;
 			default :
 				System.out.println("soucis au niveau du changement de menu");
@@ -96,13 +97,18 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 	}
 
-	public  void reprendrePartie()
-	{
-		this.ctrlMap.getMouvementThread().reprendre();
-	}
+	private  void reprendrePartie() { this.ctrlMap.reprendre(); }
 
-	public void mettreEnPause()
+	private void mettreEnPause() { this.ctrlMap.suspendre(); }
+
+	private void choixMap()
 	{
-		this.ctrlMap.getMouvementThread().suspendre();
+		if(this.jp_maps == null)
+		{
+			this.jp_maps = new MenuCartes(this, repertoire_cartes);
+			this.jf_jeu.add(jp_maps);
+		}
+
+		this.jp_maps.setVisible(true);
 	}
 }

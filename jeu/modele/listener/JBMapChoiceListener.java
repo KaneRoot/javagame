@@ -6,12 +6,12 @@ import controleur.ControleurMenu;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class JBMapChoice implements ActionListener
+public class JBMapChoiceListener implements ActionListener
 {
 	ControleurMenu c;
 	Menu m;
 
-	public JBMapChoice(ControleurMenu c, Menu m)
+	public JBMapChoiceListener(ControleurMenu c, Menu m)
 	{
 		this.c = c;
 		this.m = m;

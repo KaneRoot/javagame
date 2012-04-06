@@ -10,7 +10,7 @@
 #		m.addElem(e);
 #
 
-nom:La map qui tue
+nom:MAGADITWORKS
 
 #taille:X:Y
 taille:1000:300
@@ -37,10 +37,7 @@ sol:5000:300
 # les autres objets
 # classe:options
 E_fixe:200:100:20
-E_fixe:200:130:20
 E_fixe:240:150:20
 E_fixe:270:150:20
-E_fixe:280:1500:20
-E_fixe:80:1100:20
 
 # checkpoints ?

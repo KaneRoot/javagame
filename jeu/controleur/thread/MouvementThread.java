@@ -36,7 +36,7 @@ public class MouvementThread extends Thread
 		fin = true;
 	}
 	
-	public synchronized void pause() throws InterruptedException 
+	private synchronized void pause() throws InterruptedException 
 	{
 		repose = true;
 		wait();
