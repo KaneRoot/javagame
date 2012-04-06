@@ -14,6 +14,7 @@ public class ChargementMap
 	{
 		this.source = source;
 	}
+
 	private int testLigne(String ligne)
 	{
 		String[] options = ligne.split(":");
@@ -76,6 +77,7 @@ public class ChargementMap
 		}
 		return 0;
 	}
+
 	private void lecture() 
 	{ 
 		this.m = new Map();
@@ -106,12 +108,14 @@ public class ChargementMap
 		} 
 		catch (Exception e) { e.printStackTrace(); }     
 	}
+
 	public Map getMap()
 	{
 		if(this.m == null)
 			this.lecture();
 		return m;
 	}
+
 	private int getInt(String s)
 	{
 		int i;

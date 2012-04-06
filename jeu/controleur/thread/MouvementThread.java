@@ -38,7 +38,6 @@ public class MouvementThread extends Thread
 	
 	public synchronized void pause() throws InterruptedException 
 	{
-		System.out.print("PAUSE\n\n");
 		repose = true;
 		wait();
 	}
@@ -84,7 +83,8 @@ public class MouvementThread extends Thread
 				if ((!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil()) && !suspendre_)
 				{ 	
 					for (int i=0;i<map_.nbElem()&&!b;i++)  // Premier test, un peu barbare
-						b = map_.getPerso().entreEnCollision(map_.getElem(i));
+						b = map_.getPerso().entreEnCollision(map_.getElem(i)); // Voué a disparaitre pour une 
+											               // recherche plus efficace
 					//if (!b)
 					//{
 						x = (int)(map_.getPerso().getPosition().getX()+v_.getI());
@@ -95,7 +95,6 @@ public class MouvementThread extends Thread
 						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
 									(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));
 					//}
-					
 					sleep(50);
 				}
 				else

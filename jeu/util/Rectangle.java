@@ -36,16 +36,4 @@ public class Rectangle extends GeoMorph
 		return new Point2d(o_.getX()+a_/2,o_.getY()+b_/2);
 	}
 
-	public boolean intersection(GeoMorph g)
-	{
-		// A implémenter
-		return false;
-	}
-
-	public boolean intersection(Point2d p)
-	{
-		// A implémenter
-		return false;
-	}
-
 }
