@@ -23,6 +23,7 @@ public class ControleurMenu
 	public JFrame jf_jeu = null ;
 	public ControlerMap ctrlMap = null ;
 	public Map carte_courante = new ChargementMap("./maps/FichierValable").getMap();
+	public static final String repertoire_cartes = "./maps";
 
 	public ControleurMenu()
 	{
@@ -96,15 +97,15 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 	}
 
-	private  void reprendrePartie() { this.ctrlMap.getMouvementThread().reprendre(); }
+	private  void reprendrePartie() { this.ctrlMap.reprendre(); }
 
-	private void mettreEnPause() { this.ctrlMap.getMouvementThread().suspendre(); }
+	private void mettreEnPause() { this.ctrlMap.suspendre(); }
 
 	private void choixMap()
 	{
 		if(this.jp_maps == null)
 		{
-			this.jp_maps = new MenuCartes(this, "./maps");
+			this.jp_maps = new MenuCartes(this, repertoire_cartes);
 			this.jf_jeu.add(jp_maps);
 		}
 
