@@ -45,7 +45,7 @@ public class MouvementThread extends Thread
 	public void suspendre()
 	{
 		suspendre_ = true;
-	}	
+	}
 	
 	public synchronized void reprendre()
 	{
@@ -85,8 +85,6 @@ public class MouvementThread extends Thread
 					for (int i=0;i<map_.nbElem()&&!b;i++)  // Premier test, un peu barbare
 						b = map_.getPerso().entreEnCollision(map_.getElem(i)); // Voué a disparaitre pour une 
 											               // recherche plus efficace
-					//if (!b)
-					//{
 						x = (int)(map_.getPerso().getPosition().getX()+v_.getI());
 						y = (map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
 									(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
@@ -94,7 +92,6 @@ public class MouvementThread extends Thread
 						map_.getPerso().setPosition(x,y);
 						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
 									(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));
-					//}
 					sleep(50);
 				}
 				else

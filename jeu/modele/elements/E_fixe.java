@@ -7,7 +7,7 @@ public class E_fixe extends Element
 	public E_fixe(int x, int y, int size, Bounding b)
 	{
 		super(x,y,size);
-		setBounding(new Bounding(new Rectangle(getPosition(),size,size)));
+		setBounding(new Bounding(new Ellipse(getPosition(),size,size)));
 	}
 
 	public E_fixe(int x, int y, int size)
