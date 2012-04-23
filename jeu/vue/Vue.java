@@ -128,12 +128,12 @@ public class Vue extends VueMap implements KeyListener
 		}
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
 		{
-			//getControler().getMap().getPerso().setCurrentImage (2);
+			getControler().getMap().getPerso().setCurrentImage (3);
 			getControler().notifierMouvement(new Vector2f(-1,0));
 		}
 		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
 		{
-			getControler().getMap().getPerso().setCurrentImage (2);
+			getControler().getMap().getPerso().setCurrentImage (5);
 			getControler().notifierMouvement(new Vector2f(0,20)); 
 		}
 		else if (arg0.getKeyChar() == 'p' || arg0.getKeyCode() == KeyEvent.VK_ESCAPE)

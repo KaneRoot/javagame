@@ -22,16 +22,20 @@ public class E_perso extends Element
 		{
 			addImage (ImageIO.read (new File("./image/stik_walk1.png")));
 			addImage (ImageIO.read (new File("./image/stik_walk2.png")));
+			addImage (ImageIO.read (new File("./image/stik_walk3.png")));
+			addImage (ImageIO.read (new File("./image/stik_walk4.png")));
 			addImage (ImageIO.read (new File("./image/stik_fire1.png")));
+			addImage (ImageIO.read (new File("./image/stik_fire2.png")));
+
 		}
 		catch (IOException e)
 		{
 			// TODO Message erreur	
 		}
-
+		
 		mouvementEcouteurs_ = new ArrayList<MouvementListener>(1);
 		dx = new Vector2f();
-		setBounding(new Bounding(new Ellipse(x_,50,50)));
+		setBounding(new Bounding(new Ellipse(x_,40,40)));
 	}
 	
 	public E_perso ()

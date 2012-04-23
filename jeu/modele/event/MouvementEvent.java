@@ -4,7 +4,7 @@ import java.util.EventObject;
 import util.Vector2f;
 
 @SuppressWarnings("serial")
-public class MouvementEvent  extends EventObject 
+public class MouvementEvent extends EventObject 
 {
 	private Vector2f v_;
 	
