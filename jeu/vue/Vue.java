@@ -77,11 +77,19 @@ public class Vue extends VueMap implements KeyListener
 
 	        // --------------------------
                 // Dessin du perso
-		g.setColor(new Color(240,0,0));
-               	g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
+		if (getControler().getMap().getPerso().nbImage()>=1)
+		{	
+			int c = getControler().getMap().getPerso().getCurrentImage();
+			g.drawImage(getControler().getMap().getPerso().getImage(c),
+					x, y-40,30,40,null);
+		}
+		else
+		{
+			g.setColor(new Color(240,0,0));
+               		g.fillRect(x, y-getControler().getMap().getPerso().getSize(),
                          	        getControler().getMap().getPerso().getSize(),
                                		getControler().getMap().getPerso().getSize());
-
+		}
 		// --------------------------
 		// Dessin des élements de la map
 		g.setColor(elemColor);
@@ -113,13 +121,21 @@ public class Vue extends VueMap implements KeyListener
 
 	public void keyPressed(KeyEvent arg0) 
 	{
-	
 		if (arg0.getKeyChar() == 'd' || arg0.getKeyChar() == '6' )
+		{
+			getControler().getMap().getPerso().setCurrentImage ((getControler().getMap().getPerso().getCurrentImage()+1)%2);
 			getControler().notifierMouvement(new Vector2f(1,0));
+		}
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
+		{
+			//getControler().getMap().getPerso().setCurrentImage (2);
 			getControler().notifierMouvement(new Vector2f(-1,0));
+		}
 		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
+		{
+			getControler().getMap().getPerso().setCurrentImage (2);
 			getControler().notifierMouvement(new Vector2f(0,20)); 
+		}
 		else if (arg0.getKeyChar() == 'p' || arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
 			getControler().getCtrlMenu().changerPanneau(new ChangementMenuEvent(this, 
@@ -133,7 +149,7 @@ public class Vue extends VueMap implements KeyListener
 
 	public void keyReleased(KeyEvent arg0) 
 	{
-		
+		getControler().getMap().getPerso().setCurrentImage (0);
 	}
 
 	public void keyTyped(KeyEvent arg0) 

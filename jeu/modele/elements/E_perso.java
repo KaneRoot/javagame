@@ -4,6 +4,9 @@ import modele.event.MouvementEvent;
 import modele.listener.MouvementListener;
 import util.*;
 import java.util.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.*;
 
 
 public class E_perso extends Element
@@ -14,6 +17,18 @@ public class E_perso extends Element
 	public E_perso (int x,int y, int size)
 	{
 		super(x,y,size);
+
+		try
+		{
+			addImage (ImageIO.read (new File("./image/stik_walk1.png")));
+			addImage (ImageIO.read (new File("./image/stik_walk2.png")));
+			addImage (ImageIO.read (new File("./image/stik_fire1.png")));
+		}
+		catch (IOException e)
+		{
+			// TODO Message erreur	
+		}
+
 		mouvementEcouteurs_ = new ArrayList<MouvementListener>(1);
 		dx = new Vector2f();
 		setBounding(new Bounding(new Ellipse(x_,50,50)));

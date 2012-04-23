@@ -15,6 +15,7 @@ public abstract class Element
 	protected Bounding bounding_;		// Zone d'influence
 	protected ArrayList<CollisionListener> collisionEcouteurs_; // Ecouteurs d'évenement
 	protected ArrayList<BufferedImage> image;
+	protected int currentImage;
 	
 	public Element(Point2d p, int size, Bounding b)
 	{		
@@ -28,6 +29,7 @@ public abstract class Element
 		bounding_ = b;
 		size_ = size;
 		image = im;
+		currentImage = 0;
 	}
 
 	public void ajouterEcouteurCollision(CollisionListener cl)
@@ -91,6 +93,21 @@ public abstract class Element
 	public BufferedImage getImage (int i)
 	{
 		return image.get (i);
+	}
+	
+	public int nbImage ()
+	{
+		return image.size();
+	}
+
+	public int getCurrentImage()
+	{
+		return currentImage;
+	}
+	
+	public void setCurrentImage(int c)
+	{
+		currentImage = c;
 	}
 
 	public abstract boolean entreEnCollision(Element el);
