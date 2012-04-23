@@ -23,8 +23,8 @@ public abstract class GeoMorph
 			
 			if (intersection(p1,p2,g.getCentre()))
 				return true;
-			System.out.print("\n\n----\nPoint1 = ("+p1.getX()+","+p1.getY()+")\nPoint2 = ("+p2.getX()+","+p2.getY()+
-						")\nPoint3 = ("+p3.getX()+","+p3.getY()+")\n");
+		/*	System.out.print("\n\n----\nPoint1 = ("+p1.getX()+","+p1.getY()+")\nPoint2 = ("+p2.getX()+","+p2.getY()+
+						")\nPoint3 = ("+p3.getX()+","+p3.getY()+")\n"); */
 			return intersection(p1,p2,p3);	
 		}
 		else
