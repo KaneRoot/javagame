@@ -133,7 +133,11 @@ public class Vue extends VueMap implements KeyListener
 		}
 		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
 		{
-			getControler().getMap().getPerso().setCurrentImage (5);
+			if (getControler().getMap().getPerso().getCurrentImage()>2 ||
+					 getControler().getMap().getPerso().getCurrentImage()==5)
+				getControler().getMap().getPerso().setCurrentImage (5);
+			else
+				getControler().getMap().getPerso().setCurrentImage (4);
 			getControler().notifierMouvement(new Vector2f(0,20)); 
 		}
 		else if (arg0.getKeyChar() == 'p' || arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
@@ -149,7 +153,12 @@ public class Vue extends VueMap implements KeyListener
 
 	public void keyReleased(KeyEvent arg0) 
 	{
-		getControler().getMap().getPerso().setCurrentImage (0);
+		int current;
+		if (getControler().getMap().getPerso().getCurrentImage()>3)
+			current = (getControler().getMap().getPerso().getCurrentImage()==4?0:2);
+		else
+			current = (getControler().getMap().getPerso().getCurrentImage());
+		getControler().getMap().getPerso().setCurrentImage (current);
 	}
 
 	public void keyTyped(KeyEvent arg0) 
