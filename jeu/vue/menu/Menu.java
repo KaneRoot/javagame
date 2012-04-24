@@ -6,7 +6,7 @@ import java.awt.event.*;
 import modele.listener.*;
 import controleur.ControleurMenu;
 
-public class Menu extends VueMenu
+public class Menu extends VueMenu 
 {
 	public JButton jb_partie = new JButton("Nouvelle partie");
 	public JButton jb_recommencer = new JButton("Continuer");

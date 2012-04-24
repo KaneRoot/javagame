@@ -4,6 +4,7 @@ import java.awt.KeyboardFocusManager;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 import vue.menu.Menu;
 import util.*;
@@ -89,6 +90,14 @@ public class ControleurMenu
 			case ChangementMenuEvent.CHANGEMENT_MAP :
 				this.carte_courante = e.getNouvelleCarte();
 				startPartie();
+				break;
+			case ChangementMenuEvent.GAGNE :
+				e.panneau_actuel.setVisible(true);
+				this.jf_jeu.add(new JPanel().add(new JLabel("GAGNÉ")));
+				break;
+			case ChangementMenuEvent.PERDU :
+				e.panneau_actuel.setVisible(true);
+				this.jf_jeu.add(new JPanel().add(new JLabel("PERDU")));
 				break;
 			default :
 				System.out.println("soucis au niveau du changement de menu");

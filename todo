@@ -6,39 +6,12 @@ classement par position
 interface pour les objets :
 	estEnCollision(Objet)
 
-1er jet :
+1. Ajouter des images (par objet etc).
+2. Gagner / Perdre.
+3. La classe Élément : une méthode pour décoder un tableau de String (les options).
+4. Déclencher l'évènement ChangementMenuEvent.
+5. Un meilleur menu.
+6. Afficher une image en arrière plan.
+7. Plus d'objets. Création d'une interface pour les élements. Item, E_dest.
 
-1. Déplacer un carré sur une image DONE
-2. Menu - partie - Menu - DONE
-3. Définir les objets
-4. Mouvements corrects
-5. Répartition des classes dans des répertoires - HALF DONE
-6. Redéfinir JFrame -> JPanel pour retourner au menu - DONE
-7. Chargement de la map.
-
-
-25 - 30 :
-
-1. Définir les objets.
-2. Mouvements corrects.
-3. Chargement de la map. - classe ChargementMap
-4. Map qui bouge.
-5. Collisions / méthode "estEnCollision"
-6. Vraie pause.
-7. Détection fin de partie.
-
-30 - 6 :
-
-1. Définir les objets.
-2. Chargement de la map. - classe ChargementMap
-3. Collisions / méthode "estEnCollision"
-4. Détection fin de partie.
-
-6 - 13 :
-
-1. Réaction lors d'une collision.
-2. Ajouter des images (par objet etc).
-3. Gagner / Perdre.
-4. Plus d'objets. Création d'une interface pour les élements. Item, E_dest.
-5. La classe Élément : une méthode pour décoder un tableau de String (les options).
-
+Objet dangereux + item à prendre + Objet oval.
