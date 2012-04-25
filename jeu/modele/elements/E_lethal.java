@@ -1,4 +1,4 @@
-package modele.element;
+package modele.elements;
 
 import util.Bounding;
 import util.Ellipse;
