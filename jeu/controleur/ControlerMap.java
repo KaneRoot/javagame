@@ -54,7 +54,7 @@ public class ControlerMap
 	public void notifierMouvement(Vector2f v)
 	{	
 		if (map.getArrivee() <= map.getPerso().getPosition().getX() ||
-					 map.getPerso().getEtat() != Element.MORT)
+					 map.getPerso().getEtat() == Element.MORT)
 		{
 			if (map.getPerso().getSac().size() >= 2 && map.getPerso().getEtat() != Element.MORT)
 			{
