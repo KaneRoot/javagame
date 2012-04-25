@@ -1,5 +1,9 @@
 package modele.elements;
 
+
+import util.Ellipse;
+import util.Bounding;
+
 public class E_item extends Element
 {
 	public E_item (int x, int y, int size)
@@ -18,7 +22,7 @@ public class E_item extends Element
 	{
 		if  (bounding_.estEnCollision(el.getBounding()))
 		{
-			this.setEtat (MORT);
+			this.setEtat(ATTRAPER);
 			collision();
 			return true;
 		}

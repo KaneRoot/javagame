@@ -15,6 +15,7 @@ public abstract class Element
 	**/
 	public static int MORT = 0;
 	public static int ATTRAPABLE = -2;
+	public static int ATTRAPER = -3;
 	public static int INVISIBLE = -1;
 	public static int PLEINEVIE = 100;
 
