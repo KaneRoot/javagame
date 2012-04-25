@@ -67,6 +67,7 @@ public class ChargementMap
 					E_perso p = (E_perso) c.newInstance();
 					p.setPosition(getInt(options[2]), getInt(options[3]));
 					p.setSize(getInt(options[4]));
+					p.setOptions(options);
 					this.m.setPerso(p);
 				}
 				catch(Exception e) { System.out.println("Erreur création du perso"); return -1; }
@@ -79,6 +80,7 @@ public class ChargementMap
 					Element e = (Element) c.newInstance();
 					e.setPosition(getInt(options[1]), getInt(options[2]));
 					e.setSize(getInt(options[3]));
+					e.setOptions(options);
 					this.m.addElem(e);
 				}
 				catch(Exception e) 
