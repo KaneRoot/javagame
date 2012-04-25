@@ -13,6 +13,10 @@ public class E_lethal extends Element
 		setBounding(new Bounding(new Ellipse(getPosition(),size+10,size+10)));
 		setEtat (PLEINEVIE);
 	}
+	public E_lethal()
+	{
+		this(0,0,0);
+	}
 
 	public boolean entreEnCollision(Element el)
 	{
