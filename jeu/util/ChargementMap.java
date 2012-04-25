@@ -1,9 +1,9 @@
 package util;
 import java.io.*;
-import modele.Map;
+import modele.*;
 import modele.elements.*;
 import modele.elements.E_fixe;
-import modele.elements.E_perso;
+import modele.elements.E_item;
 
 public class ChargementMap
 {
