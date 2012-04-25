@@ -54,13 +54,15 @@ public class ControlerMap
 	{	
 		if (map.getArrivee() <= map.getPerso().getPosition().getX())
 		{
-			if (map.getPerso().getSac().size()>= 2)
+			if (map.getPerso().getSac().size() >= 2)
 			{
+				System.out.print ("Gagnée \n");
 				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
 										ChangementMenuEvent.GAGNE));
 			}
 			else
 			{
+				System.out.print ("Perdu \n");
 				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
 										ChangementMenuEvent.PERDU));
 
