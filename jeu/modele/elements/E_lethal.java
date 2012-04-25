@@ -3,7 +3,7 @@ package modele.elements;
 import util.Bounding;
 import util.Ellipse;
 
-
+import modele.elements.Element;
 
 public class E_lethal extends Element
 {
