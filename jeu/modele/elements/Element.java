@@ -165,9 +165,7 @@ public abstract class Element
 			if (s.compareTo (""))
 			{
 			}
-			else if()
-			{
-			}
+			else if 
 		}
 		*/
 	}
