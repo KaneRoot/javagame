@@ -159,13 +159,17 @@ public abstract class Element
 
 	public void setOptions (String[] options)
 	{
+		/*
 		for (String s:options)
 		{	
 			if (s.compareTo (""))
 			{
 			}
-			else if 
+			else if()
+			{
+			}
 		}
+		*/
 	}
 
 }
