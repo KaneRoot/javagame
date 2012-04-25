@@ -155,6 +155,17 @@ public abstract class Element
 	public void attrape (Element e)
 	{
 		sac.add (e);
+	}	
+
+	public void setOptions (String[] options)
+	{
+		for (String s:options)
+		{	
+			if (s.compareTo (""))
+			{
+			}
+			else if 
+		}
 	}
 
 }

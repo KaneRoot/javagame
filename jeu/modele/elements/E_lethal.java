@@ -1,5 +1,8 @@
 package modele.element;
 
+import util.Bounding;
+import util.Ellipse;
+
 
 
 public class E_lethal extends Element
