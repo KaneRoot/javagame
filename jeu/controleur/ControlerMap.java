@@ -3,6 +3,7 @@ package controleur;
 import controleur.thread.MouvementThread;
 import controleur.thread.CollisionThread;
 
+import modele.element.*;
 import util.Vector2f;
 import modele.*;
 import vue.*;
@@ -34,8 +35,8 @@ public class ControlerMap
 			map.getElem(i).ajouterEcouteurCollision (vue);
 		}
 
-		thread1 = new MouvementThread (map);   // Préparation de MouvementThread
-		thread2 = new CollisionThread (map);
+		thread1 = new MouvementThread(map);   // Préparation de MouvementThread
+		thread2 = new CollisionThread(map);
 		thread2.start();
 	}
 
@@ -52,20 +53,20 @@ public class ControlerMap
 
 	public void notifierMouvement(Vector2f v)
 	{	
-		if (map.getArrivee() <= map.getPerso().getPosition().getX())
+		if (map.getArrivee() <= map.getPerso().getPosition().getX() ||
+					 map.getPerso().getEtat() != Element.MORT)
 		{
-			if (map.getPerso().getSac().size() >= 2)
+			if (map.getPerso().getSac().size() >= 2 && map.getPerso().getEtat() != Element.MORT)
 			{
 				System.out.print ("Gagnée \n");
 				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
-										ChangementMenuEvent.GAGNE));
+							ChangementMenuEvent.GAGNE));
 			}
 			else
 			{
 				System.out.print ("Perdu \n");
 				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
-										ChangementMenuEvent.PERDU));
-
+							ChangementMenuEvent.PERDU));
 			}
 		}
 		else
