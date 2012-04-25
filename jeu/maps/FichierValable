@@ -40,5 +40,7 @@ E_fixe:240:150:20
 E_fixe:270:150:20
 
 E_item:200:150:20
-
+E_item:400:100:10
+E_item:430:100:10
+E_item:460:100:10
 # checkpoints ?

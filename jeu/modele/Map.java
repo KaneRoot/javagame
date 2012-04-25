@@ -29,6 +29,7 @@ public class Map
 		setPerso(e);
 		ecouteurs_ = new EventListenerList();
 	}
+
 	public Map()
 	{
 		this(0,0,null);
@@ -37,6 +38,8 @@ public class Map
 	public void setArrivee(int a) { this.arrivee = a; }
 	public void setNom(String lenom) { this.nom = lenom; }
 	public String getNom() { return this.nom; }
+	public int getArrivee() { return this.arrivee; }
+
 	public void ajouterEcouteurMouvement (MouvementListener ml)
 	{
 		ecouteurs_.add(MouvementListener.class, ml);

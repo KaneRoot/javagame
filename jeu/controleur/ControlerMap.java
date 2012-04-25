@@ -7,6 +7,7 @@ import util.Vector2f;
 import modele.*;
 import vue.*;
 import vue.Vue;
+import modele.event.*;
 
 public class ControlerMap
 {
@@ -51,10 +52,27 @@ public class ControlerMap
 
 	public void notifierMouvement(Vector2f v)
 	{	
-		map.getPerso().getDx().add(v);
-		if (thread1.isNouveauNe())
-			thread1.start();
-		else if (thread1.isPause())
-			thread1.reprendre();
+		if (map.getArrivee() <= map.getPerso().getPosition().getX())
+		{
+			if (map.getPerso().getSac().size()>= 2)
+			{
+				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
+										ChangementMenuEvent.GAGNE));
+			}
+			else
+			{
+				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
+										ChangementMenuEvent.PERDU));
+
+			}
+		}
+		else
+		{
+			map.getPerso().getDx().add(v);
+			if (thread1.isNouveauNe())
+				thread1.start();
+			else if (thread1.isPause())
+				thread1.reprendre();
+		}
 	}
 }

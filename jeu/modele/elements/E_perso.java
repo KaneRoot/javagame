@@ -36,6 +36,7 @@ public class E_perso extends Element
 		mouvementEcouteurs_ = new ArrayList<MouvementListener>(1);
 		dx = new Vector2f();
 		setBounding(new Bounding(new Ellipse(x_,40,40)));
+		setEtat (PLEINEVIE);
 	}
 	
 	public E_perso ()

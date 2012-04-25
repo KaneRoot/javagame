@@ -22,6 +22,7 @@ public class E_item extends Element
 	{
 		if  (bounding_.estEnCollision(el.getBounding()))
 		{
+			el.attrape (this);
 			this.setEtat(ATTRAPER);
 			collision();
 			return true;

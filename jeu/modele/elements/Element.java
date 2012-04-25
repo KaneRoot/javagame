@@ -17,6 +17,7 @@ public abstract class Element
 	public static int ATTRAPABLE = -2;
 	public static int ATTRAPER = -3;
 	public static int INVISIBLE = -1;
+	public static int INVINSIBLE = -10;
 	public static int PLEINEVIE = 100;
 
 
@@ -26,8 +27,11 @@ public abstract class Element
 	protected Point2d x_;			// Position de l'élement
 	protected int size_;			// Taille de l'élement
 	protected Bounding bounding_;		// Zone d'influence
+
 	protected ArrayList<CollisionListener> collisionEcouteurs_; // Ecouteurs d'évenement
 	protected ArrayList<BufferedImage> image;
+	protected ArrayList<Element> sac;
+
 	protected int currentImage;
 	protected int etat;
 	
@@ -44,7 +48,7 @@ public abstract class Element
 		size_ = size;
 		image = im;
 		currentImage = 0;
-		etat = 1;
+		sac = new ArrayList<Element>(1);
 	}
 
 	public void ajouterEcouteurCollision(CollisionListener cl)
@@ -140,6 +144,17 @@ public abstract class Element
 	
 	public void setEtat(int etat)
 	{
-		etat = etat;
+		this.etat = etat;
 	}	
+
+	public ArrayList<Element> getSac()
+	{
+		return sac;
+	}
+	
+	public void attrape (Element e)
+	{
+		sac.add (e);
+	}
+
 }
