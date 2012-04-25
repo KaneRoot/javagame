@@ -89,6 +89,10 @@ public class ChargementMap
 		return 0;
 	}
 
+	/**
+	 * Lecture du fichier de configuration
+	 *
+	 */
 	private void lecture() 
 	{ 
 		this.m = new Map();
@@ -120,6 +124,10 @@ public class ChargementMap
 		catch (Exception e) { e.printStackTrace(); }     
 	}
 
+	/**
+	 * @return une instance de Map correspondant au fichier de configuration
+	 *
+	 */
 	public Map getMap()
 	{
 		if(this.m == null)

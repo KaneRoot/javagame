@@ -22,7 +22,7 @@ perso:E_perso:100:200:10
 # arrivee:X
 
 # depart:10
-arrivee:1000
+arrivee:2000
 
 sol:0:250
 sol:200:200
