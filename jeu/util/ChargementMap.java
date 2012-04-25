@@ -5,11 +5,22 @@ import modele.elements.*;
 import modele.elements.E_fixe;
 import modele.elements.E_item;
 
+/**
+ *
+ * Charge la carte qui se trouve dans maps/
+ *
+ */
 public class ChargementMap
 {
 	protected String source;
 	private Map m = null;
 
+	/**
+	 * Le constructeur
+	 *
+	 * @param source le répertoire qui contient les cartes
+	 *
+	 */
 	public ChargementMap(String source)
 	{
 		this.source = source;

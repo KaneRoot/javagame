@@ -36,8 +36,8 @@ sol:5000:300
 
 # les autres objets
 # classe:options
-E_fixe:240:150:20
-E_fixe:270:150:20
+#E_fixe:240:150:20
+#E_fixe:270:150:20
 
 E_item:200:150:20
 E_item:400:100:10

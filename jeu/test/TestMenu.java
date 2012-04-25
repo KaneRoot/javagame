@@ -8,6 +8,10 @@ import vue.*;
 import vue.menu.*;
 
 
+/**
+ * Coucou
+ *
+ */
 public class TestMenu
 {
 	public static void main(String[] args)
