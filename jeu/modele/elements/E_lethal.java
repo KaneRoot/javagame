@@ -1,4 +1,11 @@
 package modele.elements;
+<<<<<<< HEAD
+=======
+
+import util.Bounding;
+import util.Ellipse;
+
+>>>>>>> aa29a7ae4d225438f18d3c0ea15ce4dd74bdb95a
 
 import modele.elements.Element;
 
