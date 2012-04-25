@@ -1,6 +1,6 @@
-package modele.element;
+package modele.elements;
 
-
+import modele.elements.Element;
 
 public class E_lethal extends Element
 {
