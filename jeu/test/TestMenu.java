@@ -9,7 +9,7 @@ import vue.menu.*;
 
 
 /**
- * Coucou
+ * Actuellement la classe principale
  *
  */
 public class TestMenu

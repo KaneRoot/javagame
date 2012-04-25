@@ -4,12 +4,14 @@ import modele.*;
 import modele.elements.*;
 import modele.elements.E_fixe;
 import modele.elements.E_item;
+import modele.elements.E_lethal;
 
 /**
  *
  * Charge la carte qui se trouve dans maps/
  *
  */
+
 public class ChargementMap
 {
 	protected String source;

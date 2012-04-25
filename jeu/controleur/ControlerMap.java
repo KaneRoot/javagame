@@ -3,7 +3,7 @@ package controleur;
 import controleur.thread.MouvementThread;
 import controleur.thread.CollisionThread;
 
-import modele.element.*;
+import modele.elements.*;
 import util.Vector2f;
 import modele.*;
 import vue.*;
