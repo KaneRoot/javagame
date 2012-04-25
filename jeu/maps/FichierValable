@@ -43,5 +43,6 @@ E_item:200:150:20
 E_item:400:100:10
 E_item:430:100:10
 E_item:460:100:10
+E_lethal:160:100:30
 
 # checkpoints ?
