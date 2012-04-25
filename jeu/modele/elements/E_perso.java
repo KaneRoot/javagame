@@ -92,7 +92,4 @@ public class E_perso extends Element
         		mouvementEcouteurs_.get(i).enMouvement(new MouvementEvent(this, 
 						new Vector2f(getPosition().getX(), getPosition().getY())));
 	}
-
-
-
 }

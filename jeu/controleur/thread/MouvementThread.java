@@ -101,12 +101,12 @@ public class MouvementThread extends Thread
 					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
 								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));
 
-					for (int i=0;i<map_.nbElem()&&!b;i++) 				 // Premier test, un peu barbare
+				/*	for (int i=0;i<map_.nbElem()&&!b;i++) 				 // Premier test, un peu barbare
 						b = map_.getPerso().entreEnCollision(map_.getElem(i)); 	 // Voué a disparaitre pour une 	        
 				
 					if (b)
 					{
-						map_.getPerso().setDx (-map_.getPerso().getDx().getI(),-map_.getPerso().getDx().getJ());
+						map_.getPerso().setDx (-map_.getPerso().getDx().getI(),-map_.getPerso().getDx().getJ());*/
 					/*
 						x = (int)(map_.getPerso().getPosition().getX()+v_.getI());
 						y = (map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
@@ -115,7 +115,7 @@ public class MouvementThread extends Thread
 						map_.getPerso().setPosition(x,y);
 						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
 								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));	*/
-					}		
+				/*	}	*/	
 
 
 

@@ -10,12 +10,25 @@ import modele.listener.CollisionListener;
 
 public abstract class Element
 {
+	/**
+	*  Champs static décrivant l'etat de l'element
+	**/
+	public static int MORT = 0;
+	public static int ATTRAPABLE = -2;
+	public static int INVISIBLE = -1;
+	public static int PLEINEVIE = 100;
+
+
+	/**
+	*  Champs en mode protected; décrivant les proprietes de l'element
+	**/
 	protected Point2d x_;			// Position de l'élement
 	protected int size_;			// Taille de l'élement
 	protected Bounding bounding_;		// Zone d'influence
 	protected ArrayList<CollisionListener> collisionEcouteurs_; // Ecouteurs d'évenement
 	protected ArrayList<BufferedImage> image;
 	protected int currentImage;
+	protected int etat;
 	
 	public Element(Point2d p, int size, Bounding b)
 	{		
@@ -30,6 +43,7 @@ public abstract class Element
 		size_ = size;
 		image = im;
 		currentImage = 0;
+		etat = 1;
 	}
 
 	public void ajouterEcouteurCollision(CollisionListener cl)
@@ -116,5 +130,15 @@ public abstract class Element
 	{	
 		for (int i=0;i<collisionEcouteurs_.size();i++)
 			collisionEcouteurs_.get(i).enCollision(new CollisionEvent(this,null));
+	}
+
+	public int getEtat()
+	{
+		return etat;
+	} 	
+	
+	public void setEtat(int etat)
+	{
+		etat = etat;
 	}	
 }
