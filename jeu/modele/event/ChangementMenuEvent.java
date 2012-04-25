@@ -6,8 +6,8 @@ import modele.Map;
 
 public class ChangementMenuEvent
 {
-	/*
-	 * Constantes
+	/**
+	 * 
 	 *
 	 */
 	public final static int PARTIE = 1;
@@ -19,7 +19,7 @@ public class ChangementMenuEvent
 	public final static int GAGNE = 7;
 	public final static int PERDU = 8;
 
-	/*
+	/**
 	 * Les variables
 	 *
 	 */
