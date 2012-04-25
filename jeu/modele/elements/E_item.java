@@ -13,7 +13,7 @@ public class E_item extends Element
 		setEtat (ATTRAPABLE);
 	}
 
-	public E_item (int x, int y, int size)
+	public E_item ()
 	{
 		this (0,0,0);
 	}
