@@ -1,13 +1,25 @@
 package modele.elements;
 
 import util.*;
+import java.io.*;
+import java.util.*;
+import javax.imageio.ImageIO;
 
 public class E_fixe extends Element
 {
 	public E_fixe(int x, int y, int size, Bounding b)
 	{
 		super(x,y,size);
-		setBounding(new Bounding(new Ellipse(getPosition(),size+10,size+10)));
+		setBounding(new Bounding(new Rectangle(getPosition(),size+20,size+20)));
+
+		try
+		{
+			addImage (ImageIO.read (new File("./image/fixe1.png")));
+		}
+		catch (IOException e)
+		{
+			//TODO
+		}
 		setEtat (PLEINEVIE);
 	}
 
