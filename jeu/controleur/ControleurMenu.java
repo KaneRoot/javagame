@@ -15,16 +15,39 @@ import vue.*;
 import vue.menu.*;
 import controleur.thread.*;
 
+/**
+ * Classe ControleurMenu, la classe principale du jeu.
+ *
+ */
 
 public class ControleurMenu 
 {
+	/** JPanel du menu affiché à l'accueil. */
 	public JPanel jp_menu = null ;
+
+	/** JPanel dans lequel on affiche le jeu. */
 	public JPanel jp_partie = null ;
+
+	/** JPanel du menu du choix des cartes. */
 	public JPanel jp_maps = null ;
+
+	/** Frame du jeu. */
 	public JFrame jf_jeu = null ;
+
+	/** Controleur de la vue INGAME. */
 	public ControlerMap ctrlMap = null ;
+
+	/** Carte par défaut. */
 	public Map carte_courante = new ChargementMap("./maps/FichierValable").getMap();
+
+	/** répertoire par défaut des cartes. */
 	public static final String repertoire_cartes = "./maps";
+
+	/**
+	 * Constructeur par défaut du Contrôleur.
+	 *
+	 * Crée la JFrame et le menu.
+	 */
 
 	public ControleurMenu()
 	{
@@ -32,6 +55,10 @@ public class ControleurMenu
 		this.jp_menu = new Menu(this);
 	}
 
+	/**
+	 * Lance le programme.
+	 * Ajoute le menu à la Frame principale.
+	 */
 	public void go()
 	{
 		this.jf_jeu.add(jp_menu);
@@ -40,6 +67,10 @@ public class ControleurMenu
 		this.jf_jeu.setVisible(true);
 	}
 
+	/**
+	 * Démarrage de la partie.
+	 *
+	 */
 	private void startPartie()
 	{
 		this.ctrlMap = new ControlerMap(this.carte_courante, this);
@@ -53,6 +84,11 @@ public class ControleurMenu
 		this.jp_partie.setVisible(true);
 	}
 
+	/**
+	 * Pour continuer la partie après une pause.
+	 *
+	 */
+
 	private void resumePartie()
 	{
 		if(this.jp_partie == null)
@@ -64,6 +100,11 @@ public class ControleurMenu
 			this.jp_partie.requestFocus();	
 		}
 	}
+
+	/**
+	 * Pour changer d'interface.
+	 *
+	 */
 
 	public void changerPanneau(ChangementMenuEvent e)
 	{
@@ -106,10 +147,13 @@ public class ControleurMenu
 		this.jf_jeu.repaint();
 	}
 
+	/** Méthode pour simplifier la compréhension du code. */
 	private  void reprendrePartie() { this.ctrlMap.reprendre(); }
 
+	/** Méthode pour simplifier la compréhension du code. */
 	private void mettreEnPause() { this.ctrlMap.suspendre(); }
 
+	/** Affichage du menu de choix de la carte. */
 	private void choixMap()
 	{
 		if(this.jp_maps == null)

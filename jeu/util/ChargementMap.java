@@ -8,7 +8,7 @@ import modele.elements.E_lethal;
 
 /**
  *
- * Charge la carte qui se trouve dans maps/
+ * Charge la carte qui se trouve dans le répertoire maps/ .
  *
  */
 
@@ -35,76 +35,79 @@ public class ChargementMap
 	private int testLigne(String ligne)
 	{
 		String[] options = ligne.split(":");
-		switch(options[0])
+
+		if(0 == options[0].compareTo("nom"))
 		{
-			case "nom" :
-				this.m.setNom(options[1]);
-				break;
-			case "taille" :
-				try 
-				{ 
-					this.m.setW(getInt(options[1]));
-					this.m.setH(getInt(options[2]));
-				}
-				catch(Exception e) { return -1; }
-				break;
-			case "arrivee" :
-				try
-				{
-					this.m.setArrivee(getInt(options[1]));
-				}
-				catch(Exception e) { return -1; }
-				break;
-			case "sol" :
-				try
-				{
-					this.m.addPoint(new Point2d(getInt(options[1]), getInt(options[2])));
-				}
-				catch(Exception e) { return -1; }
-				break;
+			this.m.setNom(options[1]);
+		}
+		else if(0 == options[0].compareTo("taille"))
+		{
+			try 
+			{ 
+				this.m.setW(getInt(options[1]));
+				this.m.setH(getInt(options[2]));
+			}
+			catch(Exception e) { return -1; }
+		}
+		else if(0 == options[0].compareTo("arrivee"))
+		{
+			try
+			{
+				this.m.setArrivee(getInt(options[1]));
+			}
+			catch(Exception e) { return -1; }
+		}
+		else if(0 == options[0].compareTo("sol"))
+		{
+			try
+			{
+				this.m.addPoint(new Point2d(getInt(options[1]), getInt(options[2])));
+			}
+			catch(Exception e) { return -1; }
+		}
 
-			case "perso" :
-				// System.out.println("On crée le perso ! " + options[1]);
-				try
-				{
-					Class c = Class.forName("modele.elements." + options[1]);
-					E_perso p = (E_perso) c.newInstance();
-					p.setPosition(getInt(options[2]), getInt(options[3]));
-					p.setSize(getInt(options[4]));
-					p.setOptions(options);
-					this.m.setPerso(p);
-				}
-				catch(Exception e) { System.out.println("Erreur création du perso"); return -1; }
+		else if(0 == options[0].compareTo("perso"))
+		{
+			try
+			{
+				Class c = Class.forName("modele.elements." + options[1]);
+				E_perso p = (E_perso) c.newInstance();
+				p.setPosition(getInt(options[2]), getInt(options[3]));
+				p.setSize(getInt(options[4]));
+				p.setOptions(options);
+				this.m.setPerso(p);
+			}
+			catch(Exception e) { System.out.println("Erreur création du perso"); return -1; }
 
-				break;
-			default :
-				try
-				{
-					Class c = Class.forName("modele.elements." + options[0]);
-					Element e = (Element) c.newInstance();
-					e.setPosition(getInt(options[1]), getInt(options[2]));
-					e.setSize(getInt(options[3]));
-					e.setOptions(options);
-					this.m.addElem(e);
-				}
-				catch(Exception e) 
-				{
-					e.printStackTrace(); 
-					System.out.println("Option inconnue : " + options[0]);
-					return -1; 
-				}
+		}
+		else
+		{
+			try
+			{
+				Class c = Class.forName("modele.elements." + options[0]);
+				Element e = (Element) c.newInstance();
+				e.setPosition(getInt(options[1]), getInt(options[2]));
+				e.setSize(getInt(options[3]));
+				e.setOptions(options);
+				this.m.addElem(e);
+			}
+			catch(Exception e) 
+			{
+				e.printStackTrace(); 
+				System.out.println("Option inconnue : " + options[0]);
+				return -1; 
+			}
 		}
 		return 0;
 	}
 
 	/**
-	 * Lecture du fichier de configuration
+	 * Lecture du fichier de configuration.
 	 *
 	 */
 	private void lecture() 
 	{ 
 		this.m = new Map();
-		// System.out.println("Fichier lu : " + this.source);
 		try 
 		{
 			String ligne ;
@@ -142,6 +145,16 @@ public class ChargementMap
 			this.lecture();
 		return m;
 	}
+
+	/**
+	 * Fonction de conversion d'un string en entier.
+	 *
+	 * Utile uniquement dans cette classe.
+	 *
+	 * @param s : la chaîne de caractères.
+	 *
+	 * @return entier correspondant à s.
+	 */
 
 	private int getInt(String s)
 	{

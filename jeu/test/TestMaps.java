@@ -7,11 +7,21 @@ import modele.Map;
 import util.ChargementMap;
 import util.ListeMaps;
 
+/**
+ * @deprecated servait à tester le chargement des cartes.
+ *
+ * @see util.ChargementMap
+ */
+
 public class TestMaps
 {
+	/**
+	 * Lancement du programme de test.
+	 *
+	 */
+
 	public static void main(String[] args)
 	{
-		//ChargementMap c = new ChargementMap(args[0]);
 		ListeMaps lesmaps = new ListeMaps("./maps");
 		ArrayList<Map> ml = lesmaps.getListe();
 		for(Map m : ml)

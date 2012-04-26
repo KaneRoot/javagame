@@ -8,10 +8,16 @@ import modele.event.CollisionEvent;
 import modele.listener.CollisionListener;
 
 
+/**
+ * La classe dont tous les éléments dérivent.
+ *
+ * Permet de définir un élément.
+ */
+
 public abstract class Element
 {
 	/**
-	*  Champs static décrivant l'etat de l'element
+	*  Champs static décrivant l'etat de l'élement
 	**/
 	public static int MORT = 0;
 	public static int ATTRAPABLE = -2;
@@ -66,6 +72,15 @@ public abstract class Element
 		this(new Point2d(x,y), size, null);
 	}
 
+	/**
+	 * Constructeur par défaut.
+	 *
+	 * Il est appelé lorsqu'on crée l'élément dans le fichier de configuration.
+	 *
+	 * Puis on appellera d'autres méthodes pour changer la taille et 
+	 * l'emplacement de l'objet.
+	 *
+	 */
 	public Element()
 	{
 		this(0,0,0);
@@ -156,6 +171,12 @@ public abstract class Element
 	{
 		sac.add (e);
 	}	
+
+	/**
+	 * Définir les différentes options.
+	 *
+	 * @param options Ce sont les options indiqués dans le fichier de configuration.
+	 */
 
 	public void setOptions (String[] options)
 	{
