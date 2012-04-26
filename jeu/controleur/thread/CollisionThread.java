@@ -31,7 +31,11 @@ public class CollisionThread extends Thread
 			}
 			if (b)
 			{
-				thread_.collision();
+				thread_.collision(true);
+			}
+			else	
+			{
+				thread_.collision(false);
 			}
 			try
 			{

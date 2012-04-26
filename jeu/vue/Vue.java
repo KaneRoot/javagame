@@ -92,15 +92,16 @@ public class Vue extends VueMap implements KeyListener
 		}
 		// --------------------------
 		// Dessin des élements de la map
-		g.setColor(elemColor);
 		Element e;
+		int c;
 		for (int i=0;i<getControler().getMap().nbElem();i++)
 		{
 			e = getControler().getMap().getElem(i);
-			
+			c = e.getCurrentImage();
+
 			if (e.getEtat() > Element.MORT)
-				g.fillRect(e.getPosition().getX()-window.getX(),e.getPosition().getY()-window.getY(),
-						e.getSize(), e.getSize());
+				g.drawImage(e.getImage(c),e.getPosition().getX()-window.getX(),
+						e.getPosition().getY()-window.getY(),e.getSize(),e.getSize(),null);
 			else if (e.getEtat() == Element.ATTRAPABLE)
 			{
 				g.setColor (new Color (10,100,200));
@@ -124,7 +125,7 @@ public class Vue extends VueMap implements KeyListener
 
 	public void enCollision(CollisionEvent event)
 	{
-		elemColor = new Color(elemColor.getBlue(),elemColor.getRed(),elemColor.getGreen());
+		//elemColor = new Color(elemColor.getBlue(),elemColor.getRed(),elemColor.getGreen());
 	}
 
 	public void keyPressed(KeyEvent arg0) 

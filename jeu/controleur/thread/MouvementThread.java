@@ -44,7 +44,7 @@ public class MouvementThread extends Thread
 			suspendre_ = false;
 	}
 
-	public void collision(){collision_ = true;}
+	public void collision(boolean b){collision_ = b;}
 	
 	public void run()
 	{
@@ -85,13 +85,13 @@ public class MouvementThread extends Thread
 
 					if (!collision_)
 					{
-						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.80f:.85f),
-								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.95f:0f));
+						map_.getPerso().setDx(map_.getPerso().getDx().getI()*
+							(isOnSoil()||collision_?.88f:.95f),(!isOnSoil()&&!collision_?
+								(map_.getPerso().getDx().getJ()-1.5f)*0.95f:0f));
 					}
 					else
 					{
 						map_.getPerso().setDx(map_.getPerso().getDx().getI(),0f);
-						collision_ = false;
 					}
 					sleep(25);
 				}
