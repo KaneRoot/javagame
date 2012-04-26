@@ -7,11 +7,6 @@ interface pour les objets :
 	estEnCollision(Objet)
 
 1. Ajouter des images (par objet etc).
-2. Gagner / Perdre.
-3. La classe Élément : une méthode pour décoder un tableau de String (les options).
-4. Déclencher l'évènement ChangementMenuEvent.
-5. Un meilleur menu.
-6. Afficher une image en arrière plan.
-7. Plus d'objets. Création d'une interface pour les élements. Item, E_dest.
-
-Objet dangereux + item à prendre + Objet oval.
+2. La classe Élément : une méthode pour décoder un tableau de String (les options).
+3. Un meilleur menu.
+4. Afficher une image en arrière plan.

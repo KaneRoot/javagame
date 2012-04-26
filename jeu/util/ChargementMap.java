@@ -28,6 +28,10 @@ public class ChargementMap
 		this.source = source;
 	}
 
+	/**
+	 * Pour tester une ligne du fichier de configuration
+	 *
+	 */
 	private int testLigne(String ligne)
 	{
 		String[] options = ligne.split(":");

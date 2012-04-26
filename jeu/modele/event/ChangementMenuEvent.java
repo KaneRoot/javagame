@@ -4,10 +4,14 @@ import javax.swing.JPanel;
 
 import modele.Map;
 
+/**
+ * Classe d'évènement qui permet de changer de Menu de .
+ * 
+
 public class ChangementMenuEvent
 {
 	/**
-	 * 
+	 * Les différentes options de changement de menu.
 	 *
 	 */
 	public final static int PARTIE = 1;
