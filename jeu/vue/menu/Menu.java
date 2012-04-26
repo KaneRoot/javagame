@@ -6,11 +6,22 @@ import java.awt.event.*;
 import modele.listener.*;
 import controleur.ControleurMenu;
 
+/**
+ *
+ * Classe du Menu.
+ *
+ */
+
 public class Menu extends VueMenu 
 {
 	public JButton jb_partie = new JButton("Nouvelle partie");
 	public JButton jb_recommencer = new JButton("Continuer");
 	public JButton jb_map = new JButton("Choix de la carte !");
+
+	/**
+	 * @param c : controleur du menu.
+	 *
+	 */
 
 	public Menu(ControleurMenu c)
 	{

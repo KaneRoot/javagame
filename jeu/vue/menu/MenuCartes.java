@@ -37,8 +37,10 @@ public class MenuCartes extends VueMenu
 
 		JLabel jl_titre = new JLabel("Voici le menu des cartes ! ");
 		this.rep_cartes = s;
-		this.jp_boutons = new JPanel();
 		this.maliste = new ListeMaps(s).getListe();
+
+		this.setSize((this.maliste.size() / 2) * 500, (this.maliste.size() % 2) * 50);
+		this.jp_boutons = new JPanel();
 		this.setLayout(new BorderLayout());
 
 		this.jp_boutons.setLayout(new GridLayout(2, 1 + (this.maliste.size() / 2)));
@@ -50,6 +52,7 @@ public class MenuCartes extends VueMenu
 		{
 			jb = new JButton(m.getNom());
 			jb.addActionListener(new JBMapListener(this.getControleur(), this, m));
+			jb.setSize(50,100);
 
 			this.jp_boutons.add(jb);
 		}
