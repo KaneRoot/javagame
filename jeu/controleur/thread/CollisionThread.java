@@ -42,7 +42,7 @@ public class CollisionThread extends Thread
 			}
 			try
 			{
-				sleep (50);
+				sleep (12);
 			}
 			catch (InterruptedException e)
 			{
