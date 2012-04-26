@@ -7,6 +7,7 @@ import modele.Map;
 /**
  * Classe d'évènement qui permet de changer de Menu de .
  * 
+ */
 
 public class ChangementMenuEvent
 {
