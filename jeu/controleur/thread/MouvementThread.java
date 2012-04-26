@@ -23,20 +23,11 @@ public class MouvementThread extends Thread
 		collision_ = false;		
 	}
 	
-	public boolean isPause()
-	{
-		return repose;
-	}
+	public boolean isPause(){return repose;}
 
-	public boolean isNouveauNe()
-	{
-		return born;
-	}
+	public boolean isNouveauNe(){return born;}
 
-	public void finir()
-	{
-		fin = true;
-	}
+	public void finir(){fin = true;}
 	
 	private synchronized void pause() throws InterruptedException 
 	{
@@ -44,10 +35,7 @@ public class MouvementThread extends Thread
 		wait();
 	}
 	
-	public void suspendre()
-	{
-		suspendre_ = true;
-	}
+	public void suspendre(){suspendre_ = true;}
 	
 	public synchronized void reprendre()
 	{
@@ -56,10 +44,7 @@ public class MouvementThread extends Thread
 			suspendre_ = false;
 	}
 
-	public void collision()
-	{
-		collision_ = true;
-	}
+	public void collision(){collision_ = true;}
 	
 	public void run()
 	{
@@ -100,14 +85,15 @@ public class MouvementThread extends Thread
 
 					if (!collision_)
 					{
-						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
-								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));
+						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.80f:.85f),
+								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.95f:0f));
 					}
 					else
 					{
+						map_.getPerso().setDx(map_.getPerso().getDx().getI(),0f);
 						collision_ = false;
 					}
-					sleep(50);
+					sleep(25);
 				}
 				else
 					pause();

@@ -32,12 +32,10 @@ public class CollisionThread extends Thread
 			if (b)
 			{
 				thread_.collision();
-				map_.getPerso().setDx(-map_.getPerso().getDx().getI(),
-							-map_.getPerso().getDx().getJ());
 			}
 			try
 			{
-				sleep (25);
+				sleep (50);
 			}
 			catch (InterruptedException e)
 			{
