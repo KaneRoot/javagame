@@ -1,7 +1,7 @@
 CC=javac
 
 DOC=javadoc
-DOCOPTION=-d doc
+DOCOPTION=-d doc -charset "utf-8"
 
 FICHIERPRINCIPAL = test/TestMenu.java
 MOD = $(wildcard */*/*.java */*.java )
