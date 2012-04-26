@@ -9,7 +9,8 @@ public class MouvementThread extends Thread
 	private boolean born;
 	private boolean repose;
 	private boolean suspendre_;
-	private boolean fin;	
+	private boolean fin;
+	private boolean collision_;	
 
 
 	public MouvementThread (Map m)
@@ -18,7 +19,8 @@ public class MouvementThread extends Thread
 		born = true;
 		suspendre_ = false;
 		repose = false;
-		fin = false; 			
+		fin = false; 
+		collision_ = false;		
 	}
 	
 	public boolean isPause()
@@ -53,6 +55,11 @@ public class MouvementThread extends Thread
 		if (suspendre_)
 			suspendre_ = false;
 	}
+
+	public void collision()
+	{
+		collision_ = true;
+	}
 	
 	public void run()
 	{
@@ -62,12 +69,14 @@ public class MouvementThread extends Thread
 	
 	private boolean isOnSoil()
 	{
-		return (map_.getPerso().getPosition().getY() == map_.getYSol(map_.getPerso().getPosition().getX()));
+		return (map_.getPerso().getPosition().getY() 
+			== map_.getYSol(map_.getPerso().getPosition().getX()));
 	}
 
 	private boolean isUnderSoil()
 	{
-		return (map_.getPerso().getPosition().getY() > map_.getYSol(map_.getPerso().getPosition().getX()));
+		return (map_.getPerso().getPosition().getY() 
+			> map_.getYSol(map_.getPerso().getPosition().getX()));
 	}
 	
 	public void deplacement()
@@ -80,16 +89,24 @@ public class MouvementThread extends Thread
 			v_ = map_.getPerso().getDx();
 			b = false;	
 			try
-			{	
+			{
 				if ((!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil()) && !suspendre_)
-				{ 		
+				{
 					x = (int)(map_.getPerso().getPosition().getX()+v_.getI());
-					y = (map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?map_.getYSol(x):
-									(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
+					y = (map_.getPerso().getPosition().getY()-v_.getJ()>=map_.getYSol(x)||isUnderSoil()?
+						map_.getYSol(x):(int)(map_.getPerso().getPosition().getY()-v_.getJ()));
 					//yi = y-map_.getPerso().getPosition().getY(); A utiliser plus tard
 					map_.getPerso().setPosition(x,y);
-					map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
+
+					if (!collision_)
+					{
+						map_.getPerso().setDx(map_.getPerso().getDx().getI()*(isOnSoil()?.88f:.99f),
 								(!isOnSoil()?(map_.getPerso().getDx().getJ()-1f)*0.99f:0f));
+					}
+					else
+					{
+						collision_ = false;
+					}
 					sleep(50);
 				}
 				else

@@ -36,7 +36,7 @@ public class ControlerMap
 		}
 
 		thread1 = new MouvementThread(map);   // Préparation de MouvementThread
-		thread2 = new CollisionThread(map);
+		thread2 = new CollisionThread(map,thread1);
 		thread2.start();
 	}
 
