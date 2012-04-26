@@ -22,7 +22,7 @@ perso:E_perso:100:200:10
 # arrivee:X
 
 # depart:10
-arrivee:2000
+arrivee:5000
 
 sol:0:250
 sol:200:200
@@ -39,6 +39,9 @@ sol:5000:300
 #E_fixe:240:150:20
 #E_fixe:270:150:20
 
+
+E_fixe:600:100:20
+E_fixe:620:100:20
 E_item:200:150:20
 E_item:400:100:10
 E_item:430:100:10
