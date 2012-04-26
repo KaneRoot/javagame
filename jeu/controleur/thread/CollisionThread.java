@@ -1,6 +1,7 @@
 package controleur.thread;
 
 import modele.Map;
+import modele.elements.Element;
 
 public class CollisionThread extends Thread
 {
@@ -18,6 +19,7 @@ public class CollisionThread extends Thread
 	public void run ()
 	{
 		boolean b;
+		int i;
 		while (!fin)
 		{
 			/**
@@ -25,11 +27,12 @@ public class CollisionThread extends Thread
 			*	entrer en collision
 			**/
 			b=false;
-			for (int i=0;i<map_.nbElem()&&!b;i++)
+			for (i=0;i<map_.nbElem()&&!b;i++)
 			{
 				b = map_.getElem(i).entreEnCollision(map_.getPerso());
 			}
-			if (b)
+			if (b && (map_.getElem(i-1).getEtat()!=Element.ATTRAPABLE &&
+						map_.getElem(i-1).getEtat()!=Element.ATTRAPER))
 			{
 				thread_.collision(true);
 			}

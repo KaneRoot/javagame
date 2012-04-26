@@ -109,7 +109,6 @@ public class Vue extends VueMap implements KeyListener
 						e.getSize(), e.getSize());
 			}
 		}
-
          }
 
 	public void enMouvement(MouvementEvent event)
@@ -132,7 +131,8 @@ public class Vue extends VueMap implements KeyListener
 	{
 		if (arg0.getKeyChar() == 'd' || arg0.getKeyChar() == '6' )
 		{
-			getControler().getMap().getPerso().setCurrentImage ((getControler().getMap().getPerso().getCurrentImage()+1)%2);
+			getControler().getMap().getPerso().setCurrentImage 
+					((getControler().getMap().getPerso().getCurrentImage()+1)%2);
 			getControler().notifierMouvement(new Vector2f(1,0));
 		}
 		else if (arg0.getKeyChar() == 'q' || arg0.getKeyChar() == '4' )
