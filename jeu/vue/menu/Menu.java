@@ -14,8 +14,13 @@ import controleur.ControleurMenu;
 
 public class Menu extends VueMenu 
 {
+	/** Le bouton pour lancer une nouvelle partie. */
 	public JButton jb_partie = new JButton("Nouvelle partie");
+
+	/** Le bouton pour recommencer une partie. */
 	public JButton jb_recommencer = new JButton("Continuer");
+	
+	/** Le bouton pour aller au menu du choix de la carte. */
 	public JButton jb_map = new JButton("Choix de la carte !");
 
 	/**

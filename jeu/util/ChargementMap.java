@@ -146,6 +146,16 @@ public class ChargementMap
 		return m;
 	}
 
+	/**
+	 * Fonction de conversion d'un string en entier.
+	 *
+	 * Utile uniquement dans cette classe.
+	 *
+	 * @param s : la chaîne de caractères.
+	 *
+	 * @return entier correspondant à s.
+	 */
+
 	private int getInt(String s)
 	{
 		int i;
