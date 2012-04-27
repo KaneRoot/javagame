@@ -7,7 +7,7 @@ public class CollisionEvent extends EventObject
 {
 	private Vector2f v_;
 
-	public CollisionEvent(Object source, Vector2f v)
+	public CollisionEvent (Object source, Vector2f v)
 	{
 		super(source);
 		v_ = v;

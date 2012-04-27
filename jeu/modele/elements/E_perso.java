@@ -91,6 +91,17 @@ public class E_perso extends Element
 	{
         	for (int i=0;i<mouvementEcouteurs_.size();i++)
         		mouvementEcouteurs_.get(i).enMouvement(new MouvementEvent(this, 
-						new Vector2f(getPosition().getX(), getPosition().getY())));
+						new Vector2f(getPosition().getX(),
+						 getPosition().getY())));
 	}
+
+	
+
+	public Element copie ()
+	{
+		E_perso e = new E_perso (getPosition().getX(), getPosition().getY(), getSize());
+		e.setDx(getDx().getI(),getDx().getJ());
+		return e;
+	}
+
 }

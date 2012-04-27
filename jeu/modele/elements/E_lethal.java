@@ -44,4 +44,11 @@ public class E_lethal extends Element
 			return false;
 	}
 
+	public Element copie ()
+	{
+		return new E_lethal (this.getPosition().getX(),
+					this.getPosition().getY(),
+					this.getSize());
+	}
+
 }

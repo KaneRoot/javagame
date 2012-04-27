@@ -30,4 +30,9 @@ public class E_item extends Element
 		else
 			return false;
 	}
+
+	public Element copie()
+	{
+		return new E_item (getPosition().getX(),getPosition().getY(),getSize());
+	}
 }
