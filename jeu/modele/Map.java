@@ -110,15 +110,19 @@ public class Map
 		ArrayList<Element> nouveaux_elements = new ArrayList<Element>(10);
 		ArrayList<Point2d> nouveau_sol = new ArrayList<Point2d>(10);
 
+		// Faire une copie du perso
+		E_perso nouveau_perso = getPerso();
+
 		// quand on saura faire : ajouter une copie des éléments
 		for(Element e : this.elem_)
 			nouveaux_elements.add(e);
-		
-		// idem
+
 		for(Point2d p : this.sol_)
 			nouveau_sol.add(p);
 
-		return new Map(getW(), getH(), getMasse(), getPerso(), nouveau_sol, nouveaux_elements, getNom(), this.ecouteurs_);
+		return new Map(getW(), getH(), getMasse(), 
+				nouveau_perso, nouveau_sol, nouveaux_elements, 
+				getNom(), this.ecouteurs_);
 	}
 
 }

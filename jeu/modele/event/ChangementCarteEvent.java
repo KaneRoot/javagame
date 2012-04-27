@@ -19,6 +19,7 @@ public class ChangementCarteEvent extends ChangementMenuEvent
 	}
 	public Map getNouvelleCarte()
 	{
+		//return nouvelle_carte.copie();
 		return nouvelle_carte;
 	}
 }
