@@ -32,6 +32,13 @@ public class ChangementMenuEvent
 	public int num_menu;
 	public Map nouvelle_carte = null;
 
+	/**
+	 * Constructeur.
+	 *
+	 * @param jp : le panneau affiché actuellement (un menu).
+	 * @param num_menu : le numéro du menu qu'on voudrait afficher.
+	 *
+	 */
 	public ChangementMenuEvent(JPanel jp, int num_menu)
 	{
 		this.panneau_actuel = jp;
