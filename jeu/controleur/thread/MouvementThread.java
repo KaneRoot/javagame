@@ -5,6 +5,10 @@ import modele.Map;
 import modele.event.*;
 import modele.listener.*;
 
+/**
+ * Thread qui gère le mouvement du personnage.
+ *
+ */
 public class MouvementThread extends Thread implements CollisionListener
 {
 	private Map map_;
@@ -14,7 +18,12 @@ public class MouvementThread extends Thread implements CollisionListener
 	private boolean fin;
 	private boolean collision_;	
 
-
+	/**
+	 * Constructeur.
+	 * 
+	 * @param m : la carte sur laquelle on joue.
+	 *
+	 */
 	public MouvementThread (Map m)
 	{
 		map_ = m;
@@ -25,20 +34,26 @@ public class MouvementThread extends Thread implements CollisionListener
 		collision_ = false;		
 	}
 	
+	/** Pour savoir si le jeu est en pause. */
 	public boolean isPause(){return repose;}
 
+	/** S'il est né (démarré). */
 	public boolean isNouveauNe(){return born;}
 
+	/** Permet de mettre fin à la partie. */
 	public void finir(){fin = true;}
 	
+	/** Mettre le thread en pause. */
 	private synchronized void pause() throws InterruptedException 
 	{
 		repose = true;
 		wait();
 	}
 	
+	/** Suspendre la partie. */
 	public void suspendre(){suspendre_ = true;}
 	
+	/** Reprendre la partie. */
 	public synchronized void reprendre()
 	{
 		notify();	
@@ -46,26 +61,40 @@ public class MouvementThread extends Thread implements CollisionListener
 			suspendre_ = false;
 	}
 
+	/** Définir si on est en collision. */
 	public void collision(boolean b){collision_ = b;}
 	
+	/** Lancement du thread. */
 	public void run()
 	{
 		born = false;
 		deplacement();
 	}
 	
+	/** Savoir si on est sur le sol. */
 	private boolean isOnSoil()
 	{
 		return (map_.getPerso().getPosition().getY() 
 			== map_.getYSol(map_.getPerso().getPosition().getX()));
 	}
 
+	/**
+	 * Savoir si on est sous le sol.
+	 *
+	 * Permet par la suite de remettre le personnage sur le sol 
+	 * (on a manqué la collision avec le sol, on le replace).
+	 *
+	 */
 	private boolean isUnderSoil()
 	{
 		return (map_.getPerso().getPosition().getY() 
 			> map_.getYSol(map_.getPerso().getPosition().getX()));
 	}
 	
+	/** 
+	 * Calcul du déplacement.
+	 *
+	 */
 	public void deplacement()
 	{
 		int x,y,yi;	
@@ -104,6 +133,12 @@ public class MouvementThread extends Thread implements CollisionListener
 		}
 	}
 
+	/** 
+	 * Spécifier qu'on est en collision avec un objet.
+	 * 
+	 * @param event : la collision spécifiée par un évènement CollisionEvent.
+	 *
+	 */
 	public void enCollision (CollisionEvent event)
 	{
 		collision_ = true;

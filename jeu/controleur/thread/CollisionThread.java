@@ -3,12 +3,22 @@ package controleur.thread;
 import modele.Map;
 import modele.elements.Element;
 
+/**
+ * Classe du thread qui gère les collisions du personnage avec les objets.
+ *
+ */
 public class CollisionThread extends Thread
 {
 	private Map map_;
 	private MouvementThread thread_;
 	private boolean fin;
 	
+	/**
+	 * Constructeur
+	 * @param map : la carte sur laquelle on joue.
+	 * @param thread : le thread du mouvement.
+	 *
+	 */
 	public CollisionThread (Map map, MouvementThread thread)
 	{
 		map_ = map;
@@ -16,6 +26,10 @@ public class CollisionThread extends Thread
 		fin = false;
 	}
 
+	/**
+	 * Lancement du thread.
+	 *
+	 */
 	public void run ()
 	{
 		boolean b;
