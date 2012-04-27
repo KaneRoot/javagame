@@ -34,7 +34,7 @@ public class CollisionThread extends Thread
 			if (b && (map_.getElem(i-1).getEtat()!=Element.ATTRAPABLE &&
 						map_.getElem(i-1).getEtat()!=Element.ATTRAPER))
 			{
-				thread_.collision(true);
+			//	thread_.collision(true);
 			}
 			else	
 			{

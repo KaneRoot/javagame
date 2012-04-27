@@ -26,7 +26,7 @@ public class ControlerMap
 				map.getPerso().getPosition().getY());
 		map.ajouterEcouteurMouvement(vue);
 
-		thread1 = new MouvementThread(map);   // Préparation de MouvementThread
+		thread1 = new MouvementThread(map);
 		thread2 = new CollisionThread(map,thread1);
 
 		map.getPerso().ajouterEcouteurMouvement(vue);
@@ -36,9 +36,6 @@ public class ControlerMap
 		{
 			map.getElem(i).ajouterEcouteurCollision (thread1);
 		}
-
-
-
 
 		thread2.start();
 	}

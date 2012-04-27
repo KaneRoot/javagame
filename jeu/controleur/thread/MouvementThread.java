@@ -106,8 +106,9 @@ public class MouvementThread extends Thread implements CollisionListener
 		}
 	}
 
-	public void enCollision(CollisionEvent event)
+	public void enCollision (CollisionEvent event)
 	{
+		collision_ = true;
 		//elemColor = new Color(elemColor.getBlue(),elemColor.getRed(),elemColor.getGreen());
 	}
 
