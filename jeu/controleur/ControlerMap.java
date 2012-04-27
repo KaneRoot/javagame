@@ -58,7 +58,7 @@ public class ControlerMap
 		{
 			if (map.getPerso().getSac().size() >= 2 && map.getPerso().getEtat() != Element.MORT)
 			{
-				System.out.print ("Gagnée \n");
+				System.out.print ("Gagné \n");
 				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
 							ChangementMenuEvent.GAGNE));
 			}

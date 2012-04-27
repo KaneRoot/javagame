@@ -8,10 +8,12 @@ MOD = $(wildcard */*/*.java */*.java )
 
 all: doc jeu
 
-jeu: clean stik
+jeu: clean compiler jouer
 
-stik: $(FICHIERPRINCIPAL)
+compiler: $(FICHIERPRINCIPAL)
 	$(CC) $(FICHIERPRINCIPAL)
+
+jouer: $(FICHIERPRINCIPAL)
 	java "test.TestMenu"
 
 doc: $(MOD)

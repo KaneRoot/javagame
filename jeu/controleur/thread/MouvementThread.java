@@ -92,7 +92,7 @@ public class MouvementThread extends Thread
 					{
 						map_.getPerso().setDx(map_.getPerso().getDx().getI(),0f);
 					}
-					sleep(25);
+					sleep(20);
 				}
 				else
 					pause();

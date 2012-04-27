@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
 import vue.menu.Menu;
 import util.*;
@@ -23,7 +26,7 @@ import controleur.thread.*;
 public class ControleurMenu 
 {
 	/** JPanel du menu affiché à l'accueil. */
-	public JPanel jp_menu = null ;
+	public Menu jp_menu = null ;
 
 	/** JPanel dans lequel on affiche le jeu. */
 	public JPanel jp_partie = null ;
@@ -52,7 +55,14 @@ public class ControleurMenu
 	public ControleurMenu()
 	{
 		this.jf_jeu = new JFrame();
+		// this.jf_jeu.setSize(1000,500);
 		this.jp_menu = new Menu(this);
+
+		/*
+		this.jp_menu.setSize(1000,500);
+		this.jp_menu.repaint();
+		this.jf_jeu.repaint();
+		*/
 	}
 
 	/**
@@ -111,7 +121,7 @@ public class ControleurMenu
 		if(e.panneau_actuel != null)
 			e.panneau_actuel.setVisible(false);
 		else
-			System.out.println("Il y a un soucis : panneau_actuel à null !!!!!!");
+			System.out.println("Il y a un soucis : panneau_actuel à null");
 
 		switch(e.num_menu)
 		{
@@ -133,13 +143,16 @@ public class ControleurMenu
 				startPartie();
 				break;
 			case ChangementMenuEvent.GAGNE :
-				e.panneau_actuel.setVisible(true);
-				this.jf_jeu.add(new JPanel().add(new JLabel("GAGNÉ")));
+				// e.panneau_actuel.setVisible(true);
+				this.jp_menu.setMessage("GAGNÉ");
+				this.jp_menu.setVisible(true);
 				break;
 			case ChangementMenuEvent.PERDU :
-				e.panneau_actuel.setVisible(true);
-				this.jf_jeu.add(new JPanel().add(new JLabel("PERDU")));
+				// e.panneau_actuel.setVisible(true);
+				this.jp_menu.setMessage("PERDU");
+				this.jp_menu.setVisible(true);
 				break;
+
 			default :
 				System.out.println("soucis au niveau du changement de menu");
 				break;
