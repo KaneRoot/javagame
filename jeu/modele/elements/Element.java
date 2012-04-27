@@ -149,7 +149,8 @@ public abstract class Element
 	public void collision()
 	{	
 		for (int i=0;i<collisionEcouteurs_.size();i++)
-			collisionEcouteurs_.get(i).enCollision(new CollisionEvent(this,null));
+			collisionEcouteurs_.get(i).enCollision(new CollisionEvent(this,
+					new Vector2f (getPosition().getX(),getPosition().getY())));
 	}
 
 	public int getEtat()
@@ -177,7 +178,6 @@ public abstract class Element
 	 *
 	 * @param options Ce sont les options indiqués dans le fichier de configuration.
 	 */
-
 	public void setOptions (String[] options)
 	{
 		/*
@@ -190,5 +190,7 @@ public abstract class Element
 		}
 		*/
 	}
+	
+	public abstract Element copie();
 
 }

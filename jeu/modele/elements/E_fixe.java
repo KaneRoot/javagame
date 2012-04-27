@@ -10,7 +10,7 @@ public class E_fixe extends Element
 	public E_fixe(int x, int y, int size, Bounding b)
 	{
 		super(x,y,size);
-		setBounding(new Bounding(new Rectangle(getPosition(),size+20,size+20)));
+		setBounding(new Bounding(new Ellipse(getPosition(),size,size)));
 
 		try
 		{
@@ -42,5 +42,13 @@ public class E_fixe extends Element
 		}
 		else
 			return false;
+	}
+	
+	public Element copie ()
+	{
+		return new E_fixe (this.getPosition().getX(),
+					this.getPosition().getY(),
+					this.getSize(),
+					this.getBounding());
 	}
 }

@@ -69,12 +69,10 @@ public class MouvementThread extends Thread implements CollisionListener
 	public void deplacement()
 	{
 		int x,y,yi;	
-		boolean b;
-		Vector2f v_ = map_.getPerso().getDx();
+		Vector2f v_;
 		while (!fin)
 		{	
-			v_ = map_.getPerso().getDx();
-			b = false;	
+			v_ = map_.getPerso().getDx();	
 			try
 			{
 				if ((!(((int)map_.getPerso().getDx().norme()) == 0) || !isOnSoil()) && !suspendre_)
@@ -92,7 +90,7 @@ public class MouvementThread extends Thread implements CollisionListener
 					}
 					else
 					{
-						map_.getPerso().setDx(map_.getPerso().getDx().getI(),0f);
+						map_.getPerso().setDx(map_.getPerso().getDx().getI()*0.95f,0f);
 					}
 					sleep(20);
 				}
