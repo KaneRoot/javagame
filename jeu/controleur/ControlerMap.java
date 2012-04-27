@@ -10,6 +10,12 @@ import vue.*;
 import vue.Vue;
 import modele.event.*;
 
+
+/**
+ * Suivant le modèle MVC, cette classe est le contrôleur de la partie (in game).
+ *
+ */
+
 public class ControlerMap
 {
 	private MouvementThread thread1;
@@ -18,6 +24,10 @@ public class ControlerMap
 	private Vue vue = null;
 	private ControleurMenu ctrlMenu;
 	
+	/**
+	 * @param m : la carte que l'on manipule, sur laquelle on joue.
+	 * @param c : le contrôleur du menu (changement de menus etc.
+	 */
 	public ControlerMap(Map m, ControleurMenu c)
 	{
 		map = m;
@@ -40,17 +50,27 @@ public class ControlerMap
 		thread2.start();
 	}
 
+	/** @return le contrôleur de menu. */
 	public ControleurMenu getCtrlMenu() { return ctrlMenu; }
+
+	/** @return la carte sur laquelle on joue. */
 	public Map getMap() { return map; }
+	/** @return la vue associée à ce contrôleur (qui gère l'affichage du jeu). */
 	public Vue getVue() { return vue; }
+	/** Permet de mettre en pause le jeu. */
 	public void suspendre() { thread1.suspendre(); } 
+	/** Permet de reprendre le jeu après une pause. */
 	public void reprendre() { thread1.reprendre(); } 
 
-	public void go()
-	{
-		vue.setVisible(true);
-	}
+	/** Affiche la vue. */
+	public void go() { vue.setVisible(true); }
 
+	/** 
+	 * Notifie le mouvement enregistré par la vue. 
+	 *
+	 * Détecte si on gagne ou si on perd la partie.
+	 *
+	 * */
 	public void notifierMouvement(Vector2f v)
 	{	
 		if (map.getArrivee() <= map.getPerso().getPosition().getX() ||
