@@ -86,64 +86,54 @@ public abstract class Element
 		this(0,0,0);
 	}
 
+	/** Définir la position de l'objet sur la carte. */
 	public void setPosition(int x, int y) 
 	{
 		this.x_.setX(x);
 		this.x_.setY(y);
 	}
 
-	public Point2d getPosition()
-	{
-		return x_;
-	}
+	/** @return la position (coordonnée des abscisses). */
+	public Point2d getPosition() { return x_; }
 
+	/** 
+	 * Défini la taille de l'élément. 
+	 *
+	 * @param size : la taille de l'élément.
+	 *
+	 */
 	public void setSize(int size)
 	{
 		this.size_ = size;
 		setBounding(new Bounding(new Rectangle(x_,size_,size_)));
 	}
 
+	/** @return la taille de l'élément. */
+	public int getSize() { return size_; }
 	
-	public int getSize()
-	{
-		return size_;
-	}
+	public void setBounding(Bounding b) { bounding_ = b; }
 	
-	public void setBounding(Bounding b)
-	{
-		bounding_ = b;
-	}
-	
-	public Bounding getBounding()
-	{
-		return bounding_;
-	}
+	/** @return le type d'objet. */
+	public Bounding getBounding() { return bounding_; }
 
-	public void addImage (BufferedImage im)
-	{
-		image.add (im);
-	}
+	/** Défini l'image de l'objet. */
+	public void addImage (BufferedImage im) { image.add (im); }
 
-	public BufferedImage getImage (int i)
-	{
-		return image.get (i);
-	}
+	/** @return l'énième image liée à cet élément. */
+	public BufferedImage getImage (int i) { return image.get (i); }
 	
-	public int nbImage ()
-	{
-		return image.size();
-	}
+	/** @return le nombre d'images. */
+	public int nbImage () { return image.size(); }
 
-	public int getCurrentImage()
-	{
-		return currentImage;
-	}
+	/** @return l'image courante. */
+	public int getCurrentImage() { return currentImage; }
 	
-	public void setCurrentImage(int c)
-	{
-		currentImage = c;
-	}
+	/** Défini l'image courante. */
+	public void setCurrentImage(int c) { currentImage = c; }
 
+	/** 
+	 * À redéfinir dans chaque classe, indique si on est en collision avec un autre élément. 
+	 */
 	public abstract boolean entreEnCollision(Element el);
 	
 	public void collision()
@@ -153,25 +143,17 @@ public abstract class Element
 					new Vector2f (getPosition().getX(),getPosition().getY())));
 	}
 
-	public int getEtat()
-	{
-		return etat;
-	} 	
+	/** @return l'état de l'élément. */
+	public int getEtat() { return etat; } 	
 	
-	public void setEtat(int etat)
-	{
-		this.etat = etat;
-	}	
+	/** @param etat : l'état de l'objet. */
+	public void setEtat(int etat) { this.etat = etat; }	
 
-	public ArrayList<Element> getSac()
-	{
-		return sac;
-	}
+	/** @return le sac d'éléments. */
+	public ArrayList<Element> getSac() { return sac; }
 	
-	public void attrape (Element e)
-	{
-		sac.add (e);
-	}	
+	/** Attraper un élément. On l'ajoute au sac. */
+	public void attrape (Element e) { sac.add (e); }
 
 	/**
 	 * Définir les différentes options.
