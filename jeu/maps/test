@@ -13,7 +13,7 @@
 nom:WOOT
 
 #taille:X:Y
-taille:1000:300
+taille:2000:300
 
 # perso:classe_à_charger_de_perso(dans notre cas : E_perso):X:Y:autresinfos
 perso:E_perso:100:200:10

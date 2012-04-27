@@ -26,6 +26,7 @@ public class Menu extends VueMenu
 
 	/** Ce qu'on affiche en haut du menu. */
 	public JLabel jl_titre = new JLabel("CE JEU EST VRAIMENT TRÈS BIEN.");
+
 	/**
 	 * @param c : controleur du menu.
 	 *
@@ -52,6 +53,13 @@ public class Menu extends VueMenu
 		this.getControleur().jf_jeu.pack();
 		*/
 	}
+	/**
+	 * Change le message affiché en haut du menu.
+	 *
+	 * @param s : la chaîne de caractères à afficher en remplacement.
+	 *
+	 */
+
 	public void setMessage(String s)
 	{
 		this.jl_titre.setText(s);

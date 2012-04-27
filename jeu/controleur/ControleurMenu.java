@@ -57,6 +57,7 @@ public class ControleurMenu
 		this.jf_jeu = new JFrame();
 		// this.jf_jeu.setSize(1000,500);
 		this.jp_menu = new Menu(this);
+
 		/*
 		this.jp_menu.setSize(1000,500);
 		this.jp_menu.repaint();

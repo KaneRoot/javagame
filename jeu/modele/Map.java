@@ -19,6 +19,20 @@ public class Map
 	private E_perso perso_;
 	private EventListenerList ecouteurs_;
 	private String nom = null;
+
+	/**
+	 * Ce constructeur va servir pour faire une copie de la Map courante.
+	 *
+	 */
+	public Map(int w, int h, int masse, E_perso e, ArrayList<Point2d> sol, ArrayList<Element> elements, String nom, EventListenerList ecouteurs)
+	{
+		setW(w);
+		setH(h);
+		setPerso(e);
+		setNom(nom);
+		setSol(sol);
+		setEcouteurs(ecouteurs);
+	}
 	
 	public Map (int w,int h, E_perso e)
 	{
@@ -35,6 +49,8 @@ public class Map
 		this(0,0,null);
 	}
 	
+	public void setSol(ArrayList<Point2d> sol) { this.sol_ = sol; }
+	public void setEcouteurs(EventListenerList ecouteurs) { this.ecouteurs_ = ecouteurs; }
 	public void setArrivee(int a) { this.arrivee = a; }
 	public void setNom(String lenom) { this.nom = lenom; }
 	public String getNom() { return this.nom; }
@@ -50,35 +66,17 @@ public class Map
 		ecouteurs_.remove(MouvementListener.class, ml);
 	}
 
-	public void addElem(Element e)
-	{
-		elem_.add(e);
-	}
+	public void addElem(Element e) { elem_.add(e); }
 
-	public int nbElem()	
-	{
-		return elem_.size();
-	}
+	public int nbElem()	{ return elem_.size(); }
 
-	public Element getElem(int i)
-	{
-		return elem_.get(i);
-	}
+	public Element getElem(int i) { return elem_.get(i); }
 
-	public void addPoint(Point2d sol) 
-	{
-		sol_.add(sol);
-	}
+	public void addPoint(Point2d sol) { sol_.add(sol); }
 	
-	public int nbPointSol()
-	{
-		return sol_.size();
-	}
+	public int nbPointSol() { return sol_.size(); }
 	
-	public Point2d getPointSolI(int i)
-	{
-		return sol_.get(i);
-	}
+	public Point2d getPointSolI(int i) { return sol_.get(i); }
 	
 	public int getYSol(int x) 
 	{
@@ -91,44 +89,36 @@ public class Map
 		return (int)(r*(x-sol_.get(i).getX()) + sol_.get(i).getY());
 	}
 
-	public void setW(int w)
-	{
-		this.w_ = w;
-	}
+	public void setW(int w) { this.w_ = w; }
 
-	public int getW()
-	{
-		return w_;
-	}
+	public int getW() { return w_; }
 
-	public void setH(int h) 
-	{
-		this.h_ = h;
-	}
+	public void setH(int h) { this.h_ = h; }
 
-	public int getH_()
-	{
-		return h_;
-	}
+	public int getH() { return h_; }
 
-	public void setPerso(E_perso stick)
-	{
-		this.perso_ = stick;
-	}
+	public void setPerso(E_perso stick) { this.perso_ = stick; }
 
-	public E_perso getPerso()
-	{
-		return perso_;
-	}
+	public E_perso getPerso() { return perso_; }
 
-	public void setMasse(int masse)
-	{
-		this.masse = masse;
-	}
+	public void setMasse(int masse) { this.masse = masse; }
 
-	public int getMasse()
+	public int getMasse() { return masse; }
+
+	public Map copie()
 	{
-		return masse;
+		ArrayList<Element> nouveaux_elements = new ArrayList<Element>(10);
+		ArrayList<Point2d> nouveau_sol = new ArrayList<Point2d>(10);
+
+		// quand on saura faire : ajouter une copie des éléments
+		for(Element e : this.elem_)
+			nouveaux_elements.add(e);
+		
+		// idem
+		for(Point2d p : this.sol_)
+			nouveau_sol.add(p);
+
+		return new Map(getW(), getH(), getMasse(), getPerso(), nouveau_sol, nouveaux_elements, getNom(), this.ecouteurs_);
 	}
 
 }
