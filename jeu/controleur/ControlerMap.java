@@ -25,18 +25,21 @@ public class ControlerMap
 		vue = new Vue(this,map.getPerso().getPosition().getX(),
 				map.getPerso().getPosition().getY());
 		map.ajouterEcouteurMouvement(vue);
-		
-
-		map.getPerso().ajouterEcouteurMouvement(vue);
-		map.getPerso().ajouterEcouteurCollision(vue);
-	
-		for (int i=0; i<map.nbElem();i++)
-		{
-			map.getElem(i).ajouterEcouteurCollision (vue);
-		}
 
 		thread1 = new MouvementThread(map);   // Préparation de MouvementThread
 		thread2 = new CollisionThread(map,thread1);
+
+		map.getPerso().ajouterEcouteurMouvement(vue);
+		map.getPerso().ajouterEcouteurCollision(thread1);
+	
+		for (int i=0; i<map.nbElem();i++)
+		{
+			map.getElem(i).ajouterEcouteurCollision (thread1);
+		}
+
+
+
+
 		thread2.start();
 	}
 
@@ -58,7 +61,7 @@ public class ControlerMap
 		{
 			if (map.getPerso().getSac().size() >= 2 && map.getPerso().getEtat() != Element.MORT)
 			{
-				System.out.print ("Gagné \n");
+				System.out.print ("Gagnée \n");
 				ctrlMenu.changerPanneau(new ChangementMenuEvent(vue, 
 							ChangementMenuEvent.GAGNE));
 			}

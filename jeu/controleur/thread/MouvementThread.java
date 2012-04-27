@@ -2,8 +2,10 @@ package controleur.thread;
 
 import util.Vector2f;
 import modele.Map;
+import modele.event.*;
+import modele.listener.*;
 
-public class MouvementThread extends Thread
+public class MouvementThread extends Thread implements CollisionListener
 {
 	private Map map_;
 	private boolean born;
@@ -103,4 +105,11 @@ public class MouvementThread extends Thread
 			}
 		}
 	}
+
+	public void enCollision(CollisionEvent event)
+	{
+		//elemColor = new Color(elemColor.getBlue(),elemColor.getRed(),elemColor.getGreen());
+	}
+
+
 }
