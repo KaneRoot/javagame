@@ -7,8 +7,9 @@ import modele.listener.*;
 import controleur.ControleurMenu;
 
 /**
- *
  * Classe du Menu.
+ *
+ * Affiche l'ensemble des boutons du menu principal.
  *
  */
 
@@ -23,6 +24,8 @@ public class Menu extends VueMenu
 	/** Le bouton pour aller au menu du choix de la carte. */
 	public JButton jb_map = new JButton("Choix de la carte !");
 
+	/** Ce qu'on affiche en haut du menu. */
+	public JLabel jl_titre = new JLabel("CE JEU EST VRAIMENT TRÈS BIEN.");
 	/**
 	 * @param c : controleur du menu.
 	 *
@@ -36,11 +39,29 @@ public class Menu extends VueMenu
 		jb_recommencer.addActionListener(new JBResumeListener(this.getControleur(), this));
 		jb_map.addActionListener(new JBMapChoiceListener(this.getControleur(), this));
 
-		JLabel jl_titre = new JLabel("POUR RAPPEL CE JEU EST TRÈS BIEN.");
 		this.setLayout(new BorderLayout());
 		this.add(jl_titre,BorderLayout.NORTH);
 		this.add(jb_partie,BorderLayout.CENTER);
 		this.add(jb_map, BorderLayout.EAST);
 		this.add(jb_recommencer,BorderLayout.SOUTH);
+
+		/*
+		this.setSize(1000,500);
+		this.repaint();
+
+		this.getControleur().jf_jeu.pack();
+		*/
 	}
+	public void setMessage(String s)
+	{
+		this.jl_titre.setText(s);
+	}
+	/*
+	public void paint(Graphics g)
+	{
+		this.setSize(1000,500);
+		super.paint(g);
+		this.setSize(1000,500);
+	}
+	*/
 }
