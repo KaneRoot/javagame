@@ -17,14 +17,8 @@ Le projet à la base a été de faire une sorte de Super Mario assez classique, 
 \end{itemize}
 
 Un type bien distinct de tout ça : le sol.
+Le sol n'est qu'une succession de points que nous relions ensemble.
 
-%-- Note de bas de page sur les stades
-%\protect\footnote{Par exemple, on peut faire un pied de page :
-%\begin{itemize}
-%\item avec une liste à puces.
-%\end{itemize}
-%}
-%-- Fin Note de bas de page sur les stades
 
 \section{Les classes principales de notre application.}
 
@@ -33,8 +27,9 @@ Nous avons voulu nous rapprocher du modèle MVC sans pour autant nous y contrain
 L'une des classes principales est ControleurMenu, qui permet la gestion de l'affichage.
 Lors du lancement du jeu nous avons la création des différents menus et l'affichage du menu principal nous demandant si on souhaite commencer une nouvelle partie,
 continuer notre partie ou choisir un niveau.
-Une fois que nous choisissons de lancer le jeu, cette classe lance la partie et affiche le jeu.
+Une fois que nous choisissons de lancer le jeu, cette classe lance la partie et affiche le jeu puis revient sur le menu une fois la partie terminée ou si on appui sur la touche "echap".
 
+\clearpage
 
 
 \section{Organisation au sein du groupe.}
@@ -63,6 +58,7 @@ Il n'y a que 3 touches à retenir pour y jouer et qui servent à déplacer le pe
 	\item Z ou 8 : sauter.
 \end{itemize}
 
+Nous pouvons également mettre le jeu en pause via la touche "p".
 Enfin, la touche "echap" permet de revenir au menu.
 
 \section{Les difficultés rencontrées.}
@@ -73,7 +69,10 @@ Un réel problème quand nous sommes aussi "libres" est que nous n'avons pas for
 Pour palier à ça, nous avions prévu de nous voir chaque semaine pour discuter du projet, ce qu'on avait fait et ce qu'il restait à faire.
 La première semaine, nous avons décidé du jeu que nous voulions faire.
 Les grandes idées, les grosses lignes.
-Nous avons donc mis en place une todo-list, un serveur "GIT" sur une de nos machines et un petit récapitulatif de la bonne utilisation de l'outil.
+Nous avons donc mis en place une todo-list, un serveur \cite{GIT} GIT \protect\footnote{Git : gestionnaire de versionnement. } sur une de nos machines et un petit récapitulatif de la bonne utilisation de l'outil.
+%-- Note de bas de page sur les stades
+
+%-- Fin Note de bas de page sur les stades
 
 \section{Les possibilités d'amélioration du jeu.}
 
@@ -86,5 +85,10 @@ Ensuite il serait intéressant d'avoir une histoire, et un personnage un peu plu
 L'intégration du son nous semble importante, et nous avons quelques pistes que nous n'avons malheureusement pas eu le temps de creuser.
 
 Bien sûr, rien n'empêche de rajouter des sprites plus jolies pour le personnage et des images globalement plus belles pour tout le reste du jeu.
+
+
+Autre idée d'amélioration : faire une copie des maps.
+Avec ça nous pourrions rejouer une partie au lieu de quitter le jeu et de revenir.
+Cette idée est déjà à moitié implémentée.
 
 \clearpage

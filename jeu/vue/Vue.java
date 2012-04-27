@@ -23,6 +23,14 @@ public class Vue extends VueMap implements KeyListener
 	private int margeX, margeY;
 	private Color elemColor;
 	
+	/**
+	 * Constructeur qui permet de créer la vue du jeu (la partie) .
+	 *
+	 * @param ctrl : le contrôleur de la vue.
+	 * @param _x : la position du joueur (abscisses).
+	 * @param _y : la position du joueur (ordonnées).
+	 *
+	 */
 	public Vue(ControlerMap ctrl, int _x, int _y) 
 	{
 		super(ctrl);
@@ -37,6 +45,10 @@ public class Vue extends VueMap implements KeyListener
 		elemColor = new Color(240,240,0);
 	}
 
+	/**
+	 * Pour bouger l'écran si le joueur se place en bordure.
+	 *
+	 */
 	private void translateWindow()
 	{
 	        // --------------------------
@@ -56,6 +68,10 @@ public class Vue extends VueMap implements KeyListener
                 else if (getControler().getMap().getPerso().getPosition().getY() >= (window.getY() + (margeY+150)))
                         window.setY(window.getY() + (getControler().getMap().getPerso().getPosition().getY() - (window.getY() + (margeY+150))));
 	}
+
+	/**
+	 * dessine l'ensemble des éléments affichés.
+	 */
 
 	public void paint(Graphics g)
         {
@@ -111,6 +127,7 @@ public class Vue extends VueMap implements KeyListener
 		}
          }
 
+	/** redessine tout lors d'un mouvement. */
 	public void enMouvement(MouvementEvent event)
 	{
 		translateWindow();
@@ -127,6 +144,7 @@ public class Vue extends VueMap implements KeyListener
 		//elemColor = new Color(elemColor.getBlue(),elemColor.getRed(),elemColor.getGreen());
 	}
 
+	/** Lors d'une pression sur un bouton, permet de contrôler le jeu. */
 	public void keyPressed(KeyEvent arg0) 
 	{
 		if (arg0.getKeyChar() == 'd' || arg0.getKeyChar() == '6' )
@@ -166,6 +184,7 @@ public class Vue extends VueMap implements KeyListener
 //								getControler().getMap().getPerso().getDx().getJ()+")\n");
 	}
 
+	/** Lorsque l'on reste appuyé sur une touche. */
 	public void keyReleased(KeyEvent arg0) 
 	{
 		int current;
