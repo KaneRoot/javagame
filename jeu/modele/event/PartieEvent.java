@@ -2,6 +2,10 @@ package modele.event;
 
 import java.util.EventObject;
 
+/**
+ * @deprecated n'est plus utilisée depuis… toujours ?
+ *
+ */
 public class PartieEvent extends EventObject
 {
 	public static int FIN = 0;
