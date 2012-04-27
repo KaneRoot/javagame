@@ -6,10 +6,19 @@ import controleur.ControleurMenu;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Écouteur du bouton "continuer" pour continuer la partie en cours.
+ *
+ */
 public class JBResumeListener implements ActionListener
 {
 	ControleurMenu c;
 	Menu m;
+
+	/**
+	 * @param c : le contrôleur de menu.
+	 * @param m : le menu.
+	 */
 
 	public JBResumeListener(ControleurMenu c, Menu m)
 	{
