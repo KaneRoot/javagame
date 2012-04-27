@@ -8,12 +8,23 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
 
-
+/**
+ * Classe du personnage.
+ *
+ */
 public class E_perso extends Element
 {
 	private Vector2f dx; // Vecteur vitesse
 	private ArrayList<MouvementListener> mouvementEcouteurs_;	
 
+	/**
+	 * Constructeur.
+	 *
+	 * @param x : la position sur l'axe des abscisses.
+	 * @param y : la position sur l'axe des ordonnées.
+	 * @param size : la taille du personnage.
+	 *
+	 */
 	public E_perso (int x,int y, int size)
 	{
 		super(x,y,size);
@@ -54,12 +65,26 @@ public class E_perso extends Element
 		mouvementEcouteurs_.remove(ml);
 	}
 	
+	/** 
+	 * Défini le vecteur de vitesse du personnage. 
+	 *
+	 * @param vi : le vecteur sur l'axe des abscisses.
+	 * @param vj : le vecteur sur l'axe des ordonnées.
+	 *
+	 */
 	public void setDx(float vi, float vj) 
 	{
 		dx.setI(vi);
 		dx.setJ(vj);
 	}
 	
+	/** 
+	 * Défini la position du personnage. 
+	 *
+	 * @param x : la position sur l'axe des abscisses.
+	 * @param y : la position sur l'axe des ordonnées.
+	 *
+	 */
 	public void setPosition(int x, int y) 
 	{
 		this.x_.setX(x);
@@ -67,12 +92,19 @@ public class E_perso extends Element
 		mouvement();
 	}
 
+	/** @return le vecteur de vitesse du personnage. */
 	public Vector2f getDx() 
 	{
 		return dx;
 	}
 	
-
+	/** 
+	 * Informe si le personnage entre en collision avec l'objet X.
+	 *
+	 * @param el : l'élément que l'on cherche à déterminer s'il est 
+	 * en collision avec le personnage.
+	 *
+	 */
 	public boolean entreEnCollision(Element el)
 	{
 
@@ -95,8 +127,10 @@ public class E_perso extends Element
 						 getPosition().getY())));
 	}
 
-	
-
+	/**
+	 * @return une copie du personnage.
+	 *
+	 */
 	public Element copie ()
 	{
 		E_perso e = new E_perso (getPosition().getX(), getPosition().getY(), getSize());
