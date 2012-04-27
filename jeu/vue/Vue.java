@@ -139,7 +139,13 @@ public class Vue extends VueMap implements KeyListener
 		{
 			getControler().getMap().getPerso().setCurrentImage (3);
 			getControler().notifierMouvement(new Vector2f(-1,0));
+		}	
+		else if (arg0.getKeyChar() == 's' || arg0.getKeyChar() == '5' )
+		{
+			getControler().getMap().getPerso().setCurrentImage (3);
+			getControler().notifierMouvement(new Vector2f(10,20));
 		}
+
 		else if (arg0.getKeyChar() == 'z' || arg0.getKeyChar() == '8')
 		{
 			if (getControler().getMap().getPerso().getCurrentImage()>2 ||

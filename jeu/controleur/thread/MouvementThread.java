@@ -85,9 +85,8 @@ public class MouvementThread extends Thread
 
 					if (!collision_)
 					{
-						map_.getPerso().setDx(map_.getPerso().getDx().getI()*
-							(isOnSoil()||collision_?.88f:.95f),(!isOnSoil()&&!collision_?
-								(map_.getPerso().getDx().getJ()-1.5f)*0.95f:0f));
+						map_.getPerso().setDx(map_.getPerso().getDx().getI()*.95f,
+						(!isOnSoil()&&!collision_?(map_.getPerso().getDx().getJ()-1f):0f));
 					}
 					else
 					{

@@ -36,8 +36,10 @@ sol:5000:300
 
 # les autres objets
 # classe:options
-E_fixe:240:150:20
-E_fixe:270:150:20
+#E_fixe:240:150:20
+#E_fixe:270:150:20
+
+
 E_fixe:600:100:20
 E_fixe:620:100:20
 E_fixe:640:100:20
@@ -51,3 +53,4 @@ E_item:460:100:10
 E_lethal:160:100:30
 
 # checkpoints ?
+
